@@ -30,8 +30,8 @@ app.use(session({
 }))
 
 app.use(passport.initialize())
-
 app.use(passport.session())
+
 passport.use(new Auth0Strategy({
     domain: DOMAIN,
     clientID: CLIENT_ID,
@@ -40,23 +40,29 @@ passport.use(new Auth0Strategy({
     scope: 'openid profile'
 }, (accessToken, refreshToken, extraParams, profile, done) => {
    let {displayName, picture, id } = profile
-    app.get('db').find_User([id]).then(foundUser => {
+    app.get('db').find_user([id]).then(foundUser => {
         if (foundUser[0]) {
-            done(null, foundUser[0].id)
+            console.log(foundUser[0].user_id)
+            done(null, foundUser[0].user_id)
         } else {
             app.get('db').create_user([displayName, picture, id]).then(user => {
-                done(null, user[0].id)
+                console.log(user[0].user_id)
+                done(null, user[0].user_id)
             })
         }
     })
 }))
 
 passport.serializeUser((id, done) => {
+    console.log(id)
     done(null, id) 
 })
 
 passport.deserializeUser((id, done) => {
-    done(null, id)
+    app.get('db').find_session_user([id])
+        .then(user => {
+            done(null, user[0])
+        })
 })
 
 app.get('/login', passport.authenticate('auth0'))
