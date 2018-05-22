@@ -1,0 +1,33 @@
+.nav {
+    display: flex;
+    background: lightpink;
+    color: grey;
+    box-shadow: 1px 1px lightgray;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.picTitle{
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+}
+
+#profileImg {
+    border-radius: 360%;
+    background: white;
+    margin: 0 7% 0 0;
+    width: 75px;
+    height: 75px;
+}
+
+h1{
+    margin: 0;
+    width: 65%
+}
