@@ -5,6 +5,7 @@ const express = require('express')
     , massive = require('massive')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
+    , classController = require('./classes_controller')
 
 const {
     SERVER_PORT,
@@ -81,6 +82,9 @@ app.get('/auth/me', function(req, res ) {
         res.status(401).send('not authorized')
     }
 })
+
+// Dance Class Endpoints
+app.get('/todayclasses/:day', classController.todaysClasses)
 
 
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))

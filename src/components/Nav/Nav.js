@@ -19,7 +19,7 @@ class Nav extends Component {
         return (
             <div className='nav'>
                 <div className='picTitle'>
-                    <img id='profileImg' src={this.props.user.profile_picture} />
+                    <img id='profileImg' src={this.props.user.profile_picture} alt='prof_pic' />
                     <h1>Studio Tracker</h1>
                 </div>
                 <button>tab bar</button>

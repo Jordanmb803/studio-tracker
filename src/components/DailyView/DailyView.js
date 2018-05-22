@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DailyView.css';
+import axios from 'axios';
 
 class DailyView extends Component {
     constructor() {
         super()
         this.state = {
-            user: {}
+            todaysClasses: [],
+            days: ['S', 'M', 'T', 'W', 'TH', 'F', 'SAT'],
+            today: new Date()
         }
     }
+    componentDidMount() {
+        const { days, today } = this.state
+        console.log(days[today.getDay()])
+        axios.get(`/todayclasses/${days[today.getDay()]}`).then(res => {
+            console.log(res.data)
+            this.setState({
+                todaysClasses: res.data
+            })
+        })
+    }
+    // need a function that fires when a date selector is changed that will change the value of selectDate
 
     render() {
-        const today = new Date()
+        const { today } = this.state
+
         console.log(this.props.user)
+        console.log(this.state.todaysClasses)
         return (
             <div className='dailyView'>
                 <h3>{this.props.user.user_name}'s Schedule</h3>
@@ -35,7 +51,12 @@ class DailyView extends Component {
                         <p className='scheduleLab'>10pm:</p>
                     </div>
                     <div className='classBox'>
-                        <p className='class'>Ballet</p>
+                        {this.state.todaysClasses.map( (danceClass, i) => {
+                            return (
+                                <div key={i}><p className='class'>{danceClass.title}</p></div>
+                            )
+                        })}
+
                     </div>
                 </div>
             </div>
