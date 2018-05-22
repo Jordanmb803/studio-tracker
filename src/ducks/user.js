@@ -9,10 +9,10 @@ const initialState = {
 const GET_USER = 'GET_USER'
 
 //MiddleWare
-const _FULLFILLED = '_FULLFILLED'
+const _FULFILLED = '_FULFILLED'
 
 export function getUser() {
-    let userData = app.get('/auth/me').then(res => {
+    let userData = axios.get('/auth/me').then(res => {
         return res.data
     })
     return {
@@ -25,7 +25,7 @@ export function getUser() {
 
 export default function reducer(state = initialState, action) {
     switch(action.type){
-        case GET_USER + _FULLFILLED:
+        case GET_USER + _FULFILLED:
             return Object.assign({}, state, {user: action.payload})
    
         default:
