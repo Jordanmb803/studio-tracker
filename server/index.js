@@ -51,12 +51,12 @@ passport.use(new Auth0Strategy({
     })
 }))
 
-passport.serializeUser((profile, done) => {
-    done(null, profile) 
+passport.serializeUser((id, done) => {
+    done(null, id) 
 })
 
-passport.deserializeUser((profile, done) => {
-    done(null, profile)
+passport.deserializeUser((id, done) => {
+    done(null, id)
 })
 
 app.get('/login', passport.authenticate('auth0'))
@@ -71,4 +71,6 @@ app.get('/auth/me', function(req, res ) {
         res.status(401).send('not authorized')
     }
 })
+
+
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))
