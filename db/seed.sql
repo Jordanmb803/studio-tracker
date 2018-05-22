@@ -25,3 +25,8 @@ CREATE TABLE hours (
     , class_id integer
     , date date
 )
+
+INSERT INTO class
+(class_num, title, length, day, time)
+VALUES
+(2, 'Ballet', 60, 'T', '7pm');
