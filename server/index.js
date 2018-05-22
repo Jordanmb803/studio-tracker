@@ -53,14 +53,15 @@ passport.use(new Auth0Strategy({
     })
 }))
 
-passport.serializeUser((id, done) => {
-    console.log(id)
-    done(null, id) 
+passport.serializeUser((user_id, done) => {
+    console.log(user_id)
+    done(null, user_id) 
 })
 
-passport.deserializeUser((id, done) => {
-    app.get('db').find_session_user([id])
+passport.deserializeUser((user_id, done) => {
+    app.get('db').find_session_user([user_id])
         .then(user => {
+            console.log(user[0])
             done(null, user[0])
         })
 })
