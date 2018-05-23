@@ -27,6 +27,6 @@ CREATE TABLE hours (
 )
 
 INSERT INTO class
-(class_num, title, length, day, time)
+(class_num, title, length, day, time, teacher_id)
 VALUES
-(2, 'Ballet', 60, 'T', '7pm');
+(2, 'Ballet', 60, 'T', '7pm', 1);

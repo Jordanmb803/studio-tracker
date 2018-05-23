@@ -67,13 +67,13 @@ passport.deserializeUser((user_id, done) => {
         })
 })
 
-app.get('/login', passport.authenticate('auth0'))
 
+app.get('/login', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
     successRedirect: 'http://localhost:3000/#/dailyview',
     failureRedirect: '/login'
 }))
-                
+
 app.get('/auth/me', function(req, res ) {
     if(req.user) {
         console.log(req.user)

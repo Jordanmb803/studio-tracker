@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUser } from '../../ducks/user';
 import './Nav.css'
 class Nav extends Component {
     constructor() {
