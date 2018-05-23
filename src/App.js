@@ -10,12 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Nav />
+        <Nav />
         <HashRouter>
           <Switch>
-            <Route path='/' component={LandingPage} exact/>
-            <Route path='/dailyview' component={DailyView} exact/>
-            <Route path='/dailyview/:course' component={CourseList}/>
+            <Route path='/' component={LandingPage} exact />
+            <Route path='/dailyview' component={DailyView} exact />
+            <Route path='/dailyview/:course' component={CourseList} />
           </Switch>
         </HashRouter>
       </div>
