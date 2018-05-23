@@ -10,12 +10,7 @@ class Nav extends Component {
         }
     }
 
-    componentDidMount() {
-        this.props.getUser()
-    }
-
     render() {
-        console.log(this.props.user)
         return (
             <div className='nav'>
                 <div className='picTitle'>
@@ -34,4 +29,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getUser })(Nav);
+export default connect(mapStateToProps)(Nav);

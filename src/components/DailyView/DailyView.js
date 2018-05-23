@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DailyView.css';
 import axios from 'axios';
+import { getUser } from '../../ducks/user';
+import DatePicker from 'react-date-picker';
 
 class DailyView extends Component {
     constructor() {
@@ -9,13 +11,18 @@ class DailyView extends Component {
         this.state = {
             todaysClasses: [],
             days: ['S', 'M', 'T', 'W', 'TH', 'F', 'SAT'],
-            today: new Date()
+            today: new Date(),
+            user_id: 1
         }
     }
     componentDidMount() {
-        const { days, today } = this.state
-        console.log(days[today.getDay()])
-        axios.get(`/todayclasses/${days[today.getDay()]}`).then(res => {
+        let { days, today, user_id } = this.state
+
+        console.log(user_id)
+
+        this.props.getUser()
+
+        axios.get(`/todayclasses/${days[today.getDay()]}/${user_id}`).then(res => {
             console.log(res.data)
             this.setState({
                 todaysClasses: res.data
@@ -25,14 +32,17 @@ class DailyView extends Component {
     // need a function that fires when a date selector is changed that will change the value of selectDate
 
     render() {
-        const { today } = this.state
+        let { today } = this.state
+        let lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7)
 
-        console.log(this.props.user)
-        console.log(this.state.todaysClasses)
+        console.log(this.state.todaysClasses, this.props)
         return (
             <div className='dailyView'>
                 <h3>{this.props.user.user_name}'s Schedule</h3>
                 <p>{`${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`}</p>
+
+                <DatePicker />
+
                 <div className='schedule'>
                     <div className='scheduleLabBox'>
                         <p className='scheduleLab'>9am:</p>
@@ -51,7 +61,7 @@ class DailyView extends Component {
                         <p className='scheduleLab'>10pm:</p>
                     </div>
                     <div className='classBox'>
-                        {this.state.todaysClasses.map( (danceClass, i) => {
+                        {this.state.todaysClasses.map((danceClass, i) => {
                             return (
                                 <div key={i}><p className='class'>{danceClass.title}</p></div>
                             )
@@ -72,4 +82,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(DailyView);
+export default connect(mapStateToProps, { getUser })(DailyView);
