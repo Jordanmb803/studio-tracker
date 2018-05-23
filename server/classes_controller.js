@@ -5,5 +5,11 @@ module.exports = {
             .then(classes => {
                 res.status(200).send(classes)
             })
+    },
+    allDanceClasses: (req, res) => {
+       req.app.get('db').get_all_classes()
+            .then(classes => {
+                res.status(200).send(classes)
+            })
     }
 }
