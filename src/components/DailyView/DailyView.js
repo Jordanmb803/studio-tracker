@@ -41,7 +41,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '9am'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -52,7 +52,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '10am'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -63,7 +63,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '11am'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}> <div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}> <div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -74,7 +74,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '12pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -85,7 +85,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '1pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -96,7 +96,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '2pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -107,7 +107,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '3pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -118,7 +118,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '4pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -129,7 +129,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '5pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -139,7 +139,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '6pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -150,7 +150,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '7pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -161,7 +161,7 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '8pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
@@ -172,13 +172,11 @@ class DailyView extends Component {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '9pm'
                     }).map((course, i) => {
                         return (
-                            <Link to={`/displayview/${course.title}`}><div className='courseBox' key={i}>
+                            <Link to={`/dailyview/${course.title}`}><div className='courseBox' key={i}>
                                 <p className='course'>{course.title}</p>
                             </div></Link>
                         )
                     })}</div>
-
-
                 </div>
             </div>
 

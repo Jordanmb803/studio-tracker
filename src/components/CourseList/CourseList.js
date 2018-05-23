@@ -1,11 +1,20 @@
 import React from 'react';
+import './CourseList.css';
+import { connect } from 'react-redux';
 
 function CourseList(props){
     return(
-        <div>
-            <h1>Course List</h1>
+        <div className='dailyView'>
+            <h3>{props.match.params.course}</h3>
+
         </div>
     )
 }
 
-export default CourseList;
+function mapStateToProps(state){
+    return{
+        danceCourses: state.danceCourses
+    }
+}
+
+export default connect(mapStateToProps)(CourseList);
