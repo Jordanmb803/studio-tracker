@@ -1,7 +1,7 @@
 .nav {
     display: flex;
-    background: lightpink;
-    color: grey;
+    background: #e1f5fe;
+    color: #afc2cb;
     box-shadow: 1px 1px lightgray;
     position: fixed;
     height: 100px;

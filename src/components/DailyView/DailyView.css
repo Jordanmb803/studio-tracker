@@ -1,9 +1,9 @@
 .dailyView {
     padding: 100px 0 0 0;
-    background: grey;
+    background: #ffffff;
     height: 100vh;
     width: 100%;
-    color: pink;
+    color: #afc2cb;
 }
 
 
@@ -25,14 +25,14 @@
     align-items: center;
     width: 80%;
     margin: 5px;
-    height: 24px;
+    height: 28px;
     box-sizing: border-box;
 
 }
 
 .course {
-    background:lightpink;
-    color: white;
+    background:#e1f5fe;
+    color: #afc2cb;
     margin: 0;
     width: 100%;
     height: 100%;
