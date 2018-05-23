@@ -12,6 +12,7 @@
     box-sizing: border-box;
     align-items: center;
     padding: 10px;
+    z-index: 5;
 }
 
 .picTitle{

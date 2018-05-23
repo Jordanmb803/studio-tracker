@@ -6,7 +6,7 @@ function CourseList(props){
     return(
         <div className='dailyView'>
             <h3>{props.match.params.course}</h3>
-
+            <button className='submitRole'>Submit Role</button>
         </div>
     )
 }
