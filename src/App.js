@@ -4,6 +4,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import LandingPage from './components/LandingPage/LandingPage';
 import DailyView from './components/DailyView/DailyView';
+import CourseList from './components/CourseList/CourseList';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route path='/' component={LandingPage} exact/>
             <Route path='/dailyview' component={DailyView}/>
+            <Route path='/dailyview/:course' component={CourseList}/>
           </Switch>
         </HashRouter>
       </div>
