@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DailyView.css';
 import axios from 'axios';
-import { getUser } from '../../ducks/user';
+import { getUser, getCourses } from '../../ducks/user';
 import DatePicker from 'react-date-picker';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,6 @@ class DailyView extends Component {
     constructor() {
         super()
         this.state = {
-            danceClasses: [],
             days: ['S', 'M', 'T', 'W', 'TH', 'F', 'SAT'],
             today: new Date()
         }
@@ -20,11 +19,7 @@ class DailyView extends Component {
 
     componentDidMount() {
         this.props.getUser()
-        axios.get(`/danceclasses`).then(res => {
-            this.setState({
-                danceClasses: res.data
-            })
-        })
+        this.props.getCourses()
     }
 
     changeDate = today => this.setState({ today })
@@ -42,7 +37,7 @@ class DailyView extends Component {
                 <div className='schedule'>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>9am:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>9am:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '9am'
                     }).map((course, i) => {
                         return (
@@ -53,7 +48,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>10am:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>10am:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '10am'
                     }).map((course, i) => {
                         return (
@@ -64,7 +59,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>11am:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>11am:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '11am'
                     }).map((course, i) => {
                         return (
@@ -75,7 +70,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>12pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>12pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '12pm'
                     }).map((course, i) => {
                         return (
@@ -86,7 +81,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>1pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>1pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '1pm'
                     }).map((course, i) => {
                         return (
@@ -97,7 +92,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>2pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>2pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '2pm'
                     }).map((course, i) => {
                         return (
@@ -108,7 +103,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>3pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>3pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '3pm'
                     }).map((course, i) => {
                         return (
@@ -119,7 +114,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>4pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>4pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '4pm'
                     }).map((course, i) => {
                         return (
@@ -130,7 +125,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>5pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>5pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '5pm'
                     }).map((course, i) => {
                         return (
@@ -140,7 +135,7 @@ class DailyView extends Component {
                         )
                     })}</div>
 
-                    <div className='classTime'> <p className='scheduleLab'>6pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>6pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '6pm'
                     }).map((course, i) => {
                         return (
@@ -151,7 +146,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>7pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>7pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '7pm'
                     }).map((course, i) => {
                         return (
@@ -162,7 +157,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>8pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>8pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '8pm'
                     }).map((course, i) => {
                         return (
@@ -173,7 +168,7 @@ class DailyView extends Component {
                     })}</div>
 
 
-                    <div className='classTime'> <p className='scheduleLab'>9pm:</p>{this.state.danceClasses.filter(course => {
+                    <div className='classTime'> <p className='scheduleLab'>9pm:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '9pm'
                     }).map((course, i) => {
                         return (
@@ -193,9 +188,10 @@ class DailyView extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        danceCourses: state.danceCourses
     }
 }
 
 
-export default connect(mapStateToProps, { getUser })(DailyView);
+export default connect(mapStateToProps, { getUser, getCourses })(DailyView);
