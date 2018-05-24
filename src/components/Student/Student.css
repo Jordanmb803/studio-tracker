@@ -1,0 +1,12 @@
+.studentDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.studentName {
+    margin: 0;
+}

@@ -13,8 +13,8 @@ class Student extends Component {
     }
 
     postPresent() {
-        const {user_id, class_id, date} = this.props
-        axios.post('/inputhours', {user_id, class_id, date}).then(res => {
+        const { user_id, class_id, date } = this.props
+        axios.post('/inputhours', { user_id, class_id, date }).then(res => {
             this.setState({
                 present: true,
             })
@@ -22,7 +22,7 @@ class Student extends Component {
     }
 
     deletePresent() {
-        const {user_id, class_id, date} = this.props
+        const { user_id, class_id, date } = this.props
         axios.delete(`/deleteinput/${user_id}/${class_id}/${date}`).then(res => {
             this.setState({
                 present: false
@@ -35,22 +35,25 @@ class Student extends Component {
         console.log(this.props)
 
         return (
-            <div>
-                <p>{this.props.user_name}</p>
-                <input type='checkbox' id='present' name='roll' value='present' onClick={() => this.postPresent()} checked={this.state.present} onChange={(e)=> {
-
-                    e.target.checked = this.state.present
-                    this.setState({
-                        present: !this.state.present
-                    })
-                }
-                }/>
-                <input type='checkbox' id='absent' name='roll' value='absent' onClick={() => this.deletePresent()} checked={!this.state.present} onChange={(e)=> {
-                    e.target.checked = !this.state.present
-                    this.setState({
-                        present: !this.state.present
-                    })
-                }}/>
+            <div className='studentDiv'>
+                <p className='studentName'>{this.props.user_name}:</p>
+                <div className='presentAbsentCheckBoxes'>
+                    <input type='checkbox' id='present' name='roll' value='present' onClick={() => this.postPresent()} checked={this.state.present} onChange={(e) => {
+                        e.target.checked = this.state.present
+                        this.setState({
+                            present: !this.state.present
+                        })
+                    }
+                    } />
+                    <label for='present'>Present</label>
+                    <input type='checkbox' id='absent' name='roll' value='absent' onClick={() => this.deletePresent()} checked={!this.state.present} onChange={(e) => {
+                        e.target.checked = !this.state.present
+                        this.setState({
+                            present: !this.state.present
+                        })
+                    }} />
+                    <label for='absent'>Absent</label>
+                </div>
             </div>
         )
     }

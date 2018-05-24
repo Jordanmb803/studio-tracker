@@ -3,6 +3,7 @@ import './CourseList.css';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Student from '../Student/Student';
+import { Link } from 'react-router-dom'
 
 class CourseList extends Component {
     constructor() {
@@ -10,7 +11,8 @@ class CourseList extends Component {
         this.state = {
             courseRoll: [],
             date: '',
-            visable: true
+            visable: true,
+            redirect: false
         }
         this.postHours = this.postHours.bind(this)
         this.deleteHours = this.deleteHours.bind(this)
@@ -32,12 +34,12 @@ class CourseList extends Component {
         const { date } = this.state
         axios.post(`/inputhours`, { user_id, class_id, date }).then(res => {
             this.setState({
-                visable: false
+                visable: false,
             })
         })
     }
 
-    deleteHours(){
+    deleteHours() {
         const class_id = this.props.match.params.classid
         const user_id = this.props.match.params.userid
         const { date } = this.state
@@ -49,7 +51,6 @@ class CourseList extends Component {
     }
 
     render() {
-        console.log(this.state.date)
 
         let displayStudent = this.state.courseRoll.filter(course => {
             return course.class_id === Number(this.props.match.params.classid)
@@ -69,8 +70,8 @@ class CourseList extends Component {
             <div className='dailyView'>
                 <h3>{this.props.match.params.course}</h3>
                 {displayStudent}
-                <button className={this.state.visable ? 'visable submitRoll' : 'invisable submitRoll'} onClick={() => this.postHours()}>Submit Roll</button>
-                <button className={this.state.visable ? 'invisable submitRoll' : 'visable submitRoll'} onClick={() => this.deleteHours()}>Re-Submit</button>
+                <button className={this.state.visable ? 'visable submitRoll' : 'invisable'} onClick={() => this.postHours()}>Submit Roll</button>
+                <button className={this.state.visable ? 'invisable' : 'visable submitRoll'} onClick={() => this.deleteHours()}>Re-Submit</button>
             </div>
         )
     }
