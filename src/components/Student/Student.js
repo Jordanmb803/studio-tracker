@@ -12,7 +12,7 @@ class Student extends Component {
     }
 
     postPresent(){
-
+        
     }
 
     deletePresent(){

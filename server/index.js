@@ -91,7 +91,7 @@ app.get('/danceclasses', classController.allDanceClasses)
 app.get('/courseroll', classController.courseRoll)
 
 // Hours Endpoints
-app.get('/inputhours', classController.inputHours)
+app.post('/inputhours', classController.inputHours)
 
 
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))

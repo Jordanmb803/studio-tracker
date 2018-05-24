@@ -19,7 +19,8 @@ module.exports = {
             })
     },
     inputHours: (req, res) => {
-        req.app.get('db').input_hours()
+        const { user_id, class_id, date } = req.body
+        req.app.get('db').input_hours([user_id, class_id, date])
             .then( ok => res.sendStatus(200))
     }
 }
