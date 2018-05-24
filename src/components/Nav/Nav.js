@@ -26,7 +26,7 @@ class Nav extends Component {
                 <div className='nav'>
                     <div className='picTitle'>
                         <a className='profileATag' href='/#/dailyview'><img id='profileImg' src={this.props.user.profile_picture} alt='prof_pic' /></a>
-                        <h1>Studio Tracker</h1>
+                        <h1>Center Stage</h1>
                     </div>
                     <img className='dropDown' src={menu} onClick={() => this.toggleMenu()} alt='menu'/>
                 </div>

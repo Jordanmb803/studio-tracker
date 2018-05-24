@@ -10,7 +10,7 @@ import TrackHours from './components/TrackHours/TrackHours';
 import TrackAttendance from './components/TrackAttendance/TrackAttendance';
 import CreateCourse from './components/CreateCourse/CreateCourse';
 import Register from './components/Register/Register';
-
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -31,6 +31,12 @@ class App extends Component {
         </HashRouter>
       </div>
     );
+  }
+}
+
+function mapStateToProps(state){
+  return {
+    user: state.user
   }
 }
 

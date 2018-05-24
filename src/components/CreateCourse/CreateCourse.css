@@ -1,0 +1,30 @@
+.createCourse {
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    background: #afc2cb;
+}
+
+.courseInput {
+    margin: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.createCourseHeader{
+    color: #e1f5fe;
+}
+
+.createCourseButton {
+    color: #afc2cb;
+    background: #e1f5fe;
+    width: 30%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
