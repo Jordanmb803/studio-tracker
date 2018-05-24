@@ -27,6 +27,7 @@ class CourseList extends Component {
             return (
                 <div key={student + i}>
                     <p>{student.user_name}</p>
+                    <input type='checkbox'/>
                 </div>
             )
         })
@@ -44,7 +45,8 @@ class CourseList extends Component {
 
 function mapStateToProps(state) {
     return {
-        danceCourses: state.danceCourses
+        danceCourses: state.danceCourses,
+        today: state.today
     }
 }
 

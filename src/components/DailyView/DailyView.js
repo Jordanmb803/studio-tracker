@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DailyView.css';
-import { getUser, getCourses } from '../../ducks/user';
+import { getUser, getCourses, changeDate } from '../../ducks/user';
 import DatePicker from 'react-date-picker';
 import { Link } from 'react-router-dom';
 
@@ -9,11 +9,9 @@ class DailyView extends Component {
     constructor() {
         super()
         this.state = {
-            days: ['S', 'M', 'T', 'W', 'TH', 'F', 'SAT'],
-            today: new Date()
+            days: ['S', 'M', 'T', 'W', 'TH', 'F', 'SAT']
         }
         this.componentDidMount = this.componentDidMount.bind(this)
-        this.changeDate = this.changeDate.bind(this)
     }
 
     componentDidMount() {
@@ -21,21 +19,17 @@ class DailyView extends Component {
         this.props.getCourses()
     }
 
-    changeDate = today => this.setState({ today })
-
-
 
     render() {
-        let { today } = this.state
+        let { today } = this.props
 
         return (
             <div className='dailyView'>
                 <h3>{this.props.user.user_name}'s Schedule</h3>
-                <DatePicker className='datePicker' value={today} onChange={this.changeDate} />
+
+                <DatePicker className='datePicker' value={today} onChange={e => this.props.changeDate(e)} />
 
                 <div className='schedule'>
-
-
                     <div className='classTime'> <p className='scheduleLab'>9am:</p>{this.props.danceCourses.filter(course => {
                         return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '9am'
                     }).map((course, i) => {
@@ -186,9 +180,10 @@ class DailyView extends Component {
 function mapStateToProps(state) {
     return {
         user: state.user,
-        danceCourses: state.danceCourses
+        danceCourses: state.danceCourses,
+        today: state.today
     }
 }
 
 
-export default connect(mapStateToProps, { getUser, getCourses })(DailyView);
+export default connect(mapStateToProps, { getUser, getCourses, changeDate })(DailyView);
