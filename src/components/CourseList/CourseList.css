@@ -1,5 +1,9 @@
-.submitRole {
+.submitRoll {
     background: #e1f5fe;
     color: #afc2cb;
     bottom: 10px;
+}
+
+.invisable {
+    display: none;
 }

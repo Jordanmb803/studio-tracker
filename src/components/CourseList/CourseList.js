@@ -9,12 +9,15 @@ class CourseList extends Component {
         super()
         this.state = {
             courseRoll: [],
-            date: ''
+            date: '',
+            visable: true
         }
+        this.postHours = this.postHours.bind(this)
+        this.deleteHours = this.deleteHours.bind(this)
     }
 
     componentDidMount() {
-        let {today} = this.props
+        let { today } = this.props
         axios.get('/courseroll').then(res => {
             this.setState({
                 courseRoll: res.data,
@@ -23,7 +26,27 @@ class CourseList extends Component {
         })
     }
 
+    postHours() {
+        const class_id = this.props.match.params.classid
+        const user_id = this.props.match.params.userid
+        const { date } = this.state
+        axios.post(`/inputhours`, { user_id, class_id, date }).then(res => {
+            this.setState({
+                visable: false
+            })
+        })
+    }
 
+    deleteHours(){
+        const class_id = this.props.match.params.classid
+        const user_id = this.props.match.params.userid
+        const { date } = this.state
+        axios.delete(`/deleteinput/${user_id}/${class_id}/${date}`).then(res => {
+            this.setState({
+                visable: true
+            })
+        })
+    }
 
     render() {
         console.log(this.state.date)
@@ -32,11 +55,11 @@ class CourseList extends Component {
             return course.class_id === Number(this.props.match.params.classid)
         }).map((student, i) => {
             return (
-                <div key={student + i}>
+                <div className={this.state.visable ? 'visable' : 'invisable'} key={student + i}>
                     <Student user_name={student.user_name}
-                                user_id={student.user_id}
-                                class_id={student.class_id}
-                                date={this.state.date}
+                        user_id={student.user_id}
+                        class_id={student.class_id}
+                        date={this.state.date}
                     />
                 </div>
             )
@@ -46,7 +69,8 @@ class CourseList extends Component {
             <div className='dailyView'>
                 <h3>{this.props.match.params.course}</h3>
                 {displayStudent}
-                <button className='submitRole'>Submit Roll</button>
+                <button className={this.state.visable ? 'visable submitRoll' : 'invisable submitRoll'} onClick={() => this.postHours()}>Submit Roll</button>
+                <button className={this.state.visable ? 'invisable submitRoll' : 'visable submitRoll'} onClick={() => this.deleteHours()}>Re-Submit</button>
             </div>
         )
     }

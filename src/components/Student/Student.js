@@ -21,8 +21,8 @@ class Student extends Component {
     }
 
     deletePresent() {
-        const {user_id, date} = this.props
-        axios.delete(`/deleteinput/${user_id}/${date}`).then(res => {
+        const {user_id, class_id, date} = this.props
+        axios.delete(`/deleteinput/${user_id}/${class_id}/${date}`).then(res => {
             this.setState({
                 present: false
             })

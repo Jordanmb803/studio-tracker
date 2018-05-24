@@ -15,7 +15,7 @@ class App extends Component {
           <Switch>
             <Route path='/' component={LandingPage} exact />
             <Route path='/dailyview' component={DailyView} exact />
-            <Route path='/dailyview/:course/:classid' component={CourseList} />
+            <Route path='/dailyview/:course/:classid/:userid' component={CourseList} />
           </Switch>
         </HashRouter>
       </div>

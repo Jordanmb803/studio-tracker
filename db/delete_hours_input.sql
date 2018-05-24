@@ -3,4 +3,6 @@ DELETE FROM
 WHERE 
     user_id = $1
 AND
-    date = $2;
+    class_id =$2
+AND
+    date = $3;
