@@ -17,5 +17,9 @@ module.exports = {
             .then( courseRoll => {
                 res.status(200).send(courseRoll)
             })
+    },
+    inputHours: (req, res) => {
+        req.app.get('db').input_hours()
+            .then( ok => res.sendStatus(200))
     }
 }
