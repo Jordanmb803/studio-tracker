@@ -21,7 +21,7 @@ class Student extends Component {
     }
 
     deletePresent() {
-
+        
     }
 
     render() {
