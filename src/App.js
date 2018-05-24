@@ -5,6 +5,7 @@ import Nav from './components/Nav/Nav';
 import LandingPage from './components/LandingPage/LandingPage';
 import DailyView from './components/DailyView/DailyView';
 import CourseList from './components/CourseList/CourseList';
+import AdminLanding from './components/AdminLanding/AdminLanding';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Route path='/' component={LandingPage} exact />
             <Route path='/dailyview' component={DailyView} exact />
             <Route path='/dailyview/:course/:classid/:userid' component={CourseList} />
+            <Route path='/adminlanding' component={AdminLanding} />
           </Switch>
         </HashRouter>
       </div>

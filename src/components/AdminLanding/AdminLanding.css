@@ -1,0 +1,17 @@
+.adminLanding{
+    padding-top: 150px;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #afc2cb;
+    background: #ffffff;
+
+}
+
+.adminOption{
+    margin: 15px;
+    font-size: 23px;
+    color: #ffffff;
+    background: #afc2cb;
+}
