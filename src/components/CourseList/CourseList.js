@@ -9,13 +9,16 @@ class CourseList extends Component {
         super()
         this.state = {
             courseRoll: [],
+            date: ''
         }
     }
 
     componentDidMount() {
+        let {today} = this.props
         axios.get('/courseroll').then(res => {
             this.setState({
-                courseRoll: res.data
+                courseRoll: res.data,
+                date: `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
             })
         })
     }
@@ -23,13 +26,17 @@ class CourseList extends Component {
 
 
     render() {
+        console.log(this.state.date)
+
         let displayStudent = this.state.courseRoll.filter(course => {
             return course.class_id === Number(this.props.match.params.classid)
         }).map((student, i) => {
             return (
                 <div key={student + i}>
                     <Student user_name={student.user_name}
-                                today={this.props.today}
+                                user_id={student.user_id}
+                                class_id={student.class_id}
+                                date={this.state.date}
                     />
                 </div>
             )
