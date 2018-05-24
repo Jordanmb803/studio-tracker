@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import './CourseList.css';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import Student from '../Student/Student';
 
 class CourseList extends Component {
     constructor() {
         super()
         this.state = {
-            courseRoll: []
+            courseRoll: [],
         }
     }
 
@@ -19,24 +20,25 @@ class CourseList extends Component {
         })
     }
 
-    render() {
 
-        let displayStudentID = this.state.courseRoll.filter(course => {
+
+    render() {
+        let displayStudent = this.state.courseRoll.filter(course => {
             return course.class_id === Number(this.props.match.params.classid)
-        }).map( (student, i) => {
+        }).map((student, i) => {
             return (
                 <div key={student + i}>
-                    <p>{student.user_name}</p>
-                    <input type='checkbox'/>
+                    <Student user_name={student.user_name}
+                                today={this.props.today}
+                    />
                 </div>
             )
         })
 
-
         return (
             <div className='dailyView'>
                 <h3>{this.props.match.params.course}</h3>
-                {displayStudentID}
+                {displayStudent}
                 <button className='submitRole'>Submit Roll</button>
             </div>
         )
