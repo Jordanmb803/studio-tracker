@@ -87,5 +87,8 @@ app.get('/auth/me', function(req, res ) {
 app.get('/todayclasses/:day/:user_id', classController.todaysClasses)
 app.get('/danceclasses', classController.allDanceClasses)
 
+// Registration Endpoints
+app.get('/courseroll', classController.courseRoll)
+
 
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))

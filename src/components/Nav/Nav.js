@@ -20,7 +20,7 @@ class Nav extends Component {
     }
 
     render() {
-        console.log(this.state.menuVis)
+       
         return (
             <div className='navWithMenu'>
                 <div className='nav'>
@@ -28,7 +28,7 @@ class Nav extends Component {
                         <a className='profileATag' href='/#/dailyview'><img id='profileImg' src={this.props.user.profile_picture} alt='prof_pic' /></a>
                         <h1>Studio Tracker</h1>
                     </div>
-                    <img className='dropDown' src={menu} onClick={() => this.toggleMenu()} />
+                    <img className='dropDown' src={menu} onClick={() => this.toggleMenu()} alt='menu'/>
                 </div>
                 <div className={(this.state.menuVis === true) ? 'menuVis' : ' menuInvis'}>
                     <p className='menuOption'>SCHEDULE</p>

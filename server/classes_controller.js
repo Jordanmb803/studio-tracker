@@ -11,5 +11,11 @@ module.exports = {
             .then(classes => {
                 res.status(200).send(classes)
             })
+    },
+    courseRoll: (req, res) => {
+        req.app.get('db').get_courseRoll()
+            .then( courseRoll => {
+                res.status(200).send(courseRoll)
+            })
     }
 }
