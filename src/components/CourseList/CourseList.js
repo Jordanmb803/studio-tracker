@@ -18,7 +18,7 @@ class CourseList extends Component {
         axios.get('/courseroll').then(res => {
             this.setState({
                 courseRoll: res.data,
-                date: `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
+                date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
             })
         })
     }

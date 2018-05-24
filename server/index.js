@@ -92,6 +92,7 @@ app.get('/courseroll', classController.courseRoll)
 
 // Hours Endpoints
 app.post('/inputhours', classController.inputHours)
+app.delete('/deleteinput/:userid/:date', classController.deleteHours)
 
 
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))
