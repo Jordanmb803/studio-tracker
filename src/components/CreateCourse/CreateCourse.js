@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './CreateCourse.css';
+import axios from 'axios';
 
 class CreateCourse extends Component {
     constructor() {
@@ -11,9 +12,29 @@ class CreateCourse extends Component {
             dayOfWeek: '',
             time: '',
             teacherName: '',
+            users: []
         }
+        this.componentDidMount = this.componentDidMount.bind(this)
+        this.createCourse = this.createCourse.bind(this)
     }
 
+    componentDidMount(){
+        axios.get('/getallusers').then(res => {
+            this.setState({
+                users: res.data
+            })
+        })
+    }
+
+
+    createCourse(){
+        const classNumber = Number(this.state.classNumber)
+        const length = Number(this.state.length)
+        const {classTitle, dayOfWeek, time, teacherName} = this.state
+        axios.post('/createcourse', {classNumber, classTitle, length, dayOfWeek, time, teacherName}).then(()=> {
+          console.log('we made it')
+        })
+    }
 
     render() {
         return (
@@ -25,7 +46,7 @@ class CreateCourse extends Component {
                 <input placeholder='Day of the Week, Options: S, M, T, W, TH, F, SAT' className='courseInput'  onChange={e => this.setState({ dayOfWeek: e.target.value})}/>
                 <input placeholder='Time, Ex: 7pm' className='courseInput'  onChange={e => this.setState({ time: e.target.value})}/>
                 <input placeholder='Teacher Name' className='courseInput'  onChange={e => this.setState({ teacherName: e.target.value})}/>
-                <button className='createCourseButton'>Create New Class</button>
+                <button className='createCourseButton' onClick={()=> this.createCourse()}>Create New Class</button>
             </div>
         )
     }

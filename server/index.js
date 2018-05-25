@@ -94,6 +94,7 @@ app.get('/auth/me', function(req, res ) {
 // Dance Class Endpoints
 app.get('/todayclasses/:day/:user_id', classController.todaysClasses)
 app.get('/danceclasses', classController.allDanceClasses)
+app.post('/createcourse', classController.createCourse)
 
 // Registration Endpoints
 app.get('/courseroll', classController.courseRoll)
@@ -102,5 +103,7 @@ app.get('/courseroll', classController.courseRoll)
 app.post('/inputhours', classController.inputHours)
 app.delete('/deleteinput/:userid/:class_id/:date', classController.deleteHours)
 
+// User Endpoints
+app.get('/getallusers', classController.getAllUsers)
 
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))
