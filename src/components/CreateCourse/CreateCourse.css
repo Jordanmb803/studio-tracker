@@ -28,3 +28,13 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.teacherPics {
+    height: 40px;
+    width: 40px;
+    border-radius: 360%;
+}
+
+.teacherName {
+    font-size: 12px;
+}
