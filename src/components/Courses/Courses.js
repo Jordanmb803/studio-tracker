@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getCourses } from '../../ducks/user';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import './Courses.css';
+import editIcon from './edit-icon.png';
+import deleteIcon from './delete-icon.png';
 
 class Courses extends Component {
     constructor() {
@@ -23,6 +25,8 @@ class Courses extends Component {
                     return (
                         <div key={course + i}>
                             <h3>{course.title}</h3>
+                            <img src={editIcon} className='deleteEditIcons'/>
+                            <img src={deleteIcon} className='deleteEditIcons'/>
                         </div>
                     )
                 })}
