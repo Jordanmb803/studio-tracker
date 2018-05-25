@@ -38,8 +38,6 @@ class CreateCourse extends Component {
 
     render() {
 
-        console.log(this.state.length)
-
         return (
             <div className='createCourse'>
                 <h3 className='createCourseHeader'>Create A New Class</h3>
