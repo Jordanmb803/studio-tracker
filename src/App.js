@@ -13,6 +13,7 @@ import Register from './components/Register/Register';
 import { connect } from 'react-redux';
 import Courses from './components/Courses/Courses';
 import EditCourse from './components/EditCourse/EditCourse';
+import UsersList from './components/UsersList/UsersList';
 
 class App extends Component {
   render() {
@@ -31,6 +32,7 @@ class App extends Component {
             <Route path='/registeruser' component={Register} />
             <Route path='/courses' component={Courses} />
             <Route path='/editcourse/:course/:classid' component={EditCourse}/>
+            <Route path='/userslist' component={UsersList} />
           </Switch>
         </HashRouter>
       </div>
