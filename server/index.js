@@ -95,6 +95,7 @@ app.get('/auth/me', function(req, res ) {
 app.get('/todayclasses/:day/:user_id', classController.todaysClasses)
 app.get('/danceclasses', classController.allDanceClasses)
 app.post('/createcourse', classController.createCourse)
+app.put('/editcourse', classController.editCourse)
 
 // Registration Endpoints
 app.get('/courseroll', classController.courseRoll)

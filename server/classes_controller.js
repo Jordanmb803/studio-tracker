@@ -40,5 +40,12 @@ module.exports = {
             .then(ok => {
                 res.sendStatus(200)
             })
+    },
+    editCourse: (req,res) => {
+        const {classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id} = req.body
+        req.app.get('db').edit_course([classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id])
+            .then(ok => {
+                res.sendStatus(200)
+            })
     }
 }

@@ -23,9 +23,15 @@ class Courses extends Component {
             <h2>Center Stage Class List</h2>
                 {this.props.danceCourses.map((course, i) => {
                     return (
-                        <div key={course + i}>
+                        <div className='courseBreakDown' key={course + i}>
                             <h3>{course.title}</h3>
-                            <img src={editIcon} className='deleteEditIcons'/>
+                            <p>id: {course.class_id}</p>
+                            <p>#: {course.class_num}</p>
+                            <p>minutes: {course.length}</p>
+                            <p>day: {course.day}</p>
+                            <p>time: {course.time}</p>
+                            <p>teacher: {course.teacher}</p>
+                            <Link to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons'/></Link>
                             <img src={deleteIcon} className='deleteEditIcons'/>
                         </div>
                     )
