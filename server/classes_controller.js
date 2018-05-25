@@ -47,5 +47,12 @@ module.exports = {
             .then(ok => {
                 res.sendStatus(200)
             })
+    },
+    deleteCourse: (req, res) => {
+        const {class_id} = req.params
+        req.app.get('db').delete_course([class_id])
+            .then(ok => {
+                res.sendStatus(200)
+            })
     }
 }

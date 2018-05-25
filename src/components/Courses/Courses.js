@@ -5,16 +5,25 @@ import { connect } from 'react-redux';
 import './Courses.css';
 import editIcon from './edit-icon.png';
 import deleteIcon from './delete-icon.png';
+import axios from 'axios';
 
 class Courses extends Component {
     constructor() {
         super()
         this.state = {
         }
+        this.componentDidMount = this.componentDidMount.bind(this)
     }
 
     componentDidMount() {
         this.props.getCourses()
+    }
+
+    deleteCourse(class_id) {
+        axios.delete(`/deletecourse/${class_id}`).then(res => {
+            console.log('table delete')
+            this.componentDidMount()
+        })
     }
 
     render() {
@@ -32,7 +41,7 @@ class Courses extends Component {
                             <p>time: {course.time}</p>
                             <p>teacher: {course.teacher}</p>
                             <Link to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons'/></Link>
-                            <img src={deleteIcon} className='deleteEditIcons'/>
+                            <img onClick={()=> this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons'/>
                         </div>
                     )
                 })}
