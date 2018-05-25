@@ -11,6 +11,7 @@ import TrackAttendance from './components/TrackAttendance/TrackAttendance';
 import CreateCourse from './components/CreateCourse/CreateCourse';
 import Register from './components/Register/Register';
 import { connect } from 'react-redux';
+import Courses from './components/Courses/Courses';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path='/trackattendance' component={TrackAttendance} />
             <Route path='/createcourse' component={CreateCourse} />
             <Route path='/registeruser' component={Register} />
+            <Route path='/courses' component={Courses} />
           </Switch>
         </HashRouter>
       </div>
