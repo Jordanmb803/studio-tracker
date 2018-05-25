@@ -38,3 +38,8 @@
 .teacherName {
     font-size: 12px;
 }
+
+.teacherPics:active {
+    height: 60px;
+    width: 60px;
+}
