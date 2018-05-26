@@ -56,9 +56,16 @@ module.exports = {
             })
     },
     editUser: (req, res) => {
-        const {firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id } = req.body
+        const { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id } = req.body
         req.app.get('db').edit_user([firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id])
             .then(ok => {
+                res.sendStatus(200)
+            })
+    },
+    adminCreateUser: (req, res) => {
+        const { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture } = req.body
+        req.app.get('db').admin_create_user([firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture])
+            .then( ok => {
                 res.sendStatus(200)
             })
     }

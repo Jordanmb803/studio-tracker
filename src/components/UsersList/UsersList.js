@@ -12,6 +12,7 @@ class UsersList extends Component {
         this.state = {
             search: '',
         }
+        this.componentDidMount = this.componentDidMount.bind(this)
     }
 
     componentDidMount() {
@@ -58,6 +59,7 @@ class UsersList extends Component {
                                 )
                             })
                         }
+                        <Link to='/admin/createuser'><button>Create User</button></Link>
                     </div>
                 </div>
             </div>

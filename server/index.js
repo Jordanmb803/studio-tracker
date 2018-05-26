@@ -106,5 +106,6 @@ app.delete('/deleteinput/:userid/:class_id/:date', classController.deleteHours)
 // User Endpoints
 app.get('/getallusers', classController.getAllUsers)
 app.put('/user/edituser', classController.editUser)
+app.post('/user/admincreateuser', classController.adminCreateUser)
 
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))

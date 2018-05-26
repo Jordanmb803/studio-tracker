@@ -13,6 +13,7 @@ import Courses from './components/Courses/Courses';
 import EditCourse from './components/EditCourse/EditCourse';
 import UsersList from './components/UsersList/UsersList';
 import EditUser from './components/EditUser/EditUser';
+import CreateUser from './components/CreateUser/CreateUser';
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
             <Route path='/editcourse/:course/:classid' component={EditCourse}/>
             <Route path='/userslist' component={UsersList} />
             <Route path='/edituser/:user_name/:user_id' component={EditUser} />
+            <Route path='/admin/createuser' component={CreateUser} />
           </Switch>
         </HashRouter>
       </div>
