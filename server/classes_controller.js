@@ -65,8 +65,12 @@ module.exports = {
     adminCreateUser: (req, res) => {
         const { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture } = req.body
         req.app.get('db').admin_create_user([firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture])
-            .then( ok => {
+            .then(ok => {
                 res.sendStatus(200)
             })
+    },
+    deleteUser: (req, res) => {
+        const { user_id } = req.params
+        req.app.get('db').delete_user([user_id]).then(ok => res.sendStatus(200))
     }
 }

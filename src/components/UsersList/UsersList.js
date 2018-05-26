@@ -5,6 +5,7 @@ import { getUsers } from '../../ducks/user';
 import EditIcon from '../Courses/edit-icon.png';
 import DeleteIcon from '../Courses/delete-icon.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class UsersList extends Component {
     constructor() {
@@ -13,10 +14,18 @@ class UsersList extends Component {
             search: '',
         }
         this.componentDidMount = this.componentDidMount.bind(this)
+        this.deleteUser = this.deleteUser.bind(this)
     }
 
     componentDidMount() {
         this.props.getUsers()
+    }
+
+    deleteUser(user_id) {
+        axios.delete(`/user/deleteuser/${user_id}`).then(res => {
+            console.log('user deleted'),
+            this.componentDidMount()
+        })
     }
 
     render() {
@@ -35,7 +44,7 @@ class UsersList extends Component {
                                         <p>{student.user_name}</p>
                                         <div className='icons'>
                                             <Link to={`/edituser/${student.user_name}/${student.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
-                                            <img className='icon' src={DeleteIcon} alt='delete' />
+                                            <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(student.user_id)} />
                                         </div>
                                     </div>
                                 )
@@ -52,8 +61,8 @@ class UsersList extends Component {
                                     <div className='user' key={i + teacher}>
                                         <p>{teacher.user_name}</p>
                                         <div className='icons'>
-                                        <Link to={`/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
-                                            <img className='icon' src={DeleteIcon} alt='delete' />
+                                            <Link to={`/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
+                                            <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(teacher.user_id)} />
                                         </div>
                                     </div>
                                 )
