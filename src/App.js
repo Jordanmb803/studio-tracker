@@ -9,7 +9,6 @@ import AdminLanding from './components/AdminLanding/AdminLanding';
 import TrackHours from './components/TrackHours/TrackHours';
 import TrackAttendance from './components/TrackAttendance/TrackAttendance';
 import CreateCourse from './components/CreateCourse/CreateCourse';
-import { connect } from 'react-redux';
 import Courses from './components/Courses/Courses';
 import EditCourse from './components/EditCourse/EditCourse';
 import UsersList from './components/UsersList/UsersList';
@@ -37,12 +36,6 @@ class App extends Component {
         </HashRouter>
       </div>
     );
-  }
-}
-
-function mapStateToProps(state){
-  return {
-    user: state.user
   }
 }
 

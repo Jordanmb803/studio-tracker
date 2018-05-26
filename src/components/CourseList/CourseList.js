@@ -3,7 +3,6 @@ import './CourseList.css';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Student from '../Student/Student';
-import { Link } from 'react-router-dom'
 
 class CourseList extends Component {
     constructor() {

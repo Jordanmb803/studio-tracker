@@ -40,8 +40,8 @@ class Courses extends Component {
                             <p>day: {course.day}</p>
                             <p>time: {course.time}</p>
                             <p>teacher: {course.teacher}</p>
-                            <Link to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons'/></Link>
-                            <img onClick={()=> this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons'/>
+                            <Link to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon'/></Link>
+                            <img onClick={()=> this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons' alt='delete Icon'/>
                         </div>
                     )
                 })}

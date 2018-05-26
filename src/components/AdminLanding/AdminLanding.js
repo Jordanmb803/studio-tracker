@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './AdminLanding.css';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 class AdminLanding extends Component {
     render() {
@@ -13,12 +12,6 @@ class AdminLanding extends Component {
                 <Link className='adminLinks' to='/userslist'><button className='adminOption'>Register Teacher/Student</button></Link>
             </div>
         )
-    }
-}
-
-function mapStateToProps(state) {
-    return {
-        user: state.user
     }
 }
 
