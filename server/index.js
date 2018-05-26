@@ -87,7 +87,6 @@ app.get('/checkadmin', function (req, res) {
 
 app.get('/auth/me', function (req, res) {
     if (req.user) {
-        console.log(req.user)
         res.status(200).send(req.user)
     } else {
         res.status(401).send('not authorized')
@@ -110,5 +109,6 @@ app.delete('/deleteinput/:userid/:class_id/:date', classController.deleteHours)
 
 // User Endpoints
 app.get('/getallusers', classController.getAllUsers)
+app.put('/user/edituser', classController.editUser)
 
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))

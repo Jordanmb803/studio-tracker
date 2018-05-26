@@ -35,22 +35,29 @@ module.exports = {
             })
     },
     createCourse: (req, res) => {
-        const {classNumber, classTitle, length, dayOfWeek, time, teacherName} = req.body
+        const { classNumber, classTitle, length, dayOfWeek, time, teacherName } = req.body
         req.app.get('db').create_course([classNumber, classTitle, length, dayOfWeek, time, teacherName])
             .then(ok => {
                 res.sendStatus(200)
             })
     },
-    editCourse: (req,res) => {
-        const {classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id} = req.body
+    editCourse: (req, res) => {
+        const { classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id } = req.body
         req.app.get('db').edit_course([classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id])
             .then(ok => {
                 res.sendStatus(200)
             })
     },
     deleteCourse: (req, res) => {
-        const {class_id} = req.params
+        const { class_id } = req.params
         req.app.get('db').delete_course([class_id])
+            .then(ok => {
+                res.sendStatus(200)
+            })
+    },
+    editUser: (req, res) => {
+        const {firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id } = req.body
+        req.app.get('db').edit_user([firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id])
             .then(ok => {
                 res.sendStatus(200)
             })
