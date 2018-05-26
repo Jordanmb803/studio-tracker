@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getUsers } from '../../ducks/user';
 import EditIcon from '../Courses/edit-icon.png';
 import DeleteIcon from '../Courses/delete-icon.png';
+import { Link } from 'react-router-dom';
 
 class UsersList extends Component {
     constructor() {
@@ -32,7 +33,7 @@ class UsersList extends Component {
                                     <div className='user' key={i + student}>
                                         <p>{student.user_name}</p>
                                         <div className='icons'>
-                                            <img className='icon' src={EditIcon} alt='edit' />
+                                            <Link to={`/edituser/${student.user_name}/${student.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
                                             <img className='icon' src={DeleteIcon} alt='delete' />
                                         </div>
                                     </div>
@@ -50,7 +51,7 @@ class UsersList extends Component {
                                     <div className='user' key={i + teacher}>
                                         <p>{teacher.user_name}</p>
                                         <div className='icons'>
-                                            <img className='icon' src={EditIcon} alt='edit' />
+                                        <Link to={`/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
                                             <img className='icon' src={DeleteIcon} alt='delete' />
                                         </div>
                                     </div>
