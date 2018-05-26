@@ -41,13 +41,16 @@ passport.use(new Auth0Strategy({
     callbackURL: CALLBACK_URL,
     scope: 'openid profile'
 }, (accessToken, refreshToken, extraParams, profile, done) => {
-   let {displayName, picture, id } = profile
+    let { displayName, picture, id } = profile
+    let { givenName } = profile.name
+    let { familyName } = profile.name
+    console.log(givenName)
     app.get('db').find_user([id]).then(foundUser => {
         if (foundUser[0]) {
             console.log(foundUser[0].user_id)
             done(null, foundUser[0].user_id)
         } else {
-            app.get('db').create_user([displayName, picture, id]).then(user => {
+            app.get('db').create_user([displayName, picture, id, givenName, familyName]).then(user => {
                 console.log(user[0].user_id)
                 done(null, user[0].user_id)
             })
@@ -56,7 +59,7 @@ passport.use(new Auth0Strategy({
 }))
 
 passport.serializeUser((user_id, done) => {
-    done(null, user_id) 
+    done(null, user_id)
 })
 
 passport.deserializeUser((user_id, done) => {
@@ -69,21 +72,21 @@ passport.deserializeUser((user_id, done) => {
 
 app.get('/login', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    
+
     successRedirect: '/checkadmin',
     failureRedirect: '/login'
 }))
 
-app.get('/checkadmin', function(req, res) {
-    if(req.user.type === 'teacher'){
+app.get('/checkadmin', function (req, res) {
+    if (req.user.type === 'teacher') {
         res.redirect('http://localhost:3000/#/dailyview')
     } else {
         res.redirect('http://localhost:3000/#/adminlanding')
     }
 })
 
-app.get('/auth/me', function(req, res ) {
-    if(req.user) {
+app.get('/auth/me', function (req, res) {
+    if (req.user) {
         console.log(req.user)
         res.status(200).send(req.user)
     } else {
