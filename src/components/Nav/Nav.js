@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import menu from './arq-menu-512.png';
-import './Nav.css'
+import './Nav.css';
+import { Link } from 'react-router-dom';
 
 
 class Nav extends Component {
@@ -31,6 +32,7 @@ class Nav extends Component {
                     <img className='dropDown' src={menu} onClick={() => this.toggleMenu()} alt='menu'/>
                 </div>
                 <div className={(this.state.menuVis === true) ? 'menuVis' : ' menuInvis'}>
+                    <a href={`/#/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='menuOption'>PROFILE</p></a>
                     <p className='menuOption'>SCHEDULE</p>
                     <p className='menuOption'>LOGOUT</p>
                     <p className='menuOption'>SETTINGS</p>

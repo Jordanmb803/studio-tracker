@@ -44,14 +44,11 @@ passport.use(new Auth0Strategy({
     let { displayName, picture, id } = profile
     let { givenName } = profile.name
     let { familyName } = profile.name
-    console.log(givenName)
     app.get('db').find_user([id]).then(foundUser => {
         if (foundUser[0]) {
-            console.log(foundUser[0].user_id)
             done(null, foundUser[0].user_id)
         } else {
             app.get('db').create_user([displayName, picture, id, givenName, familyName]).then(user => {
-                console.log(user[0].user_id)
                 done(null, user[0].user_id)
             })
         }
