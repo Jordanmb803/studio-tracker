@@ -36,7 +36,7 @@ class UpdateCourseRoll extends Component {
                         )
                     })
                 }
-                <button>Update Roll</button>
+                <Link to='/courses'><button>Update Roll</button></Link>
 
             </div>
         )
