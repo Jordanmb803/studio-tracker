@@ -6,6 +6,7 @@ import './Courses.css';
 import editIcon from './edit-icon.png';
 import deleteIcon from './delete-icon.png';
 import axios from 'axios';
+import addIcon from './add-icon.png';
 
 class Courses extends Component {
     constructor() {
@@ -42,6 +43,7 @@ class Courses extends Component {
                             <p>teacher: {course.teacher}</p>
                             <Link to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon'/></Link>
                             <img onClick={()=> this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons' alt='delete Icon'/>
+                           <Link to={`/update/courseroll/${course.title}/${course.class_id}`}><img alt='add roll' src={addIcon} className='deleteEditIcons'/></Link>
                         </div>
                     )
                 })}

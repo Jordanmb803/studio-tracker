@@ -72,5 +72,19 @@ module.exports = {
     deleteUser: (req, res) => {
         const { user_id } = req.params
         req.app.get('db').delete_user([user_id]).then(ok => res.sendStatus(200))
+    },
+    registerUserInClass: (req, res) => {
+        const { user_id, class_id } = req.params
+        req.app.get('db').register_user_in_class([user_id, class_id])
+            .then(ok => {
+                res.sendStatus(200)
+            })
+    },
+    removeUserFromCourse: (req, res ) => {
+        const {user_id, class_id} = req.params
+        req.app.get('db').remove_user_from_course([user_id, class_id])
+            .then(ok => {
+                res.sendStatus(200)
+            })
     }
 }
