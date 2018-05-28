@@ -25,7 +25,7 @@ class DailyView extends Component {
 
         return (
             <div className='dailyView'>
-                <h3>{this.props.user.user_name}'s Schedule</h3>
+                <h3 id='teacherName'>{this.props.user.user_name}'s Schedule</h3>
 
                 <DatePicker className='datePicker' value={today} onChange={e => this.props.changeDate(e)} />
 
