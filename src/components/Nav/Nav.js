@@ -24,11 +24,11 @@ class Nav extends Component {
             <div className='navWithMenu'>
                 <div className='nav'>
                     <div className='picTitle'>
-                        {/* <a className='profileATag' href='/#/dailyview'><img id='profileImg' src={this.props.user.profile_picture} alt='prof_pic' /></a> */}
-                        <div className='headerTitles'>
+                        {/* <img id='profileImg' src={this.props.user.profile_picture} alt='prof_pic' /> */}
+                        <a className='dailyviewATag' href='/#/dailyview'><div className='headerTitles'>
                             <h1>CENTER STAGE</h1>
                             <h3 className='navH3'>PERFORMING ARTS STUDIO</h3>
-                        </div>
+                        </div></a>
                     </div>
                     <img className='dropDown' src={menu} onClick={() => this.toggleMenu()} alt='menu' />
                 </div>

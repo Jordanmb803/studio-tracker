@@ -26,6 +26,12 @@
     height: 80px;
 }
 
+.dailyviewATag {
+    text-decoration: none;
+    color: white;
+    margin: 0;
+}
+
 #profileImg {
     border-radius: 360%;
     background: white;
@@ -34,7 +40,7 @@
     height: 100%;
 }
 
-h1{
+h1 {
     margin: 0 0 0 5px;
     width: 100%;
     font-size: 27px;
