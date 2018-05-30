@@ -42,7 +42,7 @@ class UpdateCourseRoll extends Component {
 
                 {
                     this.props.users.filter(user => {
-                        return !usersInCourse.includes(user.user_id)
+                        return !usersInCourse.includes(user.user_id) && user.type === 'student'
                     }).map(student => {
                         return (
                             <div>
