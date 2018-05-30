@@ -66,7 +66,7 @@ class CreateCourse extends Component {
                     <option value='9am'>9am</option>
                     <option value='10am'>10am</option>
                     <option value='11am'>11am</option>
-                    <option value='12am'>12pm</option>
+                    <option value='12pm'>12pm</option>
                     <option value='1pm'>1pm</option>
                     <option value='2pm'>2pm</option>
                     <option value='3pm'>3pm</option>
