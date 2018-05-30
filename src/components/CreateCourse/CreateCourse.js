@@ -11,7 +11,7 @@ class CreateCourse extends Component {
             length: 0,
             dayOfWeek: '',
             time: '',
-            teacherName: '',
+            teacher_id: 0,
             users: []
         }
         this.componentDidMount = this.componentDidMount.bind(this)
@@ -30,8 +30,8 @@ class CreateCourse extends Component {
     createCourse() {
         const classNumber = Number(this.state.classNumber)
         const length = Number(this.state.length)
-        const { classTitle, dayOfWeek, time, teacherName } = this.state
-        axios.post('/createcourse', { classNumber, classTitle, length, dayOfWeek, time, teacherName }).then(() => {
+        const { classTitle, dayOfWeek, time, teacher_id } = this.state
+        axios.post('/createcourse', { classNumber, classTitle, length, dayOfWeek, time, teacher_id }).then(() => {
             console.log('we made it')
         })
     }
@@ -83,7 +83,7 @@ class CreateCourse extends Component {
                         return user.type === 'teacher'
                     }).map((teacher, i) => {
                         return (<div key={i + teacher} >
-                            <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} />
+                            <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacher_id: teacher.user_id })} />
                             <p className='teacherName'>{teacher.user_name}</p>
                         </div>
                         )
