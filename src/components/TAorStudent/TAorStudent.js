@@ -27,7 +27,7 @@ class TAorStudent extends Component {
     }
 
     render() {
-        console.log(this.props)
+
         return (
             <div>
                 <label for='inCourseCheckBox'>Student: {this.props.user_name}</label>

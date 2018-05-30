@@ -11,8 +11,11 @@ class UpdateCourseRoll extends Component {
         super()
         this.state = {
             search: '',
-            roll: []
+            roll: [],
+            usersInCourse: [],
+            usersNotInCourse: []
         }
+        this.resetUsersInCourse = this.resetUsersInCourse.bind(this)
     }
 
     componentDidMount() {
@@ -21,28 +24,40 @@ class UpdateCourseRoll extends Component {
             this.setState({
                 roll: res.data
             })
+            let tempUsersInCourse = []
+            let tempUsersNotInCourse = []
+            let usersInThisCourse = this.state.roll.forEach(reg => {
+                if (reg.class_id === Number(this.props.match.params.class_id)) {
+                    tempUsersInCourse.push(reg.user_id)
+                    this.setState({
+                        usersInCourse: tempUsersInCourse
+                    })
+                } else {
+                    tempUsersNotInCourse.push(reg.user_id)
+                    this.setState({
+                        usersNotInCourse: tempUsersNotInCourse
+                    })
+                }
+            })
+        })
+    }
+
+    resetUsersInCourse() {
+        this.setState({
+            usersInCourse: []
         })
     }
 
 
-
     render() {
-        let usersInCourse = []
-        let usersInThisCourse = this.state.roll.forEach(reg => {
-            if (reg.class_id === Number(this.props.match.params.class_id)) {
-                usersInCourse.push(reg.user_id)
-                console.log(usersInCourse)
-            } else {
-                console.log(usersInCourse)
-            }
-        })
+        console.log(this.state.usersInCourse)
         return (
             <div className='UpdateCourseRoll'>
                 <input />
 
                 {
                     this.props.users.filter(user => {
-                        return !usersInCourse.includes(user.user_id) && user.type === 'student'
+                        return !this.state.usersInCourse.includes(user.user_id) && user.type === 'student'
                     }).map(student => {
                         return (
                             <div>
@@ -56,7 +71,7 @@ class UpdateCourseRoll extends Component {
                         )
                     })
                 }
-                <Link to='/courses'><button>Update Roll</button></Link>
+                <Link to='/courses'><button onClick={() => this.resetUsersInCourse()}>Update Roll</button></Link>
 
             </div>
         )

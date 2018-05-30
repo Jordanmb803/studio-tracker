@@ -54,6 +54,7 @@ class CourseList extends Component {
         let displayStudent = this.state.courseRoll.filter(course => {
             return course.class_id === Number(this.props.match.params.classid)
         }).map((student, i) => {
+            console.log(student.user_id, student.class_id)
             return (
                 <div className={this.state.visable ? 'visable' : 'invisable'} key={student + i}>
                     <Student user_name={student.user_name}
