@@ -15,6 +15,7 @@ import UsersList from './components/UsersList/UsersList';
 import EditUser from './components/EditUser/EditUser';
 import CreateUser from './components/CreateUser/CreateUser';
 import UpdateCourseRoll from './components/UpdateCourseRoll/UpdateCourseRoll';
+import RemoveUserFromRoll from './components/RemoveUserFromRoll/RemoveUserFromRoll';
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
             <Route path='/edituser/:user_name/:user_id' component={EditUser} />
             <Route path='/admin/createuser' component={CreateUser} />
             <Route path='/update/courseroll/:course/:class_id' component={UpdateCourseRoll} />
+            <Route path='/update/removeuser/courseroll/:course/:class_id' component={RemoveUserFromRoll} />
           </Switch>
         </HashRouter>
       </div>
