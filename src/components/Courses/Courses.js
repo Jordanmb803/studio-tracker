@@ -25,6 +25,10 @@ class Courses extends Component {
             console.log('table delete')
             this.componentDidMount()
         })
+        axios.delete(`/register/deleteclassregistrations/${class_id}`).then(res => {
+            console.log('registrations deleted')
+        })
+
     }
 
     render() {

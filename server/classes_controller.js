@@ -80,11 +80,19 @@ module.exports = {
                 res.sendStatus(200)
             })
     },
-    removeUserFromCourse: (req, res ) => {
-        const {user_id, class_id} = req.params
+    removeUserFromCourse: (req, res) => {
+        const { user_id, class_id } = req.params
         req.app.get('db').remove_user_from_course([user_id, class_id])
             .then(ok => {
                 res.sendStatus(200)
             })
+    },
+    deleteClassRegistration: (req, res) => {
+        const { class_id } = req.params
+        req.app.get('db').delete_class_registeration([class_id])
+            .then(ok => {
+                res.sendStatus(200)
+            })
     }
+
 }

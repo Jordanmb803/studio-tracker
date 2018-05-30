@@ -100,6 +100,7 @@ app.delete('/deletecourse/:class_id', classController.deleteCourse)
 app.get('/courseroll', classController.courseRoll)
 app.post('/register/userinclass/:user_id/:class_id', classController.registerUserInClass)
 app.delete('/register/removeuserfromclass/:user_id/:class_id', classController.removeUserFromCourse)
+app.delete('/register/deleteclassregistrations/:class_id', classController.deleteClassRegistration)
 
 // Hours Endpoints
 app.post('/inputhours', classController.inputHours)
