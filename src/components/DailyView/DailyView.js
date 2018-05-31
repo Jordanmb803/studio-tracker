@@ -4,6 +4,10 @@ import './DailyView.css';
 import { getUser, getCourses, changeDate } from '../../ducks/user';
 import DatePicker from 'react-date-picker';
 import { Link } from 'react-router-dom';
+import leftArrow from './left-arrow.png';
+import rightArrow from './right-arrow.png';
+import moment from 'moment';
+
 
 class DailyView extends Component {
     constructor() {
@@ -12,6 +16,8 @@ class DailyView extends Component {
             days: ['S', 'M', 'T', 'W', 'TH', 'F', 'SAT']
         }
         this.componentDidMount = this.componentDidMount.bind(this)
+        this.yesterday = this.yesterday.bind(this)
+        this.tomorrow = this.tomorrow.bind(this)
     }
 
     componentDidMount() {
@@ -19,6 +25,22 @@ class DailyView extends Component {
         this.props.getCourses()
     }
 
+    yesterday() {
+        let momentToday = moment(this.props.today)
+        let yesterday = momentToday.clone().subtract(1, 'day').format('MM DD, YYYY')
+
+        let yesterdaysDate = new Date(yesterday)
+        this.props.changeDate(yesterdaysDate)
+    }
+
+    tomorrow() {
+        let momentToday = moment(this.props.today)
+        let tomorrow = momentToday.clone().add(1, 'day').format('MM DD, YYYY')
+
+        let tomorrowsDate = new Date(tomorrow)
+        this.props.changeDate(tomorrowsDate)
+
+    }
 
     render() {
         let { today } = this.props
@@ -27,7 +49,9 @@ class DailyView extends Component {
             <div className='dailyView'>
                 <h3 id='teacherName'>{this.props.user.user_name}'s Schedule</h3>
                 <div className='datePickerDiv'>
+                    <img className='dateToggle' alt='left arrow' src={leftArrow} onClick={() => this.yesterday()} />
                     <DatePicker className='datePicker' value={today} onChange={e => this.props.changeDate(e)} />
+                    <img className='dateToggle' alt='right arrow' src={rightArrow} onClick={() => this.tomorrow()} />
                 </div>
                 <div className='schedule'>
                     <div className='classTime'> <p className='scheduleLab'>9am:</p>{this.props.danceCourses.filter(course => {
