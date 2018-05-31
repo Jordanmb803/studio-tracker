@@ -105,6 +105,7 @@ app.delete('/register/deleteclassregistrations/:class_id', classController.delet
 // Hours Endpoints
 app.post('/inputhours', classController.inputHours)
 app.delete('/deleteinput/:userid/:class_id/:date', classController.deleteHours)
+app.post('/hours/attendance', classController.getAttendance)
 
 // User Endpoints
 app.get('/getallusers', classController.getAllUsers)

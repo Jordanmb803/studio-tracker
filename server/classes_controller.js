@@ -93,6 +93,13 @@ module.exports = {
             .then(ok => {
                 res.sendStatus(200)
             })
+    },
+    getAttendance: ( req, res ) => {
+        const {firstDate, secondDate, user} = req.body
+        req.app.get('db').get_hours([firstDate, secondDate, user])
+            .then( hours => {
+                res.status(200).send(hours)
+            })
     }
 
 }
