@@ -50,7 +50,7 @@ class DailyView extends Component {
                 <h3 id='teacherName'>{this.props.user.user_name}'s Schedule</h3>
                 <div className='datePickerDiv'>
                     <img className='dateToggle' alt='left arrow' src={leftArrow} onClick={() => this.yesterday()} />
-                    <DatePicker className='datePicker' value={today} onChange={e => this.props.changeDate(e)} />
+                    <DatePicker calendarClassName='datePicker' value={today} onChange={e => this.props.changeDate(e)} />
                     <img className='dateToggle' alt='right arrow' src={rightArrow} onClick={() => this.tomorrow()} />
                 </div>
                 <div className='schedule'>
