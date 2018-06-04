@@ -108,6 +108,7 @@ app.delete('/deleteinput/:userid/:class_id/:date', classController.deleteHours)
 app.post('/hours/attendance', classController.getAttendance)
 app.post('/hours/teachers', classController.getTeachersHours)
 app.post('/hours/teachers/total', classController.getTeachersTotalHours)
+app.get('/hours/checkrollsubmission/:date/:class_id', classController.rollSubmittedPreviouslyCheck)
 
 // User Endpoints
 app.get('/getallusers', classController.getAllUsers)

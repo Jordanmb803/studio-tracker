@@ -114,6 +114,13 @@ module.exports = {
             .then(totHours => {
                 res.status(200).send(totHours)
             })
+    },
+    rollSubmittedPreviouslyCheck: (req, res) => {
+        const {date, class_id} = req.params
+        req.app.get('db').roll_submitted([date, class_id])
+            .then(roll => {
+                res.status(200).send(roll)
+            })
     }
 
 }

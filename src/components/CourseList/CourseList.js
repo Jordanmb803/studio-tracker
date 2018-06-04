@@ -19,12 +19,29 @@ class CourseList extends Component {
 
     componentDidMount() {
         let { today } = this.props
-        axios.get('/courseroll').then(res => {
-            this.setState({
-                courseRoll: res.data,
-                date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+        let date = `'${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}'`
+        let class_id = this.props.match.params.classid
+
+        console.log(date, class_id)
+        axios.get(`/hours/checkrollsubmission/${date}/${class_id}`).then(res => {
+            console.log(res.data.length)
+            if (res.data.length > 0) {
+                this.setState({
+                    visable: false
+                })
+            } else {
+                this.setState({
+                    visable: true
+                })
+            }
+            axios.get('/courseroll').then(res => {
+                this.setState({
+                    courseRoll: res.data,
+                    date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+                })
             })
         })
+
     }
 
     postHours() {
