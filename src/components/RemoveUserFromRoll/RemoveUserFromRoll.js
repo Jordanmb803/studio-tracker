@@ -37,9 +37,9 @@ class RemoveUserFromRoll extends Component {
                 {
                     this.props.users.filter(user => {
                         return this.state.usersInCourse.includes(user.user_id) && user.type === 'student'
-                    }).map(student => {
+                    }).map((student, i) => {
                         return (
-                            <div>
+                            <div key={student + i}>
                               < MinusTAorStudent 
                                   user_name={student.user_name}
                                   type={student.type}

@@ -41,6 +41,7 @@ class EditCourse extends Component {
         const { classNumber, classTitle, length, dayOfWeek, time, teacherName } = this.state
         axios.put('/editcourse', { classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id }).then(res => {
             console.log('update course')
+            this.props.history.push('/adminlanding/courses')
         })
     }
 
