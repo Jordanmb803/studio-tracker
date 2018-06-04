@@ -78,19 +78,19 @@ class TrackHours extends Component {
                                 <p className='date'>{teacher.date}</p>
                                 <div className='classInfoDiv'>
                                     <div className='info'>
-                                        <p>ID: </p>
+                                        <p id='label'>ID: </p>
                                         <p>{teacher.user_id}</p>
                                     </div>
                                     <div className='info'>
-                                        <p>Teacher: </p>
+                                        <p id='label'>Teacher: </p>
                                         <p>{teacher.user_name}</p>
                                     </div>
                                     <div className='info'>
-                                        <p>Class: </p>
+                                        <p id='label'>Class: </p>
                                         <p>{teacher.title}</p>
                                     </div>
                                     <div className='info'>
-                                        <p>Length: </p>
+                                        <p id='label'>Length: </p>
                                         <p>{teacher.length}</p>
                                     </div>
                                 </div>

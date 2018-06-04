@@ -25,6 +25,8 @@ html {
     box-sizing: border-box;
     justify-content: flex-start;
     flex-direction: row;
+    margin-bottom: 40px;
+
 }
 
 .dateTitleCol{
@@ -90,5 +92,9 @@ html {
 #totalHours {
     margin-top: 50px;
     text-align: right;
+    font-weight: bold;
+}
+
+#label {
     font-weight: bold;
 }
