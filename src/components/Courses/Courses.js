@@ -34,26 +34,51 @@ class Courses extends Component {
 
     render() {
         return (
-            <div className='Courses'>
-            <h2>Center Stage Class List</h2>
+            <div className='TrackHours'>
+                <h2>Center Stage Class List</h2>
+<Link id='createCourseBut' to='/createcourse'><button id='ccButton'>Create New Course</button></Link>
                 {this.props.danceCourses.map((course, i) => {
                     return (
-                        <div className='courseBreakDown' key={course + i}>
-                            <h3>{course.title}</h3>
-                            <p>id: {course.class_id}</p>
-                            <p>#: {course.class_num}</p>
-                            <p>minutes: {course.length}</p>
-                            <p>day: {course.day}</p>
-                            <p>time: {course.time}</p>
-                            <p>teacher: {course.teacher}</p>
-                            <Link to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon'/></Link>
-                            <img onClick={()=> this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons' alt='delete Icon'/>
-                           <Link to={`/update/courseroll/${course.title}/${course.class_id}`}><img alt='add roll' src={addIcon} className='deleteEditIcons'/></Link>
-                            <Link to={`update/removeuser/courseroll/${course.title}/${course.class_id}`}><img alt ='minus roll' src={minusIcon} className='deleteEditIcons'/></Link>
+                        <div className='classTaughtDiv' key={course + i}>
+                           <div id='courseTitle' className='editClassDiv date'>
+                            <h3 className='classHeader'>{course.title}</h3>
+                                <div className='iconsDiv'>
+                                    <Link id='iconATag' to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon' /></Link>
+                                    <img onClick={() => this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons' alt='delete Icon' />
+                                    <Link id='iconATag' to={`/update/courseroll/${course.title}/${course.class_id}`}><img alt='add roll' src={addIcon} className='deleteEditIcons' /></Link>
+                                    <Link id='iconATag' to={`update/removeuser/courseroll/${course.title}/${course.class_id}`}><img alt='minus roll' src={minusIcon} className='deleteEditIcons' /></Link>
+                                </div>
+                            </div>
+                            <div className='classInfoDiv'>
+                                <div id='info'>
+                                    <p id='label'>ID </p>
+                                    <p>{course.class_id}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Class #:</p>
+                                    <p>{course.class_num}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Length</p>
+                                    <p>{course.length}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Day: </p>
+                                    <p>{course.day}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Time: </p>
+                                    <p>{course.time}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Teacher: </p>
+                                    <p>{course.teacher}</p>
+                                </div>
+                            </div>
                         </div>
+
                     )
                 })}
-                <Link to='/createcourse'><button>Create New Course</button></Link>
             </div>
         )
     }

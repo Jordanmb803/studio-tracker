@@ -62,9 +62,10 @@ html {
 .classTaughtDiv{
     display: flex;
     flex-direction: column;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     border-radius: 10px;
+    height: 70px;
 }
 
 .react-date-picker__button {
