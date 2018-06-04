@@ -51,34 +51,49 @@ class TrackHours extends Component {
                 <div className='dateSelectorDiv'>
                     <div className='dateTitleCol'>
                         <p>From: </p><DatePicker className='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
+                        <select className='selectTeacher' onChange={e => this.setState({ user: e.target.value })}>
+                            <option value=''>Teacher</option>
+                            {
+                                this.props.users.filter(user => {
+                                    return user.type === 'teacher'
+                                }).map((teacher, i) => {
+                                    return (
+                                        <option key={teacher.user_id + i} value={teacher.user_id} >{teacher.user_name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                     <div className='dateTitleCol'>
                         <p>To: </p><DatePicker className='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
+                        <button className='searchButton' onClick={() => this.searchHours()}>Search</button>
                     </div>
                 </div>
-                <select className='selectTeacher' onChange={e => this.setState({ user: e.target.value })}>
-                    <option value=''>Teacher</option>
-                    {
-                        this.props.users.filter(user => {
-                            return user.type === 'teacher'
-                        }).map((teacher, i) => {
-                            return (
-                                <option key={teacher.user_id + i} value={teacher.user_id} >{teacher.user_name}</option>
-                            )
-                        })
-                    }
-                </select>
-                <button onClick={() => this.searchHours()}>Search</button>
                 {
-                    this.state.hours.map( (teacher, i) => {
+                    this.state.hours.map((teacher, i) => {
 
                         return (
-                            <div key={teacher + i}>
-                                <p>{teacher.date}</p>
-                                <p>{teacher.user_id}</p>
-                                <p>{teacher.user_name}</p>
-                                <p>{teacher.title}</p>
-                                <p>{teacher.length}</p>
+                            <div className='classTaughtDiv' key={teacher + i}>
+
+                                <p className='date'>{teacher.date}</p>
+                                <div className='classInfoDiv'>
+                                    <div className='info'>
+                                        <p>ID: </p>
+                                        <p>{teacher.user_id}</p>
+                                    </div>
+                                    <div className='info'>
+                                        <p>Teacher: </p>
+                                        <p>{teacher.user_name}</p>
+                                    </div>
+                                    <div className='info'>
+                                        <p>Class: </p>
+                                        <p>{teacher.title}</p>
+                                    </div>
+                                    <div className='info'>
+                                        <p>Length: </p>
+                                        <p>{teacher.length}</p>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })
@@ -88,7 +103,7 @@ class TrackHours extends Component {
                     this.state.total.map((total, i) => {
                         return (
                             <div key={total + i}>
-                                <p>Total Hours: {total.sum}</p>
+                                <p id='totalHours'>Total Hours: {total.sum}</p>
                             </div>
                         )
                     })

@@ -1,12 +1,16 @@
-
+html {
+    width: 100%;
+    height: 100vh;
+}
 
 .TrackHours {
-    padding-top: 150px;
+    margin-top: 25px;
     padding-left: 10px;
     padding-right: 10px;
-    height: 60vh;
+    height: 100vh;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .thHeader {
@@ -31,7 +35,7 @@
 .datePickerTH {
     position: relative;
     z-index: 4;
-    margin: 8px;
+    margin: 8px 8px 8px 0;
 }
 
 .selectTeacher{
@@ -39,8 +43,52 @@
     margin-top: 5px;
     margin-bottom: 5px;
     width: 156px;
+    border: black solid 2px;
+}
+
+.searchButton{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: black solid 2px;
+    background: black;
+    color: white;
+    height: 30px;
+    border-radius: 5px;
+    width: 156px;
+}
+
+.classTaughtDiv{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
 }
 
 .react-date-picker__button {
     position: relative;
+}
+
+.date {
+    background: lightgray;
+    border-radius: 0 8px 0 0;
+}
+
+.classInfoDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+#totalHours {
+    margin-top: 50px;
+    text-align: right;
+    font-weight: bold;
 }

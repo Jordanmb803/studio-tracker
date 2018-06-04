@@ -9,7 +9,7 @@ import UsersList from '../UsersList/UsersList';
 class AdminLanding extends Component {
     render() {
         return (
-            <div >
+            <div className='adminLandingRoutes' >
                 <div className='adminLanding'>
                     <Link className='adminLinks' to='/adminlanding/trackhours'><button className='adminOption'>Hours</button></Link>
                     <Link className='adminLinks' to='/adminlanding/trackattendance'><button className='adminOption'>Attendance</button></Link>
