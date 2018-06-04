@@ -30,51 +30,68 @@ class EditCourse extends Component {
     }
 
     editCourse() {
-        let teacherID = this.state.users.filter( user => {
+        let teacherID = this.state.users.filter(user => {
             return user.user_name === this.state.teacherName && user.type === 'teacher'
         }).map(teacher => {
             return teacher.user_id
         })
-        console.log(teacherID)
         const teacher_id = teacherID[0]
         const { classid } = this.props.match.params
         const { classNumber, classTitle, length, dayOfWeek, time, teacherName } = this.state
         axios.put('/editcourse', { classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id }).then(res => {
-            console.log('update course')
             this.props.history.push('/adminlanding/courses')
         })
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className='EditCourse'>
-                {this.props.match.params.course}
+                <div className='classTaughtDiv' id='previosInfo'>
+                    <h3 className='courseTitle'>{this.props.match.params.course}</h3>
 
-                {this.props.danceCourses.filter(course => {
-                    return course.class_id === Number(this.props.match.params.classid)
-                }).map(course => {
-                    return (
-                    <div>
-                        <p>id: {course.class_id}</p>
-                        <p>#: {course.class_num}</p>
-                        <p>minutes: {course.length}</p>
-                        <p>day: {course.day}</p>
-                        <p>time: {course.time}</p>
-                        <p>teacher: {course.teacher}</p>
-                    </div>
-               )
-                })
-                }
-                <div>
-                    <input placeholder='Class Title' onChange={e => this.setState({ classTitle: e.target.value })} />
-                    <input placeholder='Class Number' onChange={e => this.setState({ classNumber: e.target.value })} />
-                    <select className='courseInput' onChange={e => this.setState({ length: e.target.value })} name='length' form='length'>
+                    {this.props.danceCourses.filter(course => {
+                        return course.class_id === Number(this.props.match.params.classid)
+                    }).map( (course, i) => {
+                        return (
+                            <div key={course + i} className='classInfoDiv'>
+                                <div id='info'>
+                                    <p id='label'>ID </p>
+                                    <p>{course.class_id}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Class # </p>
+                                    <p>{course.class_num}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Length</p>
+                                    <p>{course.length}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Day </p>
+                                    <p>{course.day}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Time</p>
+                                    <p>{course.time}</p>
+                                </div>
+                                <div id='info'>
+                                    <p id='label'>Teacher</p>
+                                    <p>{course.teacher}</p>
+                                </div>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+                <div className='newInfo'>
+                    <input className='newInfoInput' placeholder='Class Title' onChange={e => this.setState({ classTitle: e.target.value })} />
+                    <input className='newInfoInput' placeholder='Class Number' onChange={e => this.setState({ classNumber: e.target.value })} />
+                    <select className='newInfoInput' onChange={e => this.setState({ length: e.target.value })} name='length' form='length'>
                         <option value=''>Select Class Length</option>
                         <option value='60'>1 Hour</option>
                         <option value='90'>1.5 Hours</option>
                     </select>
-                    <select className='courseInput' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
+                    <select className='newInfoInput' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
                         <option value=''>Select Day</option>
                         <option value='S'>Sunday</option>
                         <option value='M'>Monday</option>
@@ -85,7 +102,7 @@ class EditCourse extends Component {
                         <option value='SAT'>Saturday</option>
                     </select>
 
-                    <select className='courseInput' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
+                    <select className='newInfoInput' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
                         <option value=''>Select Time</option>
                         <option value='9am'>9am</option>
                         <option value='10am'>10am</option>
@@ -106,10 +123,11 @@ class EditCourse extends Component {
                         {this.state.users.filter(user => {
                             return user.type === 'teacher'
                         }).map((teacher, i) => {
-                            return (<div key={i + teacher} >
-                                <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} />
-                                <p className='teacherName'>{teacher.user_name}</p>
-                            </div>
+                            return (
+                                <div key={i + teacher} >
+                                    <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} />
+                                    <p className='teacherName'>{teacher.user_name}</p>
+                                </div>
                             )
                         })
                         }

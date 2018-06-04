@@ -1,3 +1,20 @@
 .EditCourse{
     padding-top: 100px;
 }
+
+.courseTitle {
+    background: lightgray;
+    border-radius: 0 5px 0 0;
+    text-align: left;
+    padding-left: 10px;
+    margin: 0;
+}
+
+#previosInfo{
+    padding: 5px;
+}
+
+.newInfo{
+    display: flex;
+    flex-direction: column;
+}
