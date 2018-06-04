@@ -43,11 +43,11 @@ class TrackAttendance extends Component {
         console.log(this.state)
         return (
             <div className='TrackHours'>
-                <h1 className='thHeader'>Track Attendance</h1>
+                <h1 className='thHeader'>Student Attendance</h1>
                 <div className='dateSelectorDiv'>
                     <div className='dateTitleCol'>
                         <p>From: </p>
-                        <DatePicker className='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
+                        <DatePicker calendarClassName='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
                         <select className='selectTeacher' onChange={e => this.setState({ user: e.target.value })}>
                             <option value='' >Student</option>
                             {
@@ -63,7 +63,7 @@ class TrackAttendance extends Component {
                     </div>
                     <div className='dateTitleCol'>
                         <p>To:</p>
-                        <DatePicker className='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
+                        <DatePicker calendarClassName='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
                         <button className='searchButton' onClick={() => this.searchStudent()}>Search</button>
                     </div>
                 </div>

@@ -46,11 +46,11 @@ class TrackHours extends Component {
     render() {
         return (
             <div className='TrackHours'>
-                <h1 className='thHeader'>Track Hours</h1>
+                <h1 className='thHeader'>Employee Hours</h1>
 
                 <div className='dateSelectorDiv'>
                     <div className='dateTitleCol'>
-                        <p>From: </p><DatePicker className='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
+                        <p>From: </p><DatePicker calendarClassName='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
                         <select className='selectTeacher' onChange={e => this.setState({ user: e.target.value })}>
                             <option value=''>Teacher</option>
                             {
@@ -65,7 +65,7 @@ class TrackHours extends Component {
                         </select>
                     </div>
                     <div className='dateTitleCol'>
-                        <p>To: </p><DatePicker className='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
+                        <p>To: </p><DatePicker calendarClassName='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
                         <button className='searchButton' onClick={() => this.searchHours()}>Search</button>
                     </div>
                 </div>
