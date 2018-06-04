@@ -24,8 +24,8 @@ module.exports = {
             .then(ok => res.sendStatus(200))
     },
     deleteHours: (req, res) => {
-        const { userid, class_id, date } = req.params
-        req.app.get('db').delete_hours_input([userid, class_id, date])
+        const { class_id, date } = req.params
+        req.app.get('db').delete_hours_input([class_id, date])
             .then(ok => res.sendStatus(200))
     },
     getAllUsers: (req, res) => {

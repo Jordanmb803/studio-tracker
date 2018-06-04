@@ -10,8 +10,7 @@ class CourseList extends Component {
         this.state = {
             courseRoll: [],
             date: '',
-            visable: true,
-            redirect: false
+            visable: true
         }
         this.postHours = this.postHours.bind(this)
         this.deleteHours = this.deleteHours.bind(this)
@@ -22,9 +21,7 @@ class CourseList extends Component {
         let date = `'${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}'`
         let class_id = this.props.match.params.classid
 
-        console.log(date, class_id)
         axios.get(`/hours/checkrollsubmission/${date}/${class_id}`).then(res => {
-            console.log(res.data.length)
             if (res.data.length > 0) {
                 this.setState({
                     visable: false
@@ -52,14 +49,14 @@ class CourseList extends Component {
             this.setState({
                 visable: false,
             })
+            this.props.history.push('/dailyview')
         })
     }
 
     deleteHours() {
         const class_id = this.props.match.params.classid
-        const user_id = this.props.match.params.userid
         const { date } = this.state
-        axios.delete(`/deleteinput/${user_id}/${class_id}/${date}`).then(res => {
+        axios.delete(`/deleteinput/${class_id}/${date}`).then(res => {
             this.setState({
                 visable: true
             })
@@ -71,7 +68,6 @@ class CourseList extends Component {
         let displayStudent = this.state.courseRoll.filter(course => {
             return course.class_id === Number(this.props.match.params.classid)
         }).map((student, i) => {
-            console.log(student.user_id, student.class_id)
             return (
                 <div className={this.state.visable ? 'visable' : 'invisable'} key={student + i}>
                     <Student user_name={student.user_name}
