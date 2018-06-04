@@ -41,7 +41,7 @@ class EditUser extends Component {
                 <h3>{this.props.match.params.user_name}</h3>
                 {
                     this.props.users.filter(user => {
-                        return user.user_id == this.props.match.params.user_id
+                        return user.user_id === Number(this.props.match.params.user_id)
                     }).map((user, i) => {
                         return (
                             <div key={user + i}>

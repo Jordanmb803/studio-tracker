@@ -31,7 +31,7 @@ class EditCourse extends Component {
 
     editCourse() {
         let teacherID = this.state.users.filter( user => {
-            return user.user_name == this.state.teacherName && user.type == 'teacher'
+            return user.user_name === this.state.teacherName && user.type === 'teacher'
         }).map(teacher => {
             return teacher.user_id
         })
@@ -51,7 +51,7 @@ class EditCourse extends Component {
                 {this.props.match.params.course}
 
                 {this.props.danceCourses.filter(course => {
-                    return course.class_id == this.props.match.params.classid
+                    return course.class_id === Number(this.props.match.params.classid)
                 }).map(course => {
                     return (
                     <div>

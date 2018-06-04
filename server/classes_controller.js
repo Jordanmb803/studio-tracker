@@ -94,11 +94,25 @@ module.exports = {
                 res.sendStatus(200)
             })
     },
-    getAttendance: ( req, res ) => {
-        const {firstDate, secondDate, user} = req.body
+    getAttendance: (req, res) => {
+        const { firstDate, secondDate, user } = req.body
         req.app.get('db').get_hours([firstDate, secondDate, user])
-            .then( hours => {
+            .then(hours => {
                 res.status(200).send(hours)
+            })
+    },
+    getTeachersHours: (req, res) => {
+        const { firstDate, secondDate, user } = req.body
+        req.app.get('db').get_teachers_hours([firstDate, secondDate, user])
+            .then(hours => {
+                res.status(200).send(hours)
+            })
+    },
+    getTeachersTotalHours: (req, res) => {
+        const { firstDate, secondDate, user } = req.body
+        req.app.get('db').get_teachers_total_hours([firstDate, secondDate, user])
+            .then(totHours => {
+                res.status(200).send(totHours)
             })
     }
 

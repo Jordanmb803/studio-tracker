@@ -23,7 +23,7 @@ class UsersList extends Component {
 
     deleteUser(user_id) {
         axios.delete(`/user/deleteuser/${user_id}`).then(res => {
-            console.log('user deleted'),
+            console.log('user deleted')
             this.componentDidMount()
         })
     }

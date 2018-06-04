@@ -26,7 +26,7 @@ class UpdateCourseRoll extends Component {
             })
             let tempUsersInCourse = []
             let tempUsersNotInCourse = []
-            let usersInThisCourse = this.state.roll.forEach(reg => {
+            this.state.roll.forEach(reg => {
                 if (reg.class_id === Number(this.props.match.params.class_id)) {
                     tempUsersInCourse.push(reg.user_id)
                     this.setState({

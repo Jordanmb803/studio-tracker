@@ -77,7 +77,7 @@ app.get('/checkadmin', function (req, res) {
     if (req.user.type === 'teacher') {
         res.redirect('http://localhost:3000/#/dailyview')
     } else {
-        res.redirect('http://localhost:3000/#/adminlanding')
+        res.redirect('http://localhost:3000/#/adminlanding/trackhours')
     }
 })
 
@@ -106,6 +106,8 @@ app.delete('/register/deleteclassregistrations/:class_id', classController.delet
 app.post('/inputhours', classController.inputHours)
 app.delete('/deleteinput/:userid/:class_id/:date', classController.deleteHours)
 app.post('/hours/attendance', classController.getAttendance)
+app.post('/hours/teachers', classController.getTeachersHours)
+app.post('/hours/teachers/total', classController.getTeachersTotalHours)
 
 // User Endpoints
 app.get('/getallusers', classController.getAllUsers)
