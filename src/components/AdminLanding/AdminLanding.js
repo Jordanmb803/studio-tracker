@@ -5,39 +5,37 @@ import TrackHours from '../TrackHours/TrackHours';
 import TrackAttendance from '../TrackAttendance/TrackAttendance';
 import Courses from '../Courses/Courses';
 import UsersList from '../UsersList/UsersList';
+import { connect } from 'react-redux';
+import { changeActiveTab } from '../../ducks/user';
+
 
 
 class AdminLanding extends Component {
     constructor() {
         super()
         this.state = {
-            active: 0
+            activeTab: 0
         }
-        this.activeTab = this.activeTab.bind(this)
     }
 
-    activeTab(tabNum) {
-        this.setState({
-            active: tabNum
-        })
-    }
 
     render() {
-        console.log(this.state.active)
+        let { activeTab } = this.props
+        let { changeActiveTab } =this.props
         return (
             <div className='adminLandingRoutes' >
                 <div className='adminLanding'>
-                    <Link className='adminLinks' id={this.state.active === 0 ? 'active' : null} to='/adminlanding/trackhours'
-                        onClick={() => this.activeTab(0)}
+                    <Link className='adminLinks' id={activeTab === 0 ? 'active' : null} to='/adminlanding/trackhours'
+                        onClick={() => changeActiveTab(0)}
                     ><h3 className='adminOption'>Hours</h3></Link>
-                    <Link className='adminLinks' id={(this.state.active === 1) ? 'active' : null} to='/adminlanding/trackattendance'
-                        onClick={() => this.activeTab(1)}
+                    <Link className='adminLinks' id={(activeTab === 1) ? 'active' : null} to='/adminlanding/trackattendance'
+                        onClick={() => changeActiveTab(1)}
                     ><h3 className='adminOption'>Attendance</h3></Link>
-                    <Link className='adminLinks' id={(this.state.active === 2) ? 'active' : null} to='/adminlanding/courses'
-                        onClick={() => this.activeTab(2)}
+                    <Link className='adminLinks' id={(activeTab === 2) ? 'active' : null} to='/adminlanding/courses'
+                        onClick={() => changeActiveTab(2)}
                     ><h3 className='adminOption'>Classes</h3></Link>
-                    <Link className='adminLinks' id={(this.state.active === 3) ? 'active' : null} to='/adminlanding/userslist'
-                        onClick={() => this.activeTab(3)}
+                    <Link className='adminLinks' id={(activeTab === 3) ? 'active' : null} to='/adminlanding/userslist'
+                        onClick={() => changeActiveTab(3)}
                     ><h3 className='adminOption'>Users</h3></Link>
                 </div>
                 <div>
@@ -53,4 +51,10 @@ class AdminLanding extends Component {
     }
 }
 
-export default AdminLanding;
+function mapStateToProps(state) {
+    return {
+        activeTab: state.activeTab
+    }
+}
+
+export default connect(mapStateToProps, { changeActiveTab })(AdminLanding);

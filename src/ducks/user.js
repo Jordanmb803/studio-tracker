@@ -4,7 +4,8 @@ const initialState = {
     user: {},
     danceCourses: [],
     users: [],
-    today: new Date()
+    today: new Date(),
+    activeTab: 0
 }
 
 
@@ -13,6 +14,7 @@ const GET_USER = 'GET_USER'
 const GET_COURSES = 'GET_COURSES'
 const CHANGE_DATE = 'CHANGE_DATE'
 const GET_USERS = 'GET_USERS'
+const CHANGE_ACTIVE_TAB = 'CHANGE_ACTIVE_TAB'
 
 //MiddleWare
 const _FULFILLED = '_FULFILLED'
@@ -54,6 +56,13 @@ export function getUsers() {
     }
 }
 
+export function changeActiveTab(tabNum){
+    return {
+        type: CHANGE_ACTIVE_TAB,
+        payload: tabNum
+    }
+}
+
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER + _FULFILLED:
@@ -64,6 +73,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { today: action.payload })
         case GET_USERS + _FULFILLED:
             return Object.assign({}, state, { users: action.payload })
+        case CHANGE_ACTIVE_TAB:
+            return Object.assign({}, state, {activeTab: action.payload})
         default:
             return state
     }

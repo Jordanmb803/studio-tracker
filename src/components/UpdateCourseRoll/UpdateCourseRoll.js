@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './UpdateCourseRoll.css';
-import { getUsers } from '../../ducks/user';
+import { getUsers, changeActiveTab } from '../../ducks/user';
 import { connect } from 'react-redux';
 import TAorStudent from '../TAorStudent/TAorStudent';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class UpdateCourseRoll extends Component {
@@ -46,6 +45,8 @@ class UpdateCourseRoll extends Component {
         this.setState({
             usersInCourse: []
         })
+        this.props.changeActiveTab(2)
+        this.props.history.push('/adminlanding/courses')
     }
 
 
@@ -73,7 +74,9 @@ class UpdateCourseRoll extends Component {
                         )
                     })
                 }
-                <Link to='/courses'><button className='updateButton' id='enrollStudentsButton' onClick={() => this.resetUsersInCourse()}>Update Roll</button></Link>
+                
+                <button className='updateButton' id='enrollStudentsButton' onClick={() => this.resetUsersInCourse()}>Update Roll</button>
+    
 
             </div>
         )
@@ -81,8 +84,9 @@ class UpdateCourseRoll extends Component {
 }
 function mapStateToProps(state) {
     return {
-        users: state.users
+        users: state.users,
+        activeTab: state.activeTab
     }
 }
 
-export default connect(mapStateToProps, { getUsers })(UpdateCourseRoll);
+export default connect(mapStateToProps, { getUsers, changeActiveTab })(UpdateCourseRoll);

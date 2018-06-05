@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './RemoveUserFromRoll.css';
 import { connect } from 'react-redux';
-import { getUsers } from '../../ducks/user';
+import { getUsers, changeActiveTab } from '../../ducks/user';
 import axios from 'axios';
 import MinusTAorStudent from '../MinusTAorStudent/MinusTAorStudent';
+import { Link } from 'react-router-dom';
 
 class RemoveUserFromRoll extends Component {
     constructor() {
@@ -12,6 +13,7 @@ class RemoveUserFromRoll extends Component {
             roll: [],
             usersInCourse: []
         }
+        this.resetUsersInCourse = this.resetUsersInCourse.bind(this)
     }
 
     componentDidMount() {
@@ -30,26 +32,37 @@ class RemoveUserFromRoll extends Component {
         })
     }
 
+
+    resetUsersInCourse() {
+        this.setState({
+            usersInCourse: []
+        })
+        this.props.changeActiveTab(2)
+    }
+
+
     render() {
         return (
             <div className='removeUserFromRoll'>
-                <h1>{this.props.match.params.course}</h1>
+                <h1 className='thHeader'>Remove Students From {this.props.match.params.course}</h1>
                 {
                     this.props.users.filter(user => {
                         return this.state.usersInCourse.includes(user.user_id) && user.type === 'student'
                     }).map((student, i) => {
                         return (
                             <div key={student + i}>
-                              < MinusTAorStudent 
-                                  user_name={student.user_name}
-                                  type={student.type}
-                                  user_id={student.user_id}
-                                  class_id={this.props.match.params.class_id}
-                              />
+                                < MinusTAorStudent
+                                    user_name={student.user_name}
+                                    type={student.type}
+                                    user_id={student.user_id}
+                                    class_id={this.props.match.params.class_id}
+                                />
                             </div>
                         )
                     })
                 }
+
+                <Link to='/adminlanding/courses'><button className='updateButton' id='enrollStudentsButton' onClick={() => this.resetUsersInCourse()}>Update Roll</button></Link>
             </div>
         )
     }
@@ -57,8 +70,9 @@ class RemoveUserFromRoll extends Component {
 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        users: state.users,
+        activeTab: state.activeTab
     }
 }
 
-export default connect(mapStateToProps, { getUsers })(RemoveUserFromRoll);
+export default connect(mapStateToProps, { getUsers, changeActiveTab })(RemoveUserFromRoll);
