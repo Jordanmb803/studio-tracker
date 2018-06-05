@@ -41,7 +41,6 @@ class UsersList extends Component {
 
                 {(this.state.studentView === true) ?
                     <div className='usersColumn'>
-                        <h3>Students</h3>
                         {
                             this.props.users.filter(user => {
                                 return user.type === 'student' && user.user_name.includes(this.state.search)
@@ -62,7 +61,6 @@ class UsersList extends Component {
                     :
 
                     <div className='usersColumn'>
-                        <h3>Teachers</h3>
                         {
                             this.props.users.filter(user => {
                                 return user.type === 'teacher' && user.user_name.includes(this.state.search)
