@@ -28,10 +28,13 @@ class TrackHours extends Component {
         const firstDate = `'${dateOne.getFullYear()}-${dateOne.getMonth()}-${dateOne.getDate()}'`
         const secondDate = `'${dateTwo.getFullYear()}-${dateTwo.getMonth()}-${dateTwo.getDate()}'`
 
+
         axios.post('/hours/teachers', { firstDate, secondDate, user }).then(res => {
+            console.log(firstDate, secondDate, user)
             this.setState({
                 hours: res.data
             })
+            
         })
 
         axios.post('/hours/teachers/total', { firstDate, secondDate, user }).then(res => {
@@ -44,6 +47,7 @@ class TrackHours extends Component {
 
 
     render() {
+        console.log(this.state)
         return (
             <div className='TrackHours'>
                 <h1 className='thHeader'>Employee Hours</h1>
