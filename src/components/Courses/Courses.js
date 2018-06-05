@@ -39,7 +39,7 @@ class Courses extends Component {
 <Link id='createCourseBut' to='/createcourse'><button id='ccButton'>Create New Course</button></Link>
                 {this.props.danceCourses.map((course, i) => {
                     return (
-                        <div className='classTaughtDiv' key={course + i}>
+                        <div className='classTaughtDiv' id='coursesViewDiv' key={course + i}>
                            <div id='courseTitle' className='editClassDiv date'>
                             <h3 className='classHeader'>{course.title}</h3>
                                 <div className='iconsDiv'>
@@ -49,30 +49,30 @@ class Courses extends Component {
                                     <Link id='iconATag' to={`/update/removeuser/courseroll/${course.title}/${course.class_id}`}><img alt='minus roll' src={minusIcon} className='deleteEditIcons' /></Link>
                                 </div>
                             </div>
-                            <div className='classInfoDiv'>
+                            <div id='classInfo' className='classInfoDiv'>
                                 <div id='info'>
-                                    <p id='label'>ID </p>
-                                    <p>{course.class_id}</p>
+                                    <p id='labels' className='descriptionText'>ID </p>
+                                    <p className='descriptionText'>{course.class_id}</p>
                                 </div>
                                 <div id='info'>
-                                    <p id='label'>Class #:</p>
-                                    <p>{course.class_num}</p>
+                                    <p id='labels' className='descriptionText'>Class #:</p>
+                                    <p className='descriptionText'>{course.class_num}</p>
+                                </div>
+                                <div id='info' >
+                                    <p className='descriptionText' id='labels'>Length</p>
+                                    <p className='descriptionText'>{course.length}</p>
                                 </div>
                                 <div id='info'>
-                                    <p id='label'>Length</p>
-                                    <p>{course.length}</p>
+                                    <p className='descriptionText' id='labels'>Day: </p>
+                                    <p className='descriptionText' >{course.day}</p>
+                                </div>
+                                <div id='info' >
+                                    <p className='descriptionText' id='labels'>Time: </p>
+                                    <p className='descriptionText'>{course.time}</p>
                                 </div>
                                 <div id='info'>
-                                    <p id='label'>Day: </p>
-                                    <p>{course.day}</p>
-                                </div>
-                                <div id='info'>
-                                    <p id='label'>Time: </p>
-                                    <p>{course.time}</p>
-                                </div>
-                                <div id='info'>
-                                    <p id='label'>Teacher: </p>
-                                    <p>{course.teacher}</p>
+                                    <p className='descriptionText' id='labels'>Teacher: </p>
+                                    <p className='descriptionText' >{course.teacher}</p>
                                 </div>
                             </div>
                         </div>
