@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './TAorStudent.css';
 
 class TAorStudent extends Component {
     constructor() {
@@ -29,8 +30,8 @@ class TAorStudent extends Component {
     render() {
 
         return (
-            <div>
-                <label for='inCourseCheckBox'>Student: {this.props.user_name}</label>
+            <div className='studentCheckboxDiv'>
+                <label className='userNameLabel' for='inCourseCheckBox'>{this.props.user_name}</label>
                 <input id='inCourseCheckBox' name='roll' value='inCourseCheckBox' type='checkbox' checked={this.state.checked}
                     onClick={e => this.registerUser(e.target.checked)} onChange={() => this.setState({ checked: !this.state.checked })}
                 />

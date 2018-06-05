@@ -50,9 +50,11 @@ class UpdateCourseRoll extends Component {
 
 
     render() {
-        console.log(this.state.usersInCourse)
+        console.log(this.props)
         return (
             <div className='UpdateCourseRoll'>
+               <h1 className='thHeader'>Add Students to {this.props.match.params.course} </h1>
+               
                 <input />
 
                 {
@@ -71,7 +73,7 @@ class UpdateCourseRoll extends Component {
                         )
                     })
                 }
-                <Link to='/courses'><button onClick={() => this.resetUsersInCourse()}>Update Roll</button></Link>
+                <Link to='/courses'><button className='updateButton' id='enrollStudentsButton' onClick={() => this.resetUsersInCourse()}>Update Roll</button></Link>
 
             </div>
         )

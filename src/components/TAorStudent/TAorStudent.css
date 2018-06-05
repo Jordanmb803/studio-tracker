@@ -1,0 +1,11 @@
+.studentCheckboxDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.userNameLabel{
+    font-size: 20px;
+}
