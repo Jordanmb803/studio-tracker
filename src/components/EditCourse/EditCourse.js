@@ -51,7 +51,7 @@ class EditCourse extends Component {
 
                     {this.props.danceCourses.filter(course => {
                         return course.class_id === Number(this.props.match.params.classid)
-                    }).map( (course, i) => {
+                    }).map((course, i) => {
                         return (
                             <div key={course + i} className='classInfoDiv'>
                                 <div id='info'>
@@ -81,50 +81,58 @@ class EditCourse extends Component {
                             </div>
                         )
                     })
-                    }
+                }
                 </div>
+                <h2 className='instructions'>Edit Info below for the Class Listed Above</h2>
                 <div className='newInfo'>
-                    <input className='newInfoInput' placeholder='Class Title' onChange={e => this.setState({ classTitle: e.target.value })} />
-                    <input className='newInfoInput' placeholder='Class Number' onChange={e => this.setState({ classNumber: e.target.value })} />
-                    <select className='newInfoInput' onChange={e => this.setState({ length: e.target.value })} name='length' form='length'>
-                        <option value=''>Select Class Length</option>
-                        <option value='60'>1 Hour</option>
-                        <option value='90'>1.5 Hours</option>
-                    </select>
-                    <select className='newInfoInput' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
-                        <option value=''>Select Day</option>
-                        <option value='S'>Sunday</option>
-                        <option value='M'>Monday</option>
-                        <option value='T'>Tuesday</option>
-                        <option value='W'>Wednesday</option>
-                        <option value='TH'>Thursday</option>
-                        <option value='F'>Friday</option>
-                        <option value='SAT'>Saturday</option>
-                    </select>
+                    <div className='textFieldsDiv'>
+                        <input className='newInfoInput' id='title' placeholder='Class Title' onChange={e => this.setState({ classTitle: e.target.value })} />
+                        <input className='newInfoInput' id='num' placeholder='Class Number' onChange={e => this.setState({ classNumber: e.target.value })} />
+                    </div>
+                    <div className='selectBoxesDiv'>
+                        <select className='newInfoInput' onChange={e => this.setState({ length: e.target.value })} name='length' form='length'>
+                            <option value=''>Class Length</option>
+                            <option value='60'>1 Hour</option>
+                            <option value='90'>1.5 Hours</option>
+                        </select>
 
-                    <select className='newInfoInput' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
-                        <option value=''>Select Time</option>
-                        <option value='9am'>9am</option>
-                        <option value='10am'>10am</option>
-                        <option value='11am'>11am</option>
-                        <option value='12pm'>12pm</option>
-                        <option value='1pm'>1pm</option>
-                        <option value='2pm'>2pm</option>
-                        <option value='3pm'>3pm</option>
-                        <option value='4pm'>4pm</option>
-                        <option value='5pm'>5pm</option>
-                        <option value='6pm'>6pm</option>
-                        <option value='7pm'>7pm</option>
-                        <option value='8pm'>8pm</option>
-                        <option value='9pm'>9pm</option>
-                    </select>
+                        <select className='newInfoInput' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
+                            <option value=''>Day</option>
+                            <option value='S'>Sunday</option>
+                            <option value='M'>Monday</option>
+                            <option value='T'>Tuesday</option>
+                            <option value='W'>Wednesday</option>
+                            <option value='TH'>Thursday</option>
+                            <option value='F'>Friday</option>
+                            <option value='SAT'>Saturday</option>
+                        </select>
+
+                        <select className='newInfoInput' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
+                            <option value=''>Time</option>
+                            <option value='9am'>9am</option>
+                            <option value='10am'>10am</option>
+                            <option value='11am'>11am</option>
+                            <option value='12pm'>12pm</option>
+                            <option value='1pm'>1pm</option>
+                            <option value='2pm'>2pm</option>
+                            <option value='3pm'>3pm</option>
+                            <option value='4pm'>4pm</option>
+                            <option value='5pm'>5pm</option>
+                            <option value='6pm'>6pm</option>
+                            <option value='7pm'>7pm</option>
+                            <option value='8pm'>8pm</option>
+                            <option value='9pm'>9pm</option>
+                        </select>
+                    </div>
+
+
                     <p>Select A Teacher</p>
                     <div className='teachersDiv'>
                         {this.state.users.filter(user => {
                             return user.type === 'teacher'
                         }).map((teacher, i) => {
                             return (
-                                <div key={i + teacher} >
+                                <div className='teacherPicNameDiv' key={i + teacher} >
                                     <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} />
                                     <p className='teacherName'>{teacher.user_name}</p>
                                 </div>
@@ -132,7 +140,7 @@ class EditCourse extends Component {
                         })
                         }
                     </div>
-                    <button onClick={() => this.editCourse()}>Update Class</button>
+                    <button className='updateButton' onClick={() => this.editCourse()}>Update Class</button>
                 </div>
             </div>
         )
