@@ -8,6 +8,7 @@ import deleteIcon from './delete-icon.png';
 import axios from 'axios';
 import addIcon from './add-icon.png';
 import minusIcon from './minus-icon.png';
+import BigPlusIcon from './big-plus-icon.png';
 
 class Courses extends Component {
     constructor() {
@@ -35,13 +36,13 @@ class Courses extends Component {
     render() {
         return (
             <div className='TrackHours'>
-                <h2>Center Stage Class List</h2>
-<Link id='createCourseBut' to='/createcourse'><button id='ccButton'>Create New Course</button></Link>
+                <h1 className='thHeader'>Class List</h1>
+                <Link id='createCourseBut' to='/createcourse'><img src={BigPlusIcon} alt='addCourse' id='ccButton' /></Link>
                 {this.props.danceCourses.map((course, i) => {
                     return (
                         <div className='classTaughtDiv' id='coursesViewDiv' key={course + i}>
-                           <div id='courseTitle' className='editClassDiv date'>
-                            <h3 className='classHeader'>{course.title}</h3>
+                            <div id='courseTitle' className='editClassDiv date'>
+                                <h3 className='classHeader'>{course.title}</h3>
                                 <div className='iconsDiv'>
                                     <Link id='iconATag' to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon' /></Link>
                                     <img onClick={() => this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons' alt='delete Icon' />
