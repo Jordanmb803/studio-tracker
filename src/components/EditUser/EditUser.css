@@ -6,7 +6,88 @@
     flex-direction: column;
 }
 
+.nameAndStudentInfo{
+    display: flex;
+    flex-direction: column;
+    height: 38%;
+}
+
+.student{
+    background: lightgrey;
+    border-radius: 0 10px 0 0;
+    margin: 10px 0 0 0;
+}
+
+.studentsInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#infos{
+    display: flex;
+    height: 20px;
+}
+
+#profilePic{
+    height: 30px;
+    width: 30px;
+    border-radius: 360%;
+}
+
+.result {
+    margin-left: 8px;
+}
+
 p {
     font-size: 13px;
     margin: 0px;
+}
+
+.newStudentInfoDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 62%;
+}
+
+.studentInfoInput {
+    border: black solid 1.5px;
+    background: white;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 30px;
+    margin: 5px 5px 5px 0;
+}
+
+#firstName {
+    margin-right: 20%;
+}
+
+#city{
+    margin-right: 10%;
+}
+
+#state {
+    margin-right: 7%;
+}
+
+#singleRowItem {
+    width: 75%;
+}
+
+#userType {
+    margin-right: 20%;
+}
+
+#editUserButton {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
 }
