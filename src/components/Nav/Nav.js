@@ -33,13 +33,13 @@ class Nav extends Component {
                     <img className='dropDown' src={menu} onClick={() => this.toggleMenu()} alt='menu' />
                     <div className='navOptionsDiv'>
                         <a id='profileATag' href={`/#/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='navOption'>PROFILE</p></a>
-                        <p className='navOption'>SCHEDULE</p>
+                        <a id='profileATag' href={'/#/dailyview'}><p className='navOption'>SCHEDULE</p></a>
                         <p className='navOption'>LOGOUT</p>
                     </div>
                 </div>
                 <div className={(this.state.menuVis === true) ? 'menuVis' : ' menuInvis'}>
                     <a id='profileATag' href={`/#/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='menuOption'>PROFILE</p></a>
-                    <p className='menuOption'>SCHEDULE</p>
+                    <a id='profileATag' href={'/#/dailyview'}><p className='menuOption'>SCHEDULE</p></a>
                     <p className='menuOption'>LOGOUT</p>
                 </div>
 
