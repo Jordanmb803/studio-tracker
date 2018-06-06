@@ -27,7 +27,7 @@ class TrackHours extends Component {
 
         const firstDate = `'${dateOne.getFullYear()}-${dateOne.getMonth()}-${dateOne.getDate()}'`
         const secondDate = `'${dateTwo.getFullYear()}-${dateTwo.getMonth()}-${dateTwo.getDate()}'`
-
+        
 
         axios.post('/hours/teachers', { firstDate, secondDate, user }).then(res => {
             console.log(firstDate, secondDate, user)

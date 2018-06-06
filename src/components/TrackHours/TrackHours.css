@@ -4,7 +4,7 @@ html {
 }
 
 .TrackHours {
-    margin-top: 25px;
+    margin-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
     height: 100vh;
@@ -17,6 +17,8 @@ html {
     height: 50px;
     width: 100%;
     box-sizing: border-box;
+    text-align: center;
+    margin: 8px 0 0 0;
 }
 
 .dateSelectorDiv {
@@ -76,6 +78,8 @@ html {
 .date {
     background: lightgray;
     border-radius: 0 8px 0 0;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .classInfoDiv {
