@@ -80,13 +80,17 @@ class CourseList extends Component {
         })
 
         return (
+        
             <div className='dailyView'>
-                <h3>{this.props.match.params.course}</h3>
+            <div className='classDateDiv'>
+                <h1 id='headerItems'>{this.props.match.params.course}</h1>
+                <h1 id='headerItems'>{this.state.date}</h1>
+            </div>
                 {displayStudent}
                 <button className={this.state.visable ? 'visable submitRoll' : 'invisable'} onClick={() => this.postHours()}>Submit Roll</button>
                 <button className={this.state.visable ? 'invisable' : 'visable submitRoll'} onClick={() => this.deleteHours()}>Re-Submit</button>
             </div>
-        )
+            )
     }
 }
 

@@ -1,9 +1,23 @@
+.classDateDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#headerItems{
+    /* width: 250px; */
+    width: 46%;
+    height: 30px;
+    margin-right: 20px;
+    text-align: center;
+}
+
 .submitRoll {
-    position: fixed;
-    background: #e1f5fe;
-    color: #afc2cb;
-    right: 25px;
-    bottom: 25px;
+    position: absolute;
+    background: black;
+    color: white;
+    right: 15px;
+    bottom: 15px;
 }
 
 .invisable {
