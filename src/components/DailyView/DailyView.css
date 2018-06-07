@@ -6,6 +6,7 @@
     color: black;
     box-sizing: border-box;
     position: relative;
+    overflow: auto;
 }
 
 #teacherName {
