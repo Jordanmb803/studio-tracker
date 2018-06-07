@@ -62,23 +62,28 @@
 }
 
 #atag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     height: 100%;
     margin-left: 20px;
     text-decoration: none;
+    background:black;
+    border-radius: 12px;
 }
 
 .course {
-    background:black;
     color: white;
-    margin: 0;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
     height: 100%;
     font-size: 17px;
     text-align: center;
-    padding-top: 3px;
-    border-radius: 12px;
     box-sizing: border-box;
+    border-radius: 12px;
 }
 
 .courseBox {
@@ -108,5 +113,11 @@
 
     .classTime {
         height: 18%;
+    }
+
+    .course {
+        font-size: 25px;
+        padding-top: 5px;
+        
     }
 }
