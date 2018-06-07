@@ -12,11 +12,12 @@ class CourseList extends Component {
             courseRoll: [],
             date: '',
             visable: true,
-            addStudent: 0,
+            addStudent: [],
             studentsInCourse: []
         }
         this.postHours = this.postHours.bind(this)
         this.deleteHours = this.deleteHours.bind(this)
+        this.addStudent = this.addStudent.bind(this)
     }
 
     componentDidMount() {
@@ -44,7 +45,6 @@ class CourseList extends Component {
 
 
                 res.data.forEach(reg => {
-                    console.log(reg.class_id, this.props.match.params.classid)
                     if (reg.class_id === Number(this.props.match.params.classid)) {
                         tempStudentsInCourse.push(reg.user_id)
                     } else {
@@ -85,9 +85,19 @@ class CourseList extends Component {
         })
     }
 
+    addStudent(userid) {
+        let user_id = Number(userid)
+        let tempAddStudent = this.state.addStudent
+        tempAddStudent.push(user_id)
+        console.log(tempAddStudent, user_id)
+        this.setState({
+            addStudent: tempAddStudent
+        })
+    }
+
 
     render() {
-        console.log(this.state.studentsInCourse)
+
 
         let displayStudent = this.state.courseRoll.filter(course => {
             return course.class_id === Number(this.props.match.params.classid)
@@ -104,9 +114,11 @@ class CourseList extends Component {
         })
 
 
-        let addStudent = this.props.users.filter(user => {
-            return user.user_id == this.state.addStudent
+        let add = this.props.users.filter(user => {
+            console.log(this.state.addStudent, user.user_id)
+            return this.state.addStudent.includes(user.user_id)
         }).map((student, i) => {
+            console.log(student.user_id)
             return (
                 <div className={this.state.visable ? 'visable' : 'invisable'} key={student + i}>
                     <Student user_name={student.user_name}
@@ -125,16 +137,14 @@ class CourseList extends Component {
                     <h1 id='headerItems'>{this.state.date}</h1>
                 </div>
                 {displayStudent}
-                {addStudent}
+                {add}
 
-                <select onChange={e => this.setState({ addStudent: e.target.value })}>
+                <select onChange={e => this.addStudent( e.target.value)}>
                     <option value=''>Make Up Student</option>
                     {
                         this.props.users.filter(user => {
-                            // console.log('all users: ',user.user_id)
                             return !this.state.studentsInCourse.includes(user.user_id) && user.type === 'student'
                         }).map((student, i) => {
-                            console.log('student not in the course: ', student.user_id)
                             return (
                                 <option key={student.user_id + i} value={student.user_id}>{student.user_name}</option>
                             )
