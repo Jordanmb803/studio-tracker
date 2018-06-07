@@ -51,9 +51,9 @@ passport.use(new Auth0Strategy({
     app.get('db').find_user([email]).then(foundUser => {
         if (foundUser[0]) {
             done(null, foundUser[0].user_id)
-            console.log(email)
+            console.log('found')
         } else {
-            console.log(email)
+            console.log('not found')
             done(null, null)
         }
     })
@@ -78,10 +78,10 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 }))
 
 app.get('/checkadmin', function (req, res) {
-    if (req.user.type === 'teacher') {
-        res.redirect(process.env.TEACHER_REDIRECT)
-    } else {
+    if (req.user.type === 'admin') {
         res.redirect(process.env.ADMIN_REDIRECT)
+    } else {
+        res.redirect(process.env.TEACHER_REDIRECT)
     }
 })
 
