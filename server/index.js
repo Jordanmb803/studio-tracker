@@ -121,4 +121,13 @@ app.delete('/user/deleteuser/:user_id', classController.deleteUser)
 // Privates Endpoints
 app.get('/privates/getallprivates', classController.getAllPrivates)
 
+
+
+
+// Has to be the last endpoint
+const path = require('path')
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))
