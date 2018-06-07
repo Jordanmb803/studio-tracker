@@ -5,7 +5,7 @@ function LandingPage(props) {
     return (
         <div className='landingPage'>
             <h1>Studio Tracker</h1>
-            <a href='http://localhost:3005/login'><button>Login</button></a>
+            <a href={process.env.REACT_APP_LOGIN}><button>Login</button></a>
         </div>
     )
 }
