@@ -35,7 +35,7 @@ class DailyView extends Component {
 
     yesterday() {
         let momentToday = moment(this.props.today)
-        let yesterday = momentToday.clone().subtract(1, 'day').format('MM DD, YYYY')
+        let yesterday = momentToday.clone().subtract(1, 'day')//.format('MM DD, YYYY')
 
         let yesterdaysDate = new Date(yesterday)
         this.props.changeDate(yesterdaysDate)
