@@ -133,10 +133,12 @@ h1 {
         box-sizing: border-box;
         align-items: flex-end;
         justify-content: flex-end;
+        padding-right: 20px;
     }
     .navOption {
         color: white;
-        margin-left: 7px;
+        margin-left: 15px;
+        font-size: 18px;
     }
 
     .picTitle{
