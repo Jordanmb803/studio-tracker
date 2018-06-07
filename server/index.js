@@ -91,6 +91,11 @@ app.get('/auth/me', function (req, res) {
     }
 })
 
+app.post('/api/console', (req, res ) => {
+    console.log(req.body)
+    res.sendStatus(200)
+})
+
 // Dance Class Endpoints
 app.get('/todayclasses/:day/:user_id', classController.todaysClasses)
 app.get('/danceclasses', classController.allDanceClasses)

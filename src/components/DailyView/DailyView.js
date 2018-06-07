@@ -42,11 +42,15 @@ class DailyView extends Component {
     }
 
     tomorrow() {
-        let momentToday = moment(this.props.today)
-        let tomorrow = momentToday.clone().add(1, 'day').format('MM DD, YYYY')
 
-        let tomorrowsDate = new Date(tomorrow)
-        this.props.changeDate(tomorrowsDate)
+            let momentToday = moment(this.props.today)
+            let tomorrow = momentToday.clone().add(1, 'day')//.format('MM DD, YYYY')
+            
+            let tomorrowsDate = new Date(tomorrow)
+            this.props.changeDate(tomorrowsDate)
+            
+            // axios.post('/api/console', {momentToday, tomorrow, tomorrowsDate, ...this.props})
+       
 
     }
 
