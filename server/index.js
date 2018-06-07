@@ -41,18 +41,20 @@ passport.use(new Auth0Strategy({
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
     callbackURL: CALLBACK_URL,
-    scope: 'openid profile'
+    scope: 'openid profile email'
 }, (accessToken, refreshToken, extraParams, profile, done) => {
     let { displayName, picture, id } = profile
     let { givenName } = profile.name
     let { familyName } = profile.name
-    app.get('db').find_user([id]).then(foundUser => {
+    let {email} = profile._json;
+
+    app.get('db').find_user([email]).then(foundUser => {
         if (foundUser[0]) {
             done(null, foundUser[0].user_id)
+            console.log(email)
         } else {
-            app.get('db').create_user([displayName, picture, id, givenName, familyName]).then(user => {
-                done(null, user[0].user_id)
-            })
+            console.log(email)
+            done(null, null)
         }
     })
 }))
