@@ -80,10 +80,11 @@
     margin-right: auto;
     width: 50%;
     height: 100%;
-    font-size: 17px;
+    font-size: 22px;
     text-align: center;
     box-sizing: border-box;
     border-radius: 12px;
+    padding-top: 5px;
 }
 
 .courseBox {
