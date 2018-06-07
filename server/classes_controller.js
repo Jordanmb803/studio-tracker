@@ -121,6 +121,12 @@ module.exports = {
             .then(roll => {
                 res.status(200).send(roll)
             })
+    },
+    getAllPrivates: (req, res ) => {
+        req.app.get('db').get_all_privates()
+            .then(privates => {
+                res.status(200).send(privates)
+            })
     }
 
 }

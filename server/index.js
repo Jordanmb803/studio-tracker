@@ -116,4 +116,7 @@ app.put('/user/edituser', classController.editUser)
 app.post('/user/admincreateuser', classController.adminCreateUser)
 app.delete('/user/deleteuser/:user_id', classController.deleteUser)
 
+// Privates Endpoints
+app.get('/privates/getallprivates', classController.getAllPrivates)
+
 app.listen(SERVER_PORT, () => console.log(`Port ${SERVER_PORT} is now listening`))
