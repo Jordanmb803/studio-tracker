@@ -11,13 +11,8 @@ import { changeActiveTab } from '../../ducks/user';
 
 
 class AdminLanding extends Component {
-    constructor() {
-        super()
-        this.state = {
-            activeTab: 0
-        }
-    }
 
+    
 
     render() {
         let { activeTab } = this.props

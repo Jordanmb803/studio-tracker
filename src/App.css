@@ -103,9 +103,9 @@ input, select {
     vertical-align:middle;
 }
 
-*, *:before, *:after {
+/* *, *:before, *:after {
  box-sizing: border-box;
-}
+} */
 
 
 html {

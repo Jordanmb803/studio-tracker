@@ -1,7 +1,8 @@
 
 
 .TrackHours {
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    padding-top: 50px;
     padding-left: 10px;
     padding-right: 10px;
     height: 100vh;
@@ -9,6 +10,7 @@
     box-sizing: border-box;
     position: relative;
     background: white;
+    /* overflow-x: hidden; */
 }
 
 .thHeader {
