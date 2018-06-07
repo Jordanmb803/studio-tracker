@@ -75,9 +75,9 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 
 app.get('/checkadmin', function (req, res) {
     if (req.user.type === 'teacher') {
-        res.redirect('http://localhost:3000/#/dailyview')
+        res.redirect(process.env.TEACHER_REDIRECT)
     } else {
-        res.redirect('http://localhost:3000/#/adminlanding/trackhours')
+        res.redirect(process.env.ADMIN_REDIRECT)
     }
 })
 
