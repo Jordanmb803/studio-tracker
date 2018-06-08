@@ -130,7 +130,7 @@ module.exports = {
     },
     createPrivate: (req, res ) => {
         const {student_name, length, day, time, teacher_name, teacher_id} = req.body
-        req.app.get('db').create_private_course([])
+        req.app.get('db').create_private_course([student_name, length, day, time, teacher_name, teacher_id])
             .then(ok => {
                 res.sendStatus(200)
             })
