@@ -36,6 +36,10 @@ class CreatePrivateCourse extends Component {
 
        let teacher_name = user.user_name
 
+       axios.post('/privates/createprivate', {student_name, length, day, time, teacher_name, teacher_id})
+        .then(res => {
+            this.props.history.push('/dailyview')
+        })
 
     }
 

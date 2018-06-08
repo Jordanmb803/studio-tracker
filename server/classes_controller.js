@@ -127,6 +127,13 @@ module.exports = {
             .then(privates => {
                 res.status(200).send(privates)
             })
+    },
+    createPrivate: (req, res ) => {
+        const {student_name, length, day, time, teacher_name, teacher_id} = req.body
+        req.app.get('db').create_private_course([])
+            .then(ok => {
+                res.sendStatus(200)
+            })
     }
 
 }
