@@ -26,7 +26,7 @@ class Nav extends Component {
                     <div className='picTitle'>
                         {/* <img id='profileImg' src={this.props.user.profile_picture} alt='prof_pic' /> */}
                         <a className='dailyviewATag' href='/#/dailyview'><div className='headerTitles'>
-                            <h1>CENTER STAGE</h1>
+                            <h1 className='studioNavHeader'>CENTER STAGE</h1>
                             <h3 className='navH3'>PERFORMING ARTS STUDIO</h3>
                         </div></a>
                     </div>
@@ -45,7 +45,7 @@ class Nav extends Component {
                 <div className={(this.state.menuVis === true) ? 'menuVis' : ' menuInvis'}>
                     <a id='profileATag' className='menuOption' href={`/#/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='menuOption'>PROFILE</p></a>
                     <a id='profileATag' className='menuOption' href={'/#/dailyview'}><p className='menuOption'>SCHEDULE</p></a>
-                    <p className='menuOption'>LOGOUT</p>
+                    <a id='profileATag' className='menuOption' href={'/#/dailyview'}><p className='menuOption'>LOGOUT</p></a>
                 </div>
 
 
