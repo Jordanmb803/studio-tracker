@@ -32,7 +32,7 @@ class App extends Component {
             <Route path='/admin/createuser' component={CreateUser} />
             <Route path='/update/courseroll/:course/:class_id' component={UpdateCourseRoll} />
             <Route path='/update/removeuser/courseroll/:course/:class_id' component={RemoveUserFromRoll} />
-            <Route path='/dailyview/create/privatecourse' component={CreatePrivateCourse} />
+            <Route path='/create/privatescourse/:teacher_id' component={CreatePrivateCourse} />
           </Switch>
         </HashRouter>
       </div>

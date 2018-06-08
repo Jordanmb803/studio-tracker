@@ -9,6 +9,7 @@ import rightArrow from './right-arrow.png';
 import moment from 'moment';
 import axios from 'axios';
 import BigPlusIcon from '../Courses/big-plus-icon.png';
+// import CreatePrivateCourse from '../CreatePrivateCourse/CreatePrivateCourse';
 
 
 class DailyView extends Component {
@@ -368,7 +369,8 @@ class DailyView extends Component {
                     </div>
 
                 </div>
-                <Link to='/dailyview/create/privatecourse' id='createCourseBut' ><img src={BigPlusIcon}  alt='addCourse' id='ccButton'/></Link>
+                <Link to={`/create/privatescourse/${this.props.user.user_id}`} id='createCourseBut' ><img src={BigPlusIcon}  alt='addCourse' id='ccButton'/></Link>
+                {/* <CreatePrivateCourse /> */}
             </div>
 
         )
