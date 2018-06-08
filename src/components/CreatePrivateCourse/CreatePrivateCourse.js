@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './CreatePrivateCourse.css';
+import { getUsers } from '../../ducks/user';
+import { connect } from 'react-redux';
+import axios from 'axios';
+
 
 class CreatePrivateCourse extends Component {
     constructor() {
@@ -9,15 +13,30 @@ class CreatePrivateCourse extends Component {
             length: 0,
             day: '',
             time: '',
-            teacher_id: 0
+            teacher_id: 0,
         }
+        this.addPrivateCourse = this.addPrivateCourse.bind(this)
     }
 
     componentDidMount() {
         const { teacher_id } = this.props.match.params
+        this.props.getUsers()
+
         this.setState({
             teacher_id: teacher_id
         })
+    }
+
+    addPrivateCourse(){
+        let user = this.props.users.find(user => {
+            if (user.user_id === Number(this.state.teacher_id)) {
+                return user.user_name
+            }
+        })
+
+       let teacher_name = user.user_name
+
+
     }
 
     render() {
@@ -26,8 +45,8 @@ class CreatePrivateCourse extends Component {
             <div className='dailyView'>
                 <h1 className='thHeader'>Create Private Class</h1>
                 <div className='privatesInfoDiv'>
-                    <input className='privateInfo' onChange={e => this.setState({ studentName: e.target.value })} />
-                    <select onChange={e => this.setState({ length: e.target.value })}>
+                    <input className='privateInfo' placeholder='Student Name' onChange={e => this.setState({ studentName: e.target.value })} />
+                    <select className='privateInfo' onChange={e => this.setState({ length: e.target.value })}>
                         <option value=''>Length</option>
                         <option value='60'>1 Hour</option>
                         <option value='90'>1 1/2 Hours</option>
@@ -61,6 +80,7 @@ class CreatePrivateCourse extends Component {
                         <option value='10am'>9pm</option>
                     </select>
 
+                    <button onClick={()=> this.addPrivateCourse()}>Schedule</button>
                 </div>
 
             </div>
@@ -68,5 +88,10 @@ class CreatePrivateCourse extends Component {
     }
 }
 
+function mapStateToProps(state){
+    return {
+        users: state.users
+    }
+}
 
-export default (CreatePrivateCourse);
+export default connect(mapStateToProps, { getUsers })(CreatePrivateCourse);
