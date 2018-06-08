@@ -36,6 +36,19 @@ class EditUser extends Component {
     }
 
     render() {
+        // this.setState({
+        //    firstName: user.first_name,
+        //    lastName: user.last_name,
+        //    email: user.email,
+        //    address: user.address,
+        //    city: user.city,
+        //    state: user.state,
+        //    zipcode: user.zipcode,
+        //    type: user.type,
+        //    userName: user.user_name,
+        //    profilePicture: user.profile_picture
+
+        // })
         return (
             <div className='EditUser'>
                 <div className='nameAndStudentInfo'>
@@ -158,13 +171,14 @@ class EditUser extends Component {
                             <option value='WI'>WI</option>
                             <option value='WY'>WY</option>
                         </select>
-                        <input placeholder='Zipcode' className='studentInfoInput' onChange={e => this.setState({ zipcode: e.target.value })} />
+                        <input placeholder='Zipcode' id='zipcode' className='studentInfoInput' onChange={e => this.setState({ zipcode: e.target.value })} />
                     </div>
                     <div className='row'>
                         <select id='userType' className='studentInfoInput' onChange={e => this.setState({ type: e.target.value })} >
                             <option value=''>User Type</option>
                             <option value='student'>Student</option>
                             <option value='teacher'>Teacher</option>
+                            <option value='parent'>Parent</option>
                             <option value='admin'>Administrator</option>
                         </select>
 
