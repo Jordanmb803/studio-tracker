@@ -58,7 +58,7 @@ class DailyView extends Component {
 
     render() {
         let { today } = this.props
-        console.log('test')
+        console.log('testagain')
 
         return (
             <div className='dailyView'>

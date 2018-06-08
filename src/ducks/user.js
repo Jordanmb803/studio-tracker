@@ -64,7 +64,6 @@ export function changeActiveTab(tabNum){
 }
 
 export default function reducer(state = initialState, action) {
-    console.log(state)
     switch (action.type) {
         case GET_USER + _FULFILLED:
             return Object.assign({}, state, { user: action.payload })
