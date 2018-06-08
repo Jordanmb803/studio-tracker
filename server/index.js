@@ -51,9 +51,9 @@ passport.use(new Auth0Strategy({
     app.get('db').find_user([email]).then(foundUser => {
         if (foundUser[0]) {
             done(null, foundUser[0].user_id)
-            console.log('found')
+            console.log(email)
         } else {
-            console.log('not found')
+            console.log(email)
             done(null, null)
         }
     })
