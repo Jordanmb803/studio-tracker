@@ -9,7 +9,7 @@ import rightArrow from './right-arrow.png';
 import moment from 'moment';
 import axios from 'axios';
 import BigPlusIcon from '../Courses/big-plus-icon.png';
-import DeleteIcon from '../Courses/delete-icon.png';
+// import WhiteIcon from '../Courses/delete-icon.png';
 import WhiteIcon from './whtie-x-icon.png';
 // import CreatePrivateCourse from '../CreatePrivateCourse/CreatePrivateCourse';
 
@@ -116,7 +116,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -140,7 +140,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -164,7 +164,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -189,7 +189,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -213,7 +213,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -237,7 +237,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -263,7 +263,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -287,7 +287,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -310,7 +310,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag'  className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -334,7 +334,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -359,7 +359,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -382,7 +382,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
+                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
