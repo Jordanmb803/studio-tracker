@@ -9,7 +9,7 @@ class CreatePrivateCourse extends Component {
     constructor() {
         super()
         this.state = {
-            studentName: '',
+            student_name: '',
             length: 0,
             day: '',
             time: '',
@@ -36,6 +36,8 @@ class CreatePrivateCourse extends Component {
 
        let teacher_name = user.user_name
 
+       let {student_name, length, day, time, teacher_id} = this.state
+
        axios.post('/privates/createprivate', {student_name, length, day, time, teacher_name, teacher_id})
         .then(res => {
             this.props.history.push('/dailyview')
@@ -50,7 +52,7 @@ class CreatePrivateCourse extends Component {
             <div className='dailyView'>
                 <h1 className='thHeader'>Create Private Class</h1>
                 <div className='privatesInfoDiv'>
-                    <input className='privateInfo' placeholder='Student Name' onChange={e => this.setState({ studentName: e.target.value })} />
+                    <input className='privateInfo' placeholder='Student Name' onChange={e => this.setState({ student_name: e.target.value })} />
                     <select className='privateInfo' onChange={e => this.setState({ length: e.target.value })}>
                         <option value=''>Length</option>
                         <option value='60'>1 Hour</option>
