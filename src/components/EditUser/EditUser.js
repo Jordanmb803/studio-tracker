@@ -50,7 +50,7 @@ class EditUser extends Component {
 
         // })
         return (
-            <div className='EditUser'>
+            <div className='dailyView'>
                 <div className='nameAndStudentInfo'>
                     <h3 className='student'>{this.props.match.params.user_name}</h3>
                     {

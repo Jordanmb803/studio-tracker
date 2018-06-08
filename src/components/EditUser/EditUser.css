@@ -15,6 +15,7 @@
     flex-direction: column;
     /* height: 38%; */
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .student{
@@ -56,6 +57,7 @@ p {
     justify-content: flex-start;
     box-sizing: border-box;
     height: 62%;
+    padding: 10px;
 }
 
 .studentInfoInput {
