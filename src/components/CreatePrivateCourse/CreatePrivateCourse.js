@@ -27,22 +27,22 @@ class CreatePrivateCourse extends Component {
         })
     }
 
-    addPrivateCourse(){
+    addPrivateCourse() {
         let user = this.props.users.find(user => {
             if (user.user_id === Number(this.state.teacher_id)) {
                 return user.user_name
             }
         })
 
-       let teacher_name = user.user_name
+        let teacher_name = user.user_name
 
-       let {student_name, length, day, time, teacher_id} = this.state
+        let { student_name, length, day, time, teacher_id } = this.state
 
-       axios.post('/privates/createprivate', {student_name, length, day, time, teacher_name, teacher_id})
-        .then(res => {
-            this.props.history.push('/dailyview')
-            console.log('privateCreated')
-        })
+        axios.post('/privates/createprivate', { student_name, length, day, time, teacher_name, teacher_id })
+            .then(res => {
+                this.props.history.push('/dailyview')
+                console.log('privateCreated')
+            })
 
     }
 
@@ -87,7 +87,7 @@ class CreatePrivateCourse extends Component {
                         <option value='10am'>9pm</option>
                     </select>
 
-                    <button onClick={()=> this.addPrivateCourse()}>Schedule</button>
+                    <button onClick={() => this.addPrivateCourse()}>Schedule</button>
                 </div>
 
             </div>
@@ -95,7 +95,7 @@ class CreatePrivateCourse extends Component {
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
         users: state.users
     }
