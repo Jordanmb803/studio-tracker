@@ -11,15 +11,39 @@
     text-align: center;
 }
 
+.attendanceRollDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.makeUpStudent {
+    width: 40%;
+    height: 35px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: black solid 2px;
+    background: white;
+
+}
+
 .submitRoll {
     background: black;
     color: white;
     height: 50px;
     width: 150px;
-    margin-top: 15px;
-    margin-left: 55%;
+    margin-top: 50px;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* .visable {
+    width: 100%;
+} */
 
 .invisable {
     display: none;

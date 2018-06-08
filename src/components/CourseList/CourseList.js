@@ -136,24 +136,26 @@ class CourseList extends Component {
                     <h1 id='headerItems'>{this.props.match.params.course}</h1>
                     <h1 id='headerItems'>{this.state.date}</h1>
                 </div>
-                {displayStudent}
-                {add}
+                <div className='attendanceRollDiv'>
+                    {displayStudent}
+                    {add}
 
-                <select onChange={e => this.addStudent( e.target.value)}>
-                    <option value=''>Make Up Student</option>
-                    {
-                        this.props.users.filter(user => {
-                            return !this.state.studentsInCourse.includes(user.user_id) && user.type === 'student'
-                        }).map((student, i) => {
-                            return (
-                                <option key={student.user_id + i} value={student.user_id}>{student.user_name}</option>
-                            )
-                        })
-                    }
+                    <select className='makeUpStudent' onChange={e => this.addStudent(e.target.value)}>
+                        <option value=''>Make Up Student</option>
+                        {
+                            this.props.users.filter(user => {
+                                return !this.state.studentsInCourse.includes(user.user_id) && user.type === 'student'
+                            }).map((student, i) => {
+                                return (
+                                    <option key={student.user_id + i} value={student.user_id}>{student.user_name}</option>
+                                )
+                            })
+                        }
 
-                </select>
-                <button className={this.state.visable ? 'visable submitRoll' : 'invisable'} onClick={() => this.postHours()}>Submit Roll</button>
-                <button className={this.state.visable ? 'invisable' : 'visable submitRoll'} onClick={() => this.deleteHours()}>Re-Submit</button>
+                    </select>
+                    <button className={this.state.visable ? 'visable submitRoll' : 'invisable'} onClick={() => this.postHours()}>Submit Roll</button>
+                    <button className={this.state.visable ? 'invisable' : 'visable submitRoll'} onClick={() => this.deleteHours()}>Re-Submit</button>
+                </div>
             </div>
         )
     }

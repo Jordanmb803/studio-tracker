@@ -11,8 +11,9 @@
     height: 130px;
     box-sizing: border-box;
     background: #e8e8e5;
-    margin: 30px;
+    margin: 30px 10px 0 10px;;
     border-radius: 7px;
+    /* width: 100%; */
     
 }
 
@@ -32,6 +33,7 @@
     width: 100%;
     font-weight: bold;
     border-radius: 5px 5px 0 0px;
+    box-sizing: border-box;
 }
 
 .parentStudentDiv {
