@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'CreatePrivateCourse.css';
+import './CreatePrivateCourse.css';
 
 class CreatePrivateCourse extends Component {
     constructor() {
