@@ -47,7 +47,7 @@ class CreatePrivateCourse extends Component {
     }
 
     render() {
-
+        console.log('test')
         return (
             <div className='dailyView'>
                 <h1 className='thHeader'>Create Private Class</h1>
