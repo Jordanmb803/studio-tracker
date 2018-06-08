@@ -129,6 +129,7 @@ app.delete('/user/deleteuser/:user_id', classController.deleteUser)
 // Privates Endpoints
 app.get('/privates/getallprivates', classController.getAllPrivates)
 app.post('/privates/createprivate', classController.createPrivate)
+app.delete('/privates/deleteprivate/:private_id', classController.deletePrivate)
 
 
 

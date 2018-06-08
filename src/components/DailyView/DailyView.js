@@ -9,6 +9,7 @@ import rightArrow from './right-arrow.png';
 import moment from 'moment';
 import axios from 'axios';
 import BigPlusIcon from '../Courses/big-plus-icon.png';
+import DeleteIcon from '../Courses/delete-icon.png';
 // import CreatePrivateCourse from '../CreatePrivateCourse/CreatePrivateCourse';
 
 
@@ -22,6 +23,7 @@ class DailyView extends Component {
         this.componentDidMount = this.componentDidMount.bind(this)
         this.yesterday = this.yesterday.bind(this)
         this.tomorrow = this.tomorrow.bind(this)
+        this.deletePrivate = this.deletePrivate.bind(this)
     }
 
     componentDidMount() {
@@ -52,8 +54,13 @@ class DailyView extends Component {
             this.props.changeDate(tomorrowsDate)
             
             // axios.post('/api/console', {momentToday, tomorrow, tomorrowsDate, ...this.props})
-       
 
+    }
+
+    deletePrivate(private_id){
+        axios.delete(`/privates/deleteprivate/${private_id}`).then(res => {
+            this.componentDidMount()
+        })
     }
 
     render() {
@@ -84,6 +91,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -107,6 +115,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -130,6 +139,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -153,6 +163,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -177,6 +188,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -200,6 +212,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -223,6 +236,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -248,6 +262,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -271,6 +286,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -293,6 +309,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag'  className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -316,6 +333,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -340,6 +358,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })
@@ -362,6 +381,7 @@ class DailyView extends Component {
                             return (
                                <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
+                                    <img src={DeleteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
                                 </div>
                             )
                         })

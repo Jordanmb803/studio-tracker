@@ -142,6 +142,13 @@ module.exports = {
                 res.sendStatus(200)
             })
 
+    },
+    deletePrivate: (req, res ) => {
+        const {private_id} = req.params
+        req.app.get('db').delete_a_private([private_id])
+            .then(ok => {
+                res.sendStatus(200)
+            })
     }
 
 }
