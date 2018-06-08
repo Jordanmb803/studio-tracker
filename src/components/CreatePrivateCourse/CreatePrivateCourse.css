@@ -1,0 +1,11 @@
+.privatesInfoDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 75%;
+}
+
+.privatesInfo {
+    width: 80%;
+    height: 15%;
+}
