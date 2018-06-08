@@ -1,6 +1,8 @@
 DELETE FROM
     hours
 WHERE 
-    class_id =$1
+    user_id = $1
 AND
-    date = $2;
+    class_id = $2
+AND
+    date = $3;

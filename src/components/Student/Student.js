@@ -30,6 +30,7 @@ class Student extends Component {
     deletePresent() {
         const { user_id, class_id, date } = this.props
         axios.delete(`/deleteinput/${user_id}/${class_id}/${date}`).then(res => {
+            console.log('user changed to absent')
             this.setState({
                 present: false
             })

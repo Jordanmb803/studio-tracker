@@ -78,7 +78,7 @@ class CourseList extends Component {
     deleteHours() {
         const class_id = this.props.match.params.classid
         const { date } = this.state
-        axios.delete(`/deleteinput/${class_id}/${date}`).then(res => {
+        axios.delete(`/delete/allclassinput/${class_id}/${date}`).then(res => {
             this.setState({
                 visable: true
             })
