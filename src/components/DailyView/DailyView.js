@@ -58,7 +58,6 @@ class DailyView extends Component {
 
     render() {
         let { today } = this.props
-        console.log('testagain')
 
         return (
             <div className='dailyView'>
@@ -81,9 +80,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '9am'
-                        }).map(privateCourse => {
+                        }).map( (privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -104,9 +103,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '10am'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -127,9 +126,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '11am'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -150,9 +149,9 @@ class DailyView extends Component {
                     {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '12pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -174,9 +173,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '1pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -197,9 +196,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '2pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -220,9 +219,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '3pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -245,9 +244,9 @@ class DailyView extends Component {
                     {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '4pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -268,9 +267,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '5pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -290,9 +289,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '6pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag'  className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag'  className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -313,9 +312,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '7pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -337,9 +336,9 @@ class DailyView extends Component {
                     {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '8pm'
-                        }).map(privateCourse => {
+                        }).map((privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )
@@ -359,9 +358,9 @@ class DailyView extends Component {
                      {
                         this.state.privates.filter(privateC => {
                             return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '9pm'
-                        }).map(privateCourse => {
+                        }).map( (privateCourse, i) => {
                             return (
-                               <div id='atag' className='courseBox' >
+                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
                                     <p className='course'>{privateCourse.student_name}</p>
                                 </div>
                             )

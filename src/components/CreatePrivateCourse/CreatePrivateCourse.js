@@ -28,13 +28,17 @@ class CreatePrivateCourse extends Component {
     }
 
     addPrivateCourse() {
-        let user = this.props.users.find(user => {
+        let teacher_name = ''
+        
+         this.props.users.find(user => {
+            
             if (user.user_id === Number(this.state.teacher_id)) {
-                return user.user_name
+                teacher_name = user.user_name
+                console.log(teacher_name)
             }
+            return teacher_name
         })
 
-        let teacher_name = user.user_name
 
         let { student_name, length, day, time, teacher_id } = this.state
 
@@ -47,7 +51,6 @@ class CreatePrivateCourse extends Component {
     }
 
     render() {
-        console.log('test')
         return (
             <div className='dailyView'>
                 <h1 className='thHeader'>Create Private Class</h1>
@@ -74,17 +77,17 @@ class CreatePrivateCourse extends Component {
                         <option value=''>Time</option>
                         <option value='9am'>9am</option>
                         <option value='10am'>10am</option>
-                        <option value='10am'>11am</option>
-                        <option value='10am'>12pm</option>
-                        <option value='10am'>1pm</option>
-                        <option value='10am'>2pm</option>
-                        <option value='10am'>3pm</option>
-                        <option value='10am'>4pm</option>
-                        <option value='10am'>5pm</option>
-                        <option value='10am'>6pm</option>
-                        <option value='10am'>7pm</option>
-                        <option value='10am'>8pm</option>
-                        <option value='10am'>9pm</option>
+                        <option value='11am'>11am</option>
+                        <option value='12pm'>12pm</option>
+                        <option value='1pm'>1pm</option>
+                        <option value='2pm'>2pm</option>
+                        <option value='2pm'>3pm</option>
+                        <option value='4pm'>4pm</option>
+                        <option value='5pm'>5pm</option>
+                        <option value='6pm'>6pm</option>
+                        <option value='7pm'>7pm</option>
+                        <option value='8pm'>8pm</option>
+                        <option value='9pm'>9pm</option>
                     </select>
 
                     <button onClick={() => this.addPrivateCourse()}>Schedule</button>
