@@ -5,7 +5,7 @@ class CreatePrivateCourse extends Component {
 
     render(){
         return (
-            <div className='displayView'>
+            <div className='dailyView'>
 
                 CreatePrivateCourse
 
