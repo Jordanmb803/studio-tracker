@@ -53,8 +53,8 @@ class CreateCourse extends Component {
                             <option value='60'>1 Hour</option>
                             <option value='90'>1.5 Hours</option>
                         </select>
-                        
-                        
+
+
                         <select className='newInfoInput' id='smallSelect' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
                             <option value=''>Day</option>
                             <option value='S'>Sunday</option>
@@ -97,8 +97,8 @@ class CreateCourse extends Component {
                                 )
                             })
                             }
+                            <button id='createCourseButton' className='updateButton' onClick={() => this.createCourse()}>Create New Class</button>
                         </div>
-                        <button id='createCourseButton' className='updateButton' onClick={() => this.createCourse()}>Create New Class</button>
                     </div>
                 </div>
             </div>
