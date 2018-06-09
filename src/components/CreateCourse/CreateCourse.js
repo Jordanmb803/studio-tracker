@@ -98,8 +98,8 @@ class CreateCourse extends Component {
                             })
                             }
                         </div>
-                            <button id='createCourseButton' className='updateButton' onClick={() => this.createCourse()}>Create New Class</button>
                     </div>
+                    <button id='createCourseButton' className='updateButton' onClick={() => this.createCourse()}>Create New Class</button>
                 </div>
             </div>
         )
