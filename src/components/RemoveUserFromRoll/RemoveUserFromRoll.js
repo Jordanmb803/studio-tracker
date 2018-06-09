@@ -10,6 +10,7 @@ class RemoveUserFromRoll extends Component {
     constructor() {
         super()
         this.state = {
+            search: '',
             roll: [],
             usersInCourse: []
         }
@@ -43,11 +44,14 @@ class RemoveUserFromRoll extends Component {
 
     render() {
         return (
-            <div className='removeUserFromRoll'>
+            <div id='UpdateCourseRoll' className='TrackHours'>
                 <h1 className='thHeader'>Remove Students From {this.props.match.params.course}</h1>
+
+                <input className='searchBar' placeholder='Search Student' onChange={e => this.setState({search: e.target.value})} />
+
                 {
                     this.props.users.filter(user => {
-                        return this.state.usersInCourse.includes(user.user_id) && user.type === 'student'
+                        return this.state.usersInCourse.includes(user.user_id) && user.type === 'student' && user.user_name.toLowerCase().includes(this.state.search.toLowerCase())
                     }).map((student, i) => {
                         return (
                             <div key={student + i}>
