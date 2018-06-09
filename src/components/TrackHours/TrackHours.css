@@ -2,30 +2,34 @@
 
 .TrackHours {
     /* margin-top: 50px; */
-    padding-top: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 20px;
+    padding-left: 1px;
+    padding-right: 2px;
     height: 100vh;
     width: 100%;
     box-sizing: border-box;
     position: relative;
     background: white;
+    overflow: auto;
     /* overflow-x: hidden; */
 }
 
 .thHeader {
-    height: 50px;
+    /* height: 50px; */
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-    margin: 8px 0 0 0;
+    margin: 8px 0 30px 0;
+    font-size: 27px;
+    font-family: 'Vidaloka', serif;
+
 }
 
 .dateSelectorDiv {
     display: flex;
     width: 100%;
     box-sizing: border-box;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
     margin-bottom: 40px;
 
@@ -35,6 +39,7 @@
     display: flex;
     flex-direction: column;
 }
+
 
 .datePickerTH {
     z-index: 4;
