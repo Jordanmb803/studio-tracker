@@ -1,6 +1,7 @@
 .privatesInfoDiv {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 75%;
 }
@@ -8,4 +9,7 @@
 .privateInfo {
     width: 80%;
     height: 15%;
+    border: black solid 2px;
+    background: white;
+    margin: 0 0 30px 0;
 }
