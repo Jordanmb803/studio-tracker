@@ -73,7 +73,7 @@ class Student extends Component {
 
 
                     <div className='presentAbsentCheckBoxes'>
-                        <div>
+                        <div className='checkboxWLabel'>
                             <input type='checkbox' id='present' name='roll' value='present' onClick={() => this.postPresent()} checked={this.state.present} onChange={(e) => {
                                 e.target.checked = this.state.present
                                 this.setState({
@@ -83,7 +83,7 @@ class Student extends Component {
                             } />
                             <label id='psInfo' for='present'>Present</label>
                         </div>
-                        <div>
+                        <div className='checkboxWLabel'>
                             <input type='checkbox' id='absent' name='roll' value='absent' onClick={() => this.deletePresent()} checked={!this.state.present} onChange={(e) => {
                                 e.target.checked = !this.state.present
                                 this.setState({

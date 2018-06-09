@@ -39,7 +39,7 @@
 .parentStudentDiv {
     display: flex;
     flex-direction: column;
-    width: 79%;
+    width: 77%;
 }
 
 .presentAbsentCheckBoxes{
@@ -48,9 +48,13 @@
     justify-content: space-between;
 }
 
+.checkboxWLabel{
+    display: flex;
+    flex-direction: row;
+}
 
 #psInfo {
-   font-size: 18px; 
+   font-size: 16px; 
 }
 
 #sN{

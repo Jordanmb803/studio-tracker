@@ -90,7 +90,7 @@ class CreatePrivateCourse extends Component {
                         <option value='9pm'>9pm</option>
                     </select>
 
-                    <button onClick={() => this.addPrivateCourse()}>Schedule</button>
+                    <button className='schedulePrivate' onClick={() => this.addPrivateCourse()}>Schedule</button>
                 </div>
 
             </div>
