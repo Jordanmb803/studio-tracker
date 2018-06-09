@@ -110,7 +110,7 @@ class TrackHours extends Component {
                     this.state.total.map((total, i) => {
                         return (
                             <div key={total + i}>
-                                <p id='totalHours'>Total Hours: {total.sum}</p>
+                                <p id='totalHours'>Total Hours: {total.sum / 60}</p>
                             </div>
                         )
                     })
