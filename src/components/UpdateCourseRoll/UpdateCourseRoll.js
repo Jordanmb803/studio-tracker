@@ -56,7 +56,7 @@ class UpdateCourseRoll extends Component {
             <div id='UpdateCourseRoll' className='TrackHours'>
                <h1 className='thHeader'>Add Students to {this.props.match.params.course} </h1>
                
-                <input onChange={e => this.setState({search: e.target.value})} />
+                <input className='searchBar' placeholder='Search Student' onChange={e => this.setState({search: e.target.value})} />
 
                 {
                     this.props.users.filter(user => {

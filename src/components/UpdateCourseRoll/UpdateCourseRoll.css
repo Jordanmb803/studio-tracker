@@ -4,6 +4,19 @@
     height: 100vh;
 }
 
+.searchBar{
+    margin: 10px;
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.studentCheckboxDiv {
+    margin: 20px;
+}
+
+
 #enrollStudentsButton{
     margin-top: 70px;
 }
