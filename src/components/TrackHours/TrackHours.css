@@ -110,3 +110,14 @@
 #label {
     font-weight: bold;
 }
+
+@media (min-width: 450px) {
+    .dateSelectorDiv {
+        justify-content: space-evenly;
+    }
+
+    .TrackHours {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
