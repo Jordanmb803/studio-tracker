@@ -45,7 +45,7 @@ class EditCourse extends Component {
 
     render() {
         return (
-            <div className='EditCourse'>
+            <div id='EditCourse' className='TrackHours'>
                 <div className='classTaughtDiv' id='previosInfo'>
                     <h3 className='courseTitle'>{this.props.match.params.course}</h3>
 
@@ -96,7 +96,7 @@ class EditCourse extends Component {
                             <option value='90'>1.5 Hours</option>
                         </select>
 
-                        <select className='newInfoInput' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
+                        <select id='smallSelect' className='newInfoInput' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
                             <option value=''>Day</option>
                             <option value='S'>Sunday</option>
                             <option value='M'>Monday</option>
@@ -107,7 +107,7 @@ class EditCourse extends Component {
                             <option value='SAT'>Saturday</option>
                         </select>
 
-                        <select className='newInfoInput' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
+                        <select id='smallSelect' className='newInfoInput' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
                             <option value=''>Time</option>
                             <option value='9am'>9am</option>
                             <option value='10am'>10am</option>

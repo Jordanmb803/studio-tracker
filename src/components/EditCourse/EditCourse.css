@@ -1,7 +1,5 @@
-.EditCourse{
-    padding-top: 100px;
-    height: 100vh;
-    width: 100%;
+#EditCourse{
+    padding-top: 60px;
 }
 
 .courseTitle {
@@ -28,8 +26,10 @@
 .textFieldsDiv{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 10px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .selectBoxesDiv{
@@ -37,12 +37,12 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
 .newInfoInput {
-    width: 28%;
+    width: 35%;
     height: 30px;
     border: black solid 2px;
     background: white;
@@ -56,6 +56,10 @@
 }
 
 #num {
+    width: 38%;
+}
+
+#smallSelect{
     width: 20%;
 }
 
@@ -71,6 +75,7 @@
 .updateButton {
     height: 60px;
     width: 50%;
+    margin-top: 30px;
     background: black;
     color: white;
     border-radius: 5px;

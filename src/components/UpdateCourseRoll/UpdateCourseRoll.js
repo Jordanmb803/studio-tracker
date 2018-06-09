@@ -53,14 +53,14 @@ class UpdateCourseRoll extends Component {
     render() {
         console.log(this.props)
         return (
-            <div className='UpdateCourseRoll'>
+            <div id='UpdateCourseRoll' className='TrackHours'>
                <h1 className='thHeader'>Add Students to {this.props.match.params.course} </h1>
                
-                <input />
+                <input onChange={e => this.setState({search: e.target.value})} />
 
                 {
                     this.props.users.filter(user => {
-                        return !this.state.usersInCourse.includes(user.user_id) && user.type === 'student'
+                        return !this.state.usersInCourse.includes(user.user_id) && user.type === 'student' && user.user_name.toLowerCase().includes(this.state.search.toLowerCase())
                     }).map(student => {
                         return (
                             <div>

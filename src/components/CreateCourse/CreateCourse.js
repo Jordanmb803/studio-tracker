@@ -39,7 +39,7 @@ class CreateCourse extends Component {
     render() {
 
         return (
-            <div className='createCourse'>
+            <div className='TrackHours'>
                 <h1 className='thHeader'>Create A New Class</h1>
                 <div className='createCourseDiv'>
 
