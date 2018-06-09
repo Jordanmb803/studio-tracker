@@ -126,7 +126,7 @@ class EditCourse extends Component {
                     </div>
 
 
-                    <p>Select A Teacher</p>
+                    <p className='selectTeacherLabel'>Select A Teacher</p>
                     <div className='teachersDiv'>
                         {this.state.users.filter(user => {
                             return user.type === 'teacher'

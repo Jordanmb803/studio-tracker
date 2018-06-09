@@ -39,51 +39,50 @@ class CreateCourse extends Component {
     render() {
 
         return (
-            <div className='TrackHours'>
+            <div id='EditCourse' className='TrackHours'>
                 <h1 className='thHeader'>Create A New Class</h1>
-                <div className='createCourseDiv'>
 
-                    <input className='newInfoInput' id='createCourseInput' placeholder='Class Title' onChange={e => this.setState({ classTitle: e.target.value })} />
+                <div className='newInfo'>
+                    <div className='textFieldsDiv' >
+                        <input className='newInfoInput' id='title' placeholder='Class Title' onChange={e => this.setState({ classTitle: e.target.value })} />
+                        <input className='newInfoInput' id='num' placeholder='Class Number' onChange={e => this.setState({ classNumber: e.target.value })} />
+                    </div >
+                    <div className='selectBoxesDiv'>
+                        <select className='newInfoInput' onChange={e => this.setState({ length: e.target.value })} name='length' form='length'>
+                            <option value=''>Length</option>
+                            <option value='60'>1 Hour</option>
+                            <option value='90'>1.5 Hours</option>
+                        </select>
+                        
+                        
+                        <select className='newInfoInput' id='smallSelect' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
+                            <option value=''>Day</option>
+                            <option value='S'>Sunday</option>
+                            <option value='M'>Monday</option>
+                            <option value='T'>Tuesday</option>
+                            <option value='W'>Wednesday</option>
+                            <option value='TH'>Thursday</option>
+                            <option value='F'>Friday</option>
+                            <option value='SAT'>Saturday</option>
+                        </select>
 
-
-                    <select className='newInfoInput' id='createCourseInput' onChange={e => this.setState({ dayOfWeek: e.target.value })} name='dayOfTheWeek' form='dayOfTheWeek'>
-                        <option value=''>Select Day</option>
-                        <option value='S'>Sunday</option>
-                        <option value='M'>Monday</option>
-                        <option value='T'>Tuesday</option>
-                        <option value='W'>Wednesday</option>
-                        <option value='TH'>Thursday</option>
-                        <option value='F'>Friday</option>
-                        <option value='SAT'>Saturday</option>
-                    </select>
-
-
-                    <select className='newInfoInput' id='createCourseInput' onChange={e => this.setState({ length: e.target.value })} name='length' form='length'>
-                        <option value=''>Select Class Length</option>
-                        <option value='60'>1 Hour</option>
-                        <option value='90'>1.5 Hours</option>
-                    </select>
-
-
-
-                    <select className='newInfoInput' id='createCourseInput' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
-                        <option value=''>Select Time</option>
-                        <option value='9am'>9am</option>
-                        <option value='10am'>10am</option>
-                        <option value='11am'>11am</option>
-                        <option value='12pm'>12pm</option>
-                        <option value='1pm'>1pm</option>
-                        <option value='2pm'>2pm</option>
-                        <option value='3pm'>3pm</option>
-                        <option value='4pm'>4pm</option>
-                        <option value='5pm'>5pm</option>
-                        <option value='6pm'>6pm</option>
-                        <option value='7pm'>7pm</option>
-                        <option value='8pm'>8pm</option>
-                        <option value='9pm'>9pm</option>
-                    </select>
-
-                    <input className='newInfoInput' id='createCourseInput' placeholder='Class Number' onChange={e => this.setState({ classNumber: e.target.value })} />
+                        <select className='newInfoInput' id='smallSelect' onChange={e => this.setState({ time: e.target.value })} name='time' form='time'>
+                            <option value=''>Time</option>
+                            <option value='9am'>9am</option>
+                            <option value='10am'>10am</option>
+                            <option value='11am'>11am</option>
+                            <option value='12pm'>12pm</option>
+                            <option value='1pm'>1pm</option>
+                            <option value='2pm'>2pm</option>
+                            <option value='3pm'>3pm</option>
+                            <option value='4pm'>4pm</option>
+                            <option value='5pm'>5pm</option>
+                            <option value='6pm'>6pm</option>
+                            <option value='7pm'>7pm</option>
+                            <option value='8pm'>8pm</option>
+                            <option value='9pm'>9pm</option>
+                        </select>
+                    </div>
 
                     <div className='selectTeacherAndButtonDiv'>
                         <p className='selectTeacherLabel'>Select A Teacher</p>
