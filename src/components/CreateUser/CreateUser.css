@@ -15,3 +15,38 @@
     height: 75%;
     padding: 10px;
 }
+
+@media (min-width: 1100px) {
+    .newStudentInfoDiv {
+        justify-content: space-evenly;
+    }
+
+    .row {
+       justify-content: flex-start;
+    }
+
+    .studentInfoInput {
+        margin-right: 15px;
+    }
+
+    #lastName {
+        width: 35%;
+    }
+
+    #city {
+        margin-right: 15px;
+    }
+
+    #state {
+        margin-right: 15px;
+    }
+
+    #userType {
+        margin-right: 15px;
+    }
+
+    #userName {
+        width: 35%;
+    }
+
+}

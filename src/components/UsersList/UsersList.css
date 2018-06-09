@@ -53,3 +53,12 @@ p {
     bottom: 0px;
     padding: 5px;
 }
+
+@media (min-width: 1100px) {
+    .changeViewIcon {
+        bottom: 5px;
+        right: 25px;
+        height: 80px;
+        width: 80px;
+    }
+}

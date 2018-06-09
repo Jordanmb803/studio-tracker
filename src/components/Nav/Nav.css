@@ -7,7 +7,6 @@
     color: white;
     box-shadow: 1px 1px lightgray;
     position: fixed;
-    /* height: 100px; */
     height: 60px;
     width: 100vw;
     margin: 0;
@@ -109,7 +108,7 @@
     align-items: flex-start;
     text-align: left;
     box-sizing: border-box;
-
+    
 }
 
 
@@ -134,13 +133,13 @@
 @media(min-width: 700px){
     .dropDown {
         display: none;
-
+        
     }
-
+    
     .menuVis {
         display: none
     }
-
+    
     .navOptionsDiv {
         display: flex;
         width: 50%;
@@ -155,9 +154,22 @@
         margin-left: 15px;
         font-size: 18px;
     }
-
+    
     .picTitle{
         width: 50%;
     }
+    
+}
 
+@media (min-width: 1100px) {
+    .nav { 
+        height: 100px;
+    }
+    .studioNavHeader{
+        font-size: 28px;
+    }
+
+    .navH3 {
+        font-size: 18px;
+    }
 }

@@ -88,3 +88,15 @@
     margin: 0;
     width: 100%;
 }
+
+@media (min-width: 1100px) {
+    .student {
+        height: 30px;
+        padding-top: 10px;
+        font-size: 25px;
+    }
+
+        #EditCourse {
+            padding-top: 120px;
+        }
+    }

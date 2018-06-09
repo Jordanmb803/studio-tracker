@@ -390,7 +390,7 @@ class DailyView extends Component {
                     </div>
 
                 </div>
-                <Link to={`/create/privatescourse/${this.props.user.user_id}`} id='createCourseBut' ><img src={BigPlusIcon}  alt='addCourse' id='ccButton'/></Link>
+                <Link to={`/create/privatescourse/${this.props.user.user_id}`} ><img src={BigPlusIcon}  alt='addCourse' id='ccButton'/></Link>
                 {/* <CreatePrivateCourse /> */}
             </div>
 

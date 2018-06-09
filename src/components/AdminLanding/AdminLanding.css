@@ -63,11 +63,11 @@ html {
     
     .adminLanding {
         width: 25%;
-        height: 90%;
+        height: 85%;
         flex-direction: column;
         margin-left: 2%;
         box-sizing: border-box;
-        margin-top: 80px;
+        margin-top: 120px;
         padding: 0;
         background: white;
         justify-content: center;
@@ -80,11 +80,11 @@ html {
         display: flex;
         flex-direction: column;
         width: 60%;
-        margin-top: 80px;
+        margin-top: 120px;
         margin-left: 1%;
-        height: 90%;
+        height: 85%;
         box-sizing: border-box;
-        position: relative;
+        /* position: relative; */
     }
     
     .TrackHours {
@@ -95,11 +95,11 @@ html {
     
     .adminLinks {
         background: lightgray;
-        height: 24%;
+        height: 22%;
         width: 90%;
         border-left: none;
         /* margin: 10px 0 10px 0; */
-        margin-bottom: 5px;
+        margin-bottom: 15px;
         box-shadow: 2px 3px 10px black;
         display: flex;
         flex-direction: column;
@@ -110,7 +110,7 @@ html {
 
     .adminOption {
         /* height: 100%; */
-        padding: 85px 0 85px 0;
+        padding: 78px 0 78px 0;
         width: 100%;
         font-size: 30px;
         color: white;

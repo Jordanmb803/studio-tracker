@@ -108,7 +108,7 @@ class CreateUser extends Component {
                             <option value='admin'>Administrator</option>
                         </select>
 
-                        <input placeholder='User Name' className='studentInfoInput' onChange={e => this.setState({ userName: e.target.value })} />
+                        <input id='userName' placeholder='User Name' className='studentInfoInput' onChange={e => this.setState({ userName: e.target.value })} />
                     </div>
                     <div className='row'>
                         <input id='singleRowItem' placeholder='Profile Picture Url' className='studentInfoInput' onChange={e => this.setState({ profilePicture: e.target.value })} />
