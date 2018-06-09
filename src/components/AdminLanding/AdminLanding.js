@@ -33,7 +33,7 @@ class AdminLanding extends Component {
                         onClick={() => changeActiveTab(3)}
                     ><h3 className='adminOption'>Users</h3></Link>
                 </div>
-                <div>
+                <div className='routes'>
                     <Switch>
                         <Route path='/adminlanding/trackhours' component={TrackHours} />
                         <Route path='/adminlanding/trackattendance' component={TrackAttendance} />

@@ -46,7 +46,7 @@ class TrackAttendance extends Component {
                 <h1 className='thHeader'>Student Attendance</h1>
                 <div className='dateSelectorDiv'>
                     <div className='dateTitleCol'>
-                        <p>From: </p>
+                        <p className='toFromDate'>From: </p>
                         <DatePicker calendarClassName='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
                         <select className='selectTeacher' onChange={e => this.setState({ user: e.target.value })}>
                             <option value='' >Student</option>
@@ -62,7 +62,7 @@ class TrackAttendance extends Component {
                         </select>
                     </div>
                     <div className='dateTitleCol'>
-                        <p>To:</p>
+                        <p className='toFromDate'>To:</p>
                         <DatePicker calendarClassName='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
                         <button className='searchButton' onClick={() => this.searchStudent()}>Search</button>
                     </div>

@@ -1,7 +1,6 @@
 .adminLandingRoutes{
     width: 100%;
-    height: 100vh;
-    /* position: relative; */
+    height: 100%;
     overflow-x: hidden;
 
 }
@@ -12,12 +11,13 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* overflow-x: hidden; */
-    /* background: lightgray; */
-
+    
 }
 
 .adminLinks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 25%;
     text-decoration: none;
@@ -27,11 +27,11 @@
 
 .adminOption{
     margin: 0;
-    padding: 12px 0 12px 0;
-    font-size: 13px;
+    padding: 16px 0 16px 0;
+    font-size: 14px;
     color: #ffffff;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     text-align: center;
     box-sizing: border-box;
     
@@ -39,10 +39,80 @@
 
 #active .adminOption {
   background: black;
+  box-shadow: 2px 3px 10px black;
 }
 
+#active .adminLinks {
+  background: black;
+  box-shadow: 2px 3px 10px black;
+}
 
 html {
     width: 100%;
     height: 100vh;
+}
+
+@media(min-width: 1100px) {
+    .adminLandingRoutes{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    
+    .adminLanding {
+        width: 25%;
+        height: 90%;
+        flex-direction: column;
+        margin-left: 2%;
+        box-sizing: border-box;
+        margin-top: 80px;
+        padding: 0;
+        background: white;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 3px 10px black;
+    }
+    
+    .routes {
+        box-shadow: 2px 3px 10px black;
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin-top: 80px;
+        margin-left: 1%;
+        height: 90%;
+        box-sizing: border-box;
+        position: relative;
+    }
+    
+    .TrackHours {
+        width:  100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    
+    .adminLinks {
+        background: lightgray;
+        height: 24%;
+        width: 90%;
+        border-left: none;
+        /* margin: 10px 0 10px 0; */
+        margin-bottom: 5px;
+        box-shadow: 2px 3px 10px black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+
+    }
+
+    .adminOption {
+        /* height: 100%; */
+        padding: 85px 0 85px 0;
+        width: 100%;
+        font-size: 30px;
+        color: white;
+    }
 }

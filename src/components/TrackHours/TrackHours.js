@@ -57,7 +57,7 @@ class TrackHours extends Component {
 
                 <div className='dateSelectorDiv'>
                     <div className='dateTitleCol'>
-                        <p>From: </p><DatePicker calendarClassName='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
+                        <p className='toFromDate'>From: </p><DatePicker calendarClassName='datePickerTH' value={this.state.dateOne} onChange={e => this.setState({ dateOne: e })} />
                         <select className='selectTeacher' onChange={e => this.setState({ user: e.target.value })}>
                             <option value=''>Teacher</option>
                             {
@@ -71,8 +71,8 @@ class TrackHours extends Component {
                             }
                         </select>
                     </div>
-                    <div className='dateTitleCol'>
-                        <p>To: </p><DatePicker calendarClassName='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
+                    <div id='rightCol' className='dateTitleCol'>
+                        <p className='toFromDate'>To: </p><DatePicker calendarClassName='datePickerTH' value={this.state.dateTwo} onChange={e => this.setState({ dateTwo: e })} />
                         <button className='searchButton' onClick={() => this.searchHours()}>Search</button>
                     </div>
                 </div>
