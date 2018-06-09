@@ -7,6 +7,7 @@ import DeleteIcon from '../Courses/delete-icon.png';
 import BigPlusIcon from '../Courses/big-plus-icon.png';
 import DancerIcon from './dancer-icon.png';
 import TeacherIcon from './teacher-icon.png';
+import AdminIcon from './admin-icon.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -15,7 +16,8 @@ class UsersList extends Component {
         super()
         this.state = {
             search: '',
-            studentView: true
+            studentView: true,
+            activeView: 0
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.deleteUser = this.deleteUser.bind(this)
@@ -32,17 +34,33 @@ class UsersList extends Component {
         })
     }
 
+    toggleViews() {
+        if (this.state.activeView === 2) {
+            this.setState({
+                activeView: 0
+            })
+        } else if(this.state.activeView === 0) {
+            this.setState({
+                activeView: 1
+            })
+        } else if(this.state.activeView === 1) {
+            this.setState({
+                activeView: 2
+            })
+        }
+    }
+
     render() {
         return (
             <div className='TrackHours'>
-                <h1 className='thHeader'>{this.state.studentView === true ? 'Students' : 'Teachers'} List</h1>
+                <h1 className='thHeader'>{this.state.activeView === 0 ? 'Students' : this.state.activeView === 1 ? 'Teachers' : 'Administrators'} List</h1>
                 <Link id='createCourseBut' to='/admin/createuser'><img src={BigPlusIcon} alt='Create User' id='ccButton' /></Link>
-                
+
                 {/* <input placeholder='Search User' className='searchInput' value={this.state.search} onChange={e => this.setState({ search: e.target.value })} /> */}
 
-                <input className='searchBar' placeholder='Search Student' onChange={e => this.setState({search: e.target.value})} />
+                <input className='searchBar' placeholder='Search Student' onChange={e => this.setState({ search: e.target.value })} />
 
-                {(this.state.studentView === true) ?
+                {(this.state.activeView === 0) ?
                     <div className='usersColumn'>
                         {
                             this.props.users.filter(user => {
@@ -61,28 +79,51 @@ class UsersList extends Component {
                         }
                     </div>
 
-                    :
+                    : (this.state.activeView === 1) ?
 
-                    <div className='usersColumn'>
-                        {
-                            this.props.users.filter(user => {
-                                return user.type === 'teacher' && user.user_name.toLowerCase().includes(this.state.search.toLowerCase())
-                            }).map((teacher, i) => {
-                                return (
-                                    <div className='user' key={i + teacher}>
-                                        <p className='username'>{teacher.user_name}</p>
-                                        <div className='icons'>
-                                            <Link to={`/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
-                                            <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(teacher.user_id)} />
+                        <div className='usersColumn'>
+                            {
+                                this.props.users.filter(user => {
+                                    return user.type === 'teacher' && user.user_name.toLowerCase().includes(this.state.search.toLowerCase())
+                                }).map((teacher, i) => {
+                                    return (
+                                        <div className='user' key={i + teacher}>
+                                            <p className='username'>{teacher.user_name}</p>
+                                            <div className='icons'>
+                                                <Link to={`/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
+                                                <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(teacher.user_id)} />
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        :
+
+                        <div className='usersColumn'>
+                            {
+                                this.props.users.filter(user => {
+                                    return user.type === 'admin' && user.user_name.toLowerCase().includes(this.state.search.toLowerCase())
+                                }).map((teacher, i) => {
+                                    return (
+                                        <div className='user' key={i + teacher}>
+                                            <p className='username'>{teacher.user_name}</p>
+                                            <div className='icons'>
+                                                <Link to={`/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
+                                                <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(teacher.user_id)} />
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+
+
                 }
 
-                <img className='changeViewIcon' src={this.state.studentView === true ? TeacherIcon : DancerIcon} alt='View Teachers' onClick={() => this.setState({ studentView: !this.state.studentView })} />
+
+                <img className='changeViewIcon' src={this.state.activeView === 0 ? TeacherIcon : this.state.activeView === 1 ? DancerIcon : AdminIcon} alt='View Teachers' onClick={() => this.toggleViews()} />
+
             </div>
         )
     }
