@@ -35,7 +35,7 @@ class Courses extends Component {
 
     render() {
         return (
-            <div className='TrackHours'>
+            <div id='Courses' className='TrackHours'>
                 <h1 className='thHeader'>Class List</h1>
                 <Link id='createCourseBut' to='/createcourse'><img src={BigPlusIcon} alt='addCourse' id='ccButton' /></Link>
                 {this.props.danceCourses.map((course, i) => {

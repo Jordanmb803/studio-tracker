@@ -31,7 +31,7 @@ class CreateUser extends Component {
 
     render() {
         return (
-            <div className='EditUser'>
+            <div className='TrackHours' id='EditCourse'>
             <h1 className='thHeader'>Create User</h1>
                 <div id='createUser' className='newStudentInfoDiv'>
                     <div className='row'>
@@ -98,7 +98,7 @@ class CreateUser extends Component {
                             <option value='WI'>WI</option>
                             <option value='WY'>WY</option>
                         </select>
-                        <input placeholder='Zipcode' className='studentInfoInput' onChange={e => this.setState({ zipcode: e.target.value })} />
+                        <input placeholder='Zipcode' id='zipcode' className='studentInfoInput' onChange={e => this.setState({ zipcode: e.target.value })} />
                     </div>
                     <div className='row'>
                         <select id='userType' className='studentInfoInput' onChange={e => this.setState({ type: e.target.value })} >

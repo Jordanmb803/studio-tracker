@@ -7,6 +7,10 @@
     flex-direction: column;
 }
 
+.user{
+    margin: 15px;
+}
+
 #createUser {
     height: 75%;
     padding: 10px;

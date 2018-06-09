@@ -1,6 +1,5 @@
-.Courses {
-    padding-top: 115px;
-    width: 100%;
+#Courses {
+   padding: 0 10px 0 10px;
 }
 
 .deleteEditIcons {

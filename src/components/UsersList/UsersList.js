@@ -37,13 +37,16 @@ class UsersList extends Component {
             <div className='TrackHours'>
                 <h1 className='thHeader'>{this.state.studentView === true ? 'Students' : 'Teachers'} List</h1>
                 <Link id='createCourseBut' to='/admin/createuser'><img src={BigPlusIcon} alt='Create User' id='ccButton' /></Link>
-                <input placeholder='Search User' className='searchInput' value={this.state.search} onChange={e => this.setState({ search: e.target.value })} />
+                
+                {/* <input placeholder='Search User' className='searchInput' value={this.state.search} onChange={e => this.setState({ search: e.target.value })} /> */}
+
+                <input className='searchBar' placeholder='Search Student' onChange={e => this.setState({search: e.target.value})} />
 
                 {(this.state.studentView === true) ?
                     <div className='usersColumn'>
                         {
                             this.props.users.filter(user => {
-                                return user.type === 'student' && user.user_name.includes(this.state.search)
+                                return user.type === 'student' && user.user_name.toLowerCase().includes(this.state.search.toLowerCase())
                             }).map((student, i) => {
                                 return (
                                     <div className='user' key={i + student}>
@@ -63,7 +66,7 @@ class UsersList extends Component {
                     <div className='usersColumn'>
                         {
                             this.props.users.filter(user => {
-                                return user.type === 'teacher' && user.user_name.includes(this.state.search)
+                                return user.type === 'teacher' && user.user_name.toLowerCase().includes(this.state.search.toLowerCase())
                             }).map((teacher, i) => {
                                 return (
                                     <div className='user' key={i + teacher}>
