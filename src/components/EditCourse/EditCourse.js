@@ -36,10 +36,25 @@ class EditCourse extends Component {
             return teacher.user_id
         })
         const teacher_id = teacherID[0]
+       
+        let teacher = this.state.users.find(user => {
+            return user.user_id === teacher_id
+        })
+
+        let message = 'hello world dka;fdj;d f;dj fa;l'
+        let subject = `${this.props.match.params.course} class info updated`
+
+        let email = teacher.email
+        console.log(email)
+
         const { classid } = this.props.match.params
         const { classNumber, classTitle, length, dayOfWeek, time, teacherName } = this.state
         axios.put('/editcourse', { classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id }).then(res => {
             this.props.history.push('/adminlanding/courses')
+        })
+
+        axios.post(`/sendemail/${email}/${subject}`, {message}).then(res => {
+            console.log('email sent')
         })
     }
 
