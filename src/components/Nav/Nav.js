@@ -8,7 +8,7 @@ class Nav extends Component {
     constructor() {
         super()
         this.state = {
-            menuVis: false
+            menuVis: false,
         }
         this.toggleMenu = this.toggleMenu.bind(this)
     }
@@ -39,7 +39,7 @@ class Nav extends Component {
                     
                     
                     <div className='navOptionsDiv'>
-                        <a id='profileATag' href={`/#/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='navOption'>PROFILE</p></a>
+                        <a id='profileATag' href={this.props.user.type === 'admin' ? `/#/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}` : `/#/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='navOption'>PROFILE</p></a>
                         <a id='profileATag' href={'/#/dailyview'}><p className='navOption'>SCHEDULE</p></a>
                         <p className='navOption'>LOGOUT</p>
                     </div>
@@ -48,7 +48,7 @@ class Nav extends Component {
                 </div>
 
                 <div className={(this.state.menuVis === true) ? 'menuVis' : ' menuInvis'}>
-                    <a id='profileATag' className='menuOption' href={`/#/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='menuOption'>PROFILE</p></a>
+                    <a id='profileATag' className='menuOption' href={this.props.user.type === 'admin' ? `/#/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}` : `/#/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='menuOption'>PROFILE</p></a>
                     <a id='profileATag' className='menuOption' href={'/#/dailyview'}><p className='menuOption'>SCHEDULE</p></a>
                     <a id='profileATag' className='menuOption' href={'/#/dailyview'}><p className='menuOption'>LOGOUT</p></a>
                 </div>

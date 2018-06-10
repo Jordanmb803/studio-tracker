@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './EditUser.css';
 import { connect } from 'react-redux';
-import { getUsers } from '../../ducks/user';
+import { getUsers, getUser } from '../../ducks/user';
 import axios from 'axios';
 
 class EditUser extends Component {
@@ -25,6 +25,7 @@ class EditUser extends Component {
 
     componentDidMount() {
         this.props.getUsers()
+        this.props.getUser()
     }
 
     editUser() {
@@ -36,21 +37,9 @@ class EditUser extends Component {
     }
 
     render() {
-        // this.setState({
-        //    firstName: user.first_name,
-        //    lastName: user.last_name,
-        //    email: user.email,
-        //    address: user.address,
-        //    city: user.city,
-        //    state: user.state,
-        //    zipcode: user.zipcode,
-        //    type: user.type,
-        //    userName: user.user_name,
-        //    profilePicture: user.profile_picture
-
-        // })
+       
         return (
-            <div className='TrackHours'>
+            <div className={this.props.user.type ==='admin' ? 'TrackHours' : 'dailyView'}>
                 <div className='nameAndStudentInfo'>
                     <h3 className='student'>{this.props.match.params.user_name}</h3>
                     {
@@ -197,8 +186,9 @@ class EditUser extends Component {
 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        users: state.users,
+        user: state.user
     }
 }
 
-export default connect(mapStateToProps, { getUsers })(EditUser);
+export default connect(mapStateToProps, { getUsers, getUser })(EditUser);

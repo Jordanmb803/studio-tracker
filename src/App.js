@@ -8,6 +8,7 @@ import DailyView from './components/DailyView/DailyView';
 import CourseList from './components/CourseList/CourseList';
 import AdminLanding from './components/AdminLanding/AdminLanding';
 import CreatePrivateCourse from './components/CreatePrivateCourse/CreatePrivateCourse';
+import EditUser from './components/EditUser/EditUser';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path='/dailyview/:course/:classid/:userid' component={CourseList} />
             <Route path='/adminlanding' component={AdminLanding} />
             <Route path='/create/privatescourse/:teacher_id' component={CreatePrivateCourse} />
+            <Route path='/edituser/:user_name/:user_id' component={EditUser} />
           </Switch>
         </HashRouter>
       </div>
