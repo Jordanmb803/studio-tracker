@@ -23,6 +23,7 @@ class AdminLanding extends Component {
     render() {
         let { activeTab } = this.props
         let { changeActiveTab } = this.props
+        console.log(this.props.activeTab)
         return (
             <div className='adminLandingRoutes' >
                 <div className='adminLanding'>
