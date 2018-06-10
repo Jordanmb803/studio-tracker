@@ -11,17 +11,14 @@
     height: 130px;
     box-sizing: border-box;
     background: #e8e8e5;
-    /* margin: 30px 10px 0 10px; */
     border-radius: 7px;
+    margin: 0 8px;
     /* width: 100%; */
     
 }
 
 .visable {
     margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 95%;
 }
 
 .infoCheckBoxDiv{
@@ -61,7 +58,7 @@
 }
 
 #psInfo {
-   font-size: 16px; 
+    font-size: 16px; 
 }
 
 #sN{
