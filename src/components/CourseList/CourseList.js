@@ -73,6 +73,7 @@ class CourseList extends Component {
             })
             this.props.history.push('/dailyview')
         })
+
     }
 
     deleteHours() {
@@ -129,6 +130,7 @@ class CourseList extends Component {
                 </div>
             )
         })
+
         return (
 
             <div className='dailyView'>

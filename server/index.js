@@ -6,6 +6,7 @@ const express = require('express')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , classController = require('./classes_controller')
+    , nodemailer = require('nodemailer')
 
 const {
     SERVER_PORT,
@@ -25,7 +26,7 @@ massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
 })
 
-app.use( express.static( `${__dirname}/../build` ) );
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(session({
     secret: SESSION_SECRET,
@@ -46,7 +47,7 @@ passport.use(new Auth0Strategy({
     let { displayName, picture, id } = profile
     let { givenName } = profile.name
     let { familyName } = profile.name
-    let {email} = profile._json;
+    let { email } = profile._json;
 
     app.get('db').find_user([email]).then(foundUser => {
         if (foundUser[0]) {
@@ -93,10 +94,42 @@ app.get('/auth/me', function (req, res) {
     }
 })
 
-app.post('/api/console', (req, res ) => {
+app.post('/api/console', (req, res) => {
     console.log(req.body)
     res.sendStatus(200)
 })
+
+
+app.post('/sendemail/:sendto/:subject', (req, res) => {
+
+    const { sendto, subject } = req.params
+    const { message } = req.body
+
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'studiotracker801@gmail.com',
+            pass: process.env.PASS
+        }
+    });
+
+    const mailOptions = {
+        from: 'studiotracker801@gmail.com', // sender address
+        to: sendto, // list of receivers
+        subject: subject, // Subject line
+        html: message// plain text body
+    };
+
+    transporter.sendMail(mailOptions, function (err, info) {
+        if (err)
+            console.log(err)
+        else
+            console.log(info);
+    });
+    res.sendStatus(200)
+})
+
 
 // Dance Class Endpoints
 app.get('/todayclasses/:day/:user_id', classController.todaysClasses)
@@ -135,7 +168,7 @@ app.delete('/privates/deleteprivate/:private_id', classController.deletePrivate)
 
 // Has to be the last endpoint
 const path = require('path')
-app.get('*', (req, res)=>{
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
