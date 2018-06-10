@@ -131,4 +131,10 @@
         padding-top: 5px;
         
     }
+
+    @media(min-width: 1100px) {
+        .classTime {
+            height: 70px;
+        }
+    }
 }
