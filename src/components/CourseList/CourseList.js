@@ -133,8 +133,8 @@ class CourseList extends Component {
 
             <div className='dailyView'>
                 <div className='classDateDiv'>
-                    <h1 id='headerItems'>{this.props.match.params.course}</h1>
-                    <h1 id='headerItems'>{this.state.date}</h1>
+                    <h1 id='courseListHeader' className='thHeader'>{this.props.match.params.course}</h1>
+                    <h1 id='courseListHeader' className='thHeader'>{this.state.date}</h1>
                 </div>
                 <div className='attendanceRollDiv'>
                     {displayStudent}

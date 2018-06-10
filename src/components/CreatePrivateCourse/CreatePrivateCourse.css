@@ -23,3 +23,9 @@ height: 50px;
 font-size: 16px;
 font-weight: bold;
 }
+
+@media(min-width: 1100px) {
+    .privateInfo {
+        height: 10%;
+    }
+}
