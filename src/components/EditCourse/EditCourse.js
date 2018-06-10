@@ -45,7 +45,7 @@ class EditCourse extends Component {
 
     render() {
         return (
-            <div id='EditCourse' className='TrackHours'>
+            <div className='TrackHours'>
                 <div className='classTaughtDiv' id='previosInfo'>
                     <h3 className='courseTitle'>{this.props.match.params.course}</h3>
 

@@ -4,7 +4,13 @@ import { Switch, Route, Link } from 'react-router-dom';
 import TrackHours from '../TrackHours/TrackHours';
 import TrackAttendance from '../TrackAttendance/TrackAttendance';
 import Courses from '../Courses/Courses';
+import CreateCourse from '../CreateCourse/CreateCourse';
+import EditCourse from '../EditCourse/EditCourse';
+import CreateUser from '../CreateUser/CreateUser';
 import UsersList from '../UsersList/UsersList';
+import EditUser from '../EditUser/EditUser';
+import UpdateCourseRoll from '../UpdateCourseRoll/UpdateCourseRoll';
+import RemoveUserFromRoll from '../RemoveUserFromRoll/RemoveUserFromRoll';
 import { connect } from 'react-redux';
 import { changeActiveTab } from '../../ducks/user';
 
@@ -12,11 +18,11 @@ import { changeActiveTab } from '../../ducks/user';
 
 class AdminLanding extends Component {
 
-    
+
 
     render() {
         let { activeTab } = this.props
-        let { changeActiveTab } =this.props
+        let { changeActiveTab } = this.props
         return (
             <div className='adminLandingRoutes' >
                 <div className='adminLanding'>
@@ -38,7 +44,13 @@ class AdminLanding extends Component {
                         <Route path='/adminlanding/trackhours' component={TrackHours} />
                         <Route path='/adminlanding/trackattendance' component={TrackAttendance} />
                         <Route path='/adminlanding/courses' component={Courses} />
+                        <Route path='/adminlanding/createcourse' component={CreateCourse} />
+                        <Route path='/adminlanding/editcourse/:course/:classid' component={EditCourse} />
                         <Route path='/adminlanding/userslist' component={UsersList} />
+                        <Route path='/adminlanding/edituser/:user_name/:user_id' component={EditUser} />
+                        <Route path='/adminlanding/createuser' component={CreateUser} />
+                        <Route path='/adminlanding/update/courseroll/:course/:class_id' component={UpdateCourseRoll} />
+                        <Route path='/adminlanding/update/removeuser/courseroll/:course/:class_id' component={RemoveUserFromRoll} />
                     </Switch>
                 </div>
             </div>

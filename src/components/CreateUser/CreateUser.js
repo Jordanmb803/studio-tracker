@@ -31,7 +31,7 @@ class CreateUser extends Component {
 
     render() {
         return (
-            <div className='TrackHours' id='EditCourse'>
+            <div className='TrackHours'>
             <h1 className='thHeader'>Create User</h1>
                 <div id='createUser' className='newStudentInfoDiv'>
                     <div className='row'>

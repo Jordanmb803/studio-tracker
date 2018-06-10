@@ -54,7 +54,7 @@ class UsersList extends Component {
         return (
             <div className='TrackHours'>
                 <h1 className='thHeader'>{this.state.activeView === 0 ? 'Students' : this.state.activeView === 1 ? 'Teachers' : 'Administrators'} List</h1>
-                <Link id='createCourseBut' to='/admin/createuser'><img src={BigPlusIcon} alt='Create User' id='ccButton' /></Link>
+                <Link id='createCourseBut' to='/adminlanding/createuser'><img src={BigPlusIcon} alt='Create User' id='ccButton' /></Link>
 
                 {/* <input placeholder='Search User' className='searchInput' value={this.state.search} onChange={e => this.setState({ search: e.target.value })} /> */}
 
@@ -70,7 +70,7 @@ class UsersList extends Component {
                                     <div className='user' key={i + student}>
                                         <p className='username'>{student.user_name}</p>
                                         <div className='icons'>
-                                            <Link to={`/edituser/${student.user_name}/${student.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
+                                            <Link to={`/adminlanding/edituser/${student.user_name}/${student.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
                                             <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(student.user_id)} />
                                         </div>
                                     </div>

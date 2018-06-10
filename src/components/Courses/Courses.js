@@ -37,17 +37,17 @@ class Courses extends Component {
         return (
             <div id='Courses' className='TrackHours'>
                 <h1 className='thHeader'>Class List</h1>
-                <Link id='createCourseBut' to='/createcourse'><img src={BigPlusIcon} alt='addCourse' id='ccButton' /></Link>
+                <Link id='createCourseBut' to='/adminlanding/createcourse'><img src={BigPlusIcon} alt='addCourse' id='ccButton' /></Link>
                 {this.props.danceCourses.map((course, i) => {
                     return (
                         <div className='classTaughtDiv' id='coursesViewDiv' key={course + i}>
                             <div id='courseTitle' className='editClassDiv date'>
                                 <h3 className='classHeader'>{course.title}</h3>
                                 <div className='iconsDiv'>
-                                    <Link id='iconATag' to={`/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon' /></Link>
+                                    <Link id='iconATag' to={`/adminlanding/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon' /></Link>
                                     <img onClick={() => this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons' alt='delete Icon' />
-                                    <Link id='iconATag' to={`/update/courseroll/${course.title}/${course.class_id}`}><img alt='add roll' src={addIcon} className='deleteEditIcons' /></Link>
-                                    <Link id='iconATag' to={`/update/removeuser/courseroll/${course.title}/${course.class_id}`}><img alt='minus roll' src={minusIcon} className='deleteEditIcons' /></Link>
+                                    <Link id='iconATag' to={`/adminlanding/update/courseroll/${course.title}/${course.class_id}`}><img alt='add roll' src={addIcon} className='deleteEditIcons' /></Link>
+                                    <Link id='iconATag' to={`/adminlanding/update/removeuser/courseroll/${course.title}/${course.class_id}`}><img alt='minus roll' src={minusIcon} className='deleteEditIcons' /></Link>
                                 </div>
                             </div>
                             <div id='classInfo' className='classInfoDiv'>
