@@ -36,7 +36,7 @@
 
 .selectTeacherAndButtonDiv{
     width: 100%;
-    height: 275px;
+    height: 125px;
 }
 
 .selectTeacherLabel{
@@ -51,6 +51,10 @@
     justify-content: center;
     height: 100px;
     width: 100%;
+}
+
+.selectTeacher {
+    width: 80%;
 }
 
 .teacherDiv{

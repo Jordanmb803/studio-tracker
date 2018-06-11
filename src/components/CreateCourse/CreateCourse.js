@@ -39,7 +39,7 @@ class CreateCourse extends Component {
     render() {
 
         return (
-            <div id='EditCourse' className='TrackHours'>
+            <div className='TrackHours'>
                 <h1 className='thHeader'>Create A New Class</h1>
 
                 <div className='newInfo'>
@@ -87,16 +87,20 @@ class CreateCourse extends Component {
                     <div className='selectTeacherAndButtonDiv'>
                         <p className='selectTeacherLabel'>Select A Teacher</p>
                         <div className='teachersDiv'>
+                            <select className='selectTeacher' onClick={(e) => this.setState({ teacher_id: e.target.value })}>
+                                <option value=''>Teacher</option>
                             {this.state.users.filter(user => {
                                 return user.type === 'teacher'
                             }).map((teacher, i) => {
-                                return (<div className='teacherDiv' key={i + teacher} >
-                                    <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacher_id: teacher.user_id })} />
-                                    <p className='teacherName'>{teacher.user_name}</p>
-                                </div>
+                                return (
+                                    <div className='teacherDiv' key={i + teacher} >
+                                        {/* <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacher_id: teacher.user_id })} /> */}
+                                        <option  value={teacher.user_id}>{teacher.user_name}</option>
+                                    </div>
                                 )
                             })
                             }
+                            </select>
                         </div>
                     </div>
                     <button id='createCourseButton' className='updateButton' onClick={() => this.createCourse()}>Create New Class</button>
