@@ -4,6 +4,7 @@ import DatePicker from 'react-date-picker';
 import { connect } from 'react-redux';
 import { getUsers } from '../../ducks/user';
 import axios from 'axios';
+import moment from 'moment';
 
 class TrackHours extends Component {
     constructor() {
@@ -49,8 +50,10 @@ class TrackHours extends Component {
 
     }
 
-
+    
+    
     render() {
+        
         return (
             <div className='TrackHours'>
                 <h1 className='thHeader'>Employee Hours</h1>
@@ -82,7 +85,7 @@ class TrackHours extends Component {
                         return (
                             <div className='classTaughtDiv' key={teacher + i}>
 
-                                <p className='date'>{teacher.date}</p>
+                                <p className='date'>{moment(teacher.date).format('MMM Do YYYY')}</p>
                                 <div className='classInfoDiv'>
                                     <div className='info'>
                                         <p id='label'>ID: </p>

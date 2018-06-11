@@ -41,6 +41,8 @@ class EditCourse extends Component {
             return user.user_id === teacher_id
         })
 
+        console.log(teacher)
+
         
         let email = teacher.email
         console.log(email)
@@ -143,17 +145,14 @@ class EditCourse extends Component {
 
                     <p className='selectTeacherLabel'>Select A Teacher</p>
                     <div className='teachersDiv'>
-                       <select className='selectTeacher' onClick={(e) => this.setState({ teacherName: e.target.value })}>
+                       <select className='selectTeacher' onChange={(e) => this.setState({ teacherName: e.target.value })}>
                        <option value=''>Teacher</option>
                        
                         {this.state.users.filter(user => {
                             return user.type === 'teacher'
                         }).map((teacher, i) => {
                             return (
-                                <div className='teacherPicNameDiv' key={i + teacher} >
-                                    {/* <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} /> */}
-                                    <option value={teacher.user_name}>{teacher.user_name}</option>
-                                </div>
+                                    <option key={i + teacher} value={teacher.user_name}>{teacher.user_name}</option>
                             )
                         })
                         }

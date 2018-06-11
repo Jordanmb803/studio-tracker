@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getUsers } from '../../ducks/user';
 import DatePicker from 'react-date-picker';
 import '../TrackHours/TrackHours.css';
+import moment from 'moment';
 
 
 class TrackAttendance extends Component {
@@ -71,7 +72,7 @@ class TrackAttendance extends Component {
                     this.state.hours.map(attendance => {
                         return (
                             <div className='classTaughtDiv' key={attendance}>
-                                <p className='date'>{attendance.date}</p>
+                                <p className='date'>{moment(attendance.date).format('MMM Do YYYY')}</p>
                                 <div className='classInfoDiv'>
                                     <div id='info'>
                                         <p>ID </p>

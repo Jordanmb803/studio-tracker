@@ -112,9 +112,9 @@ class CreateUser extends Component {
 
                         <input id='userName' placeholder='User Name' className='studentInfoInput' onChange={e => this.setState({ userName: e.target.value })} />
                     </div>
-                    <div className='row'>
+                    {/* <div className='row'>
                         <input id='singleRowItem' placeholder='Profile Picture Url' className='studentInfoInput' onChange={e => this.setState({ profilePicture: e.target.value })} />
-                    </div>
+                    </div> */}
                     <button id='editUserButton' className='updateButton' onClick={() => this.createUser()}>Create User</button>
                 </div>
             </div>

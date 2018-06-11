@@ -33,6 +33,7 @@ class CreateCourse extends Component {
         const { classTitle, dayOfWeek, time, teacher_id } = this.state
         axios.post('/createcourse', { classNumber, classTitle, length, dayOfWeek, time, teacher_id }).then(() => {
             console.log('we made it')
+            this.props.history.push('/nav/adminlanding/courses')
         })
     }
 
@@ -87,16 +88,13 @@ class CreateCourse extends Component {
                     <div className='selectTeacherAndButtonDiv'>
                         <p className='selectTeacherLabel'>Select A Teacher</p>
                         <div className='teachersDiv'>
-                            <select className='selectTeacher' onClick={(e) => this.setState({ teacher_id: e.target.value })}>
+                            <select className='selectTeacher' onChange={(e) => this.setState({ teacher_id: e.target.value })}>
                                 <option value=''>Teacher</option>
                             {this.state.users.filter(user => {
                                 return user.type === 'teacher'
                             }).map((teacher, i) => {
                                 return (
-                                    <div className='teacherDiv' key={i + teacher} >
-                                        {/* <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacher_id: teacher.user_id })} /> */}
-                                        <option  value={teacher.user_id}>{teacher.user_name}</option>
-                                    </div>
+                                        <option key={i + teacher} value={teacher.user_id}>{teacher.user_name}</option>
                                 )
                             })
                             }
