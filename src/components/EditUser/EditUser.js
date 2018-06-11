@@ -17,6 +17,7 @@ class EditUser extends Component {
             zipcode: '',
             type: '',
             userName: '',
+            parent_id: 0,
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.editUser = this.editUser.bind(this)
@@ -41,15 +42,16 @@ class EditUser extends Component {
             state: userBeingEdited.state,
             zipcode: userBeingEdited.zipcode,
             type: userBeingEdited.type,
-            userName: userBeingEdited.user_name
+            userName: userBeingEdited.user_name,
+            parent_id: userBeingEdited.parent_id
         })
     }
 
 
     editUser() {
-        const { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture } = this.state
+        const { firstName, lastName, email, address, city, state, zipcode, type, userName, parent_id } = this.state
         const { user_id } = this.props.match.params
-        axios.put('/user/edituser', { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id }).then(res => {
+        axios.put('/user/edituser', { firstName, lastName, email, address, city, state, zipcode, type, userName, parent_id, user_id }).then(res => {
             if (this.props.user.type === 'admin') {
 
                 this.props.history.push('/nav/adminlanding/userslist')
@@ -60,9 +62,17 @@ class EditUser extends Component {
     }
 
     render() {
-       
+
+        let student = this.props.users.find(user => {
+            return user.user_id === Number(this.props.match.params.user_id)
+        })
+
+        let parent = this.props.users.find(parent => {
+            return student.parent_id === parent.user_id
+        })
+
         return (
-            <div className={this.props.user.type ==='admin' ? 'TrackHours' : 'dailyView'}>
+            <div className={this.props.user.type === 'admin' ? 'TrackHours' : 'dailyView'}>
                 <div className='nameAndStudentInfo'>
                     <h3 className='student'>{this.props.match.params.user_name}</h3>
                     {
@@ -107,6 +117,10 @@ class EditUser extends Component {
                                         <div id='infos'>
                                             <p id='label'>User Name: </p>
                                             <p className='result'>{user.user_name}</p>
+                                        </div>
+                                        <div id='infos'>
+                                            <p id='label'>Parent Name: </p>
+                                            <p className='result'>{parent.user_name}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -191,8 +205,21 @@ class EditUser extends Component {
                         </select>
 
                         <input value={this.state.userName} placeholder='User Name' className='studentInfoInput' onChange={e => this.setState({ userName: e.target.value })} />
+                        <select className='studentInfoInput' value={this.state.parent_id} onChange={e => this.setState({ parent_id: e.target.value })}>
+                            <option value=''>Parent</option>
+                            <option value='N/A'>N/A</option>
+                            {
+                                this.props.users.filter(user => {
+                                    return user.type === 'parent'
+                                }).map(parent => {
+                                    return (
+                                        <option value={parent.user_id} key={parent.user_id}>{parent.user_name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-        
+
                     <button id='editUserButton' className='updateButton' onClick={() => this.editUser()}>Edit User</button>
                 </div>
             </div>

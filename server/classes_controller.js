@@ -56,8 +56,8 @@ module.exports = {
             })
     },
     editUser: (req, res) => {
-        const { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id } = req.body
-        req.app.get('db').edit_user([firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id])
+        const { firstName, lastName, email, address, city, state, zipcode, type, userName, parent_id, user_id } = req.body
+        req.app.get('db').edit_user([firstName, lastName, email, address, city, state, zipcode, type, userName, parent_id, user_id])
             .then(ok => {
                 res.sendStatus(200)
             })

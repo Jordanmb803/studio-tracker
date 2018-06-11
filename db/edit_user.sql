@@ -10,6 +10,6 @@ SET
     , zipcode = $7
     , type = $8
     , user_name = $9
-    , profile_picture = $10
+    , parent_id = $10
 WHERE
     user_id = $11;
