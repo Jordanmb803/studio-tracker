@@ -79,6 +79,7 @@
     border-radius: 12px;
 }
 .courseBox {
+    box-shadow: 2px 3px 10px black;
     width: 100%;
     height: 100%;
     margin-left: 0px;
@@ -87,6 +88,7 @@
     justify-content: space-between;
     align-items: center;
     padding-right: 7px;
+    border-radius: 12px;
 }
 
 .course {
@@ -113,7 +115,7 @@
 
 @media(min-width: 1000px) {
     .dailyView {
-        width: 70%;
+        width: 68%;
         margin-top: 125px;
         margin-left: auto;
         margin-right: auto;

@@ -84,16 +84,16 @@ class EditUser extends Component {
                                         </div>
                                         <div id='infos'>
                                             <p id='label'>User Type: </p>
-                                            <p className='result'>{user.type}</p>
+                                            <p className={this.props.user.type === 'admin' ? 'result' : 'invisable'}>{user.type}</p>
                                         </div>
                                         <div id='infos'>
                                             <p id='label'>User Name: </p>
                                             <p className='result'>{user.user_name}</p>
                                         </div>
-                                        <div id='infos'>
+                                        {/* <div id='infos'>
                                             <p id='label'>Profile Picture: </p>
                                             <img id='profilePic' alt='profile' className='result' src={user.profile_picture} />
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             )
@@ -168,7 +168,7 @@ class EditUser extends Component {
                         <input placeholder='Zipcode' id='zipcode' className='studentInfoInput' onChange={e => this.setState({ zipcode: e.target.value })} />
                     </div>
                     <div className='row'>
-                        <select id='userType' className='studentInfoInput' onChange={e => this.setState({ type: e.target.value })} >
+                        <select id='userType' className={this.props.user.type === 'admin' ? 'studentInfoInput' : 'invisable'} onChange={e => this.setState({ type: e.target.value })} >
                             <option value=''>User Type</option>
                             <option value='student'>Student</option>
                             <option value='teacher'>Teacher</option>
@@ -178,9 +178,9 @@ class EditUser extends Component {
 
                         <input placeholder='User Name' className='studentInfoInput' onChange={e => this.setState({ userName: e.target.value })} />
                     </div>
-                    <div className='row'>
+                    {/* <div className='row'>
                         <input id='singleRowItem' placeholder='Profile Picture Url' className='studentInfoInput' onChange={e => this.setState({ profilePicture: e.target.value })} />
-                    </div>
+                    </div> */}
                     <button id='editUserButton' className='updateButton' onClick={() => this.editUser()}>Edit User</button>
                 </div>
             </div>
