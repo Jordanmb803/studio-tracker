@@ -42,7 +42,6 @@ class AdminLanding extends Component {
                 </div>
                 <div className='routes'>
                     {/* <Switch> */}
-                    <div>
                         <Route path='/nav/adminlanding/trackhours' component={TrackHours} />
                         <Route path='/nav/adminlanding/trackattendance' component={TrackAttendance} />
                         <Route path='/nav/adminlanding/courses' component={Courses} />
@@ -54,7 +53,6 @@ class AdminLanding extends Component {
                         <Route path='/nav/adminlanding/update/courseroll/:course/:class_id' component={UpdateCourseRoll} />
                         <Route path='/nav/adminlanding/update/removeuser/courseroll/:course/:class_id' component={RemoveUserFromRoll} />
                     {/* </Switch> */}
-                    </div>
                 </div>
             </div>
         )

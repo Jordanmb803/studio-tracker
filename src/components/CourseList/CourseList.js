@@ -71,7 +71,7 @@ class CourseList extends Component {
             this.setState({
                 visable: false,
             })
-            this.props.history.push('/dailyview')
+            this.props.history.push('/nav/dailyview')
         })
 
     }

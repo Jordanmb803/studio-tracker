@@ -48,7 +48,7 @@ class EditCourse extends Component {
         const { classid } = this.props.match.params
         const { classNumber, classTitle, length, dayOfWeek, time, teacherName } = this.state
         axios.put('/editcourse', { classid, classNumber, classTitle, length, dayOfWeek, time, teacherName, teacher_id }).then(res => {
-            this.props.history.push('/adminlanding/courses')
+            this.props.history.push('/nav/adminlanding/courses')
         })
         let message = `Changes were made to ${this.props.match.params.course}. The updated class information is: Title: ${classTitle}, Day: ${dayOfWeek}, Time: ${time}, Assigned Teacher: ${teacherName}.`
         let subject = `${this.props.match.params.course} class info updated`

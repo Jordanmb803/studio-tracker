@@ -17,7 +17,7 @@ class App extends Component {
         {/* <Nav /> */}
         <HashRouter>
           {/* <Switch> */}
-          <div>
+          <div className='rts'>
             <Route path='/' component={LandingPage} exact />
             <Route path='/nav' component={Nav} />
             <Route path='/nav/dailyview' component={DailyView} exact /> 

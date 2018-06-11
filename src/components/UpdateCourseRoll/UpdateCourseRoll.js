@@ -46,7 +46,7 @@ class UpdateCourseRoll extends Component {
             usersInCourse: []
         })
         this.props.changeActiveTab(2)
-        this.props.history.push('/adminlanding/courses')
+        this.props.history.push('/nav/adminlanding/courses')
     }
 
 
