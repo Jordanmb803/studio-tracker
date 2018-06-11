@@ -143,17 +143,21 @@ class EditCourse extends Component {
 
                     <p className='selectTeacherLabel'>Select A Teacher</p>
                     <div className='teachersDiv'>
+                       <select className='teacherName' onClick={() => this.setState({ teacherName: teacher.user_name })}>
+                       <option value=''>Teacher</option>
+                       
                         {this.state.users.filter(user => {
                             return user.type === 'teacher'
                         }).map((teacher, i) => {
                             return (
                                 <div className='teacherPicNameDiv' key={i + teacher} >
-                                    <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} />
-                                    <p className='teacherName'>{teacher.user_name}</p>
+                                    {/* <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} /> */}
+                                    <option value={teacher.user_id}>{teacher.user_name}</option>
                                 </div>
                             )
                         })
                         }
+                        </select>
                     </div>
                     <button className='updateButton' onClick={() => this.editCourse()}>Update Class</button>
                 </div>
