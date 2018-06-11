@@ -31,14 +31,24 @@ class CreateCourse extends Component {
         const classNumber = Number(this.state.classNumber)
         const length = Number(this.state.length)
         const { classTitle, dayOfWeek, time, teacher_id } = this.state
-        axios.post('/createcourse', { classNumber, classTitle, length, dayOfWeek, time, teacher_id }).then(() => {
+        console.log(teacher_id)
+
+        let teacherUser = this.state.users.find(user => {
+            return user.user_id === Number(teacher_id)
+        })
+
+        console.log(teacherUser)
+
+        let teacher = teacherUser.user_name
+
+        axios.post('/createcourse', { classNumber, classTitle, length, dayOfWeek, time, teacher, teacher_id }).then(res => {
             console.log('we made it')
             this.props.history.push('/nav/adminlanding/courses')
         })
     }
 
     render() {
-
+        console.log(this.state.teacher_id)
         return (
             <div className='TrackHours'>
                 <h1 className='thHeader'>Create A New Class</h1>

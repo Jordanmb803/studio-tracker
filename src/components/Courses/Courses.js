@@ -34,6 +34,7 @@ class Courses extends Component {
     }
 
     render() {
+        console.log(this.props.danceCourses)
         return (
             <div id='Courses' className='TrackHours'>
                 <h1 className='thHeader'>Class List</h1>

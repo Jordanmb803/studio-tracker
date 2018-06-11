@@ -35,8 +35,8 @@ module.exports = {
             })
     },
     createCourse: (req, res) => {
-        const { classNumber, classTitle, length, dayOfWeek, time, teacher_id } = req.body
-        req.app.get('db').create_course([classNumber, classTitle, length, dayOfWeek, time, teacher_id])
+        const { classNumber, classTitle, length, dayOfWeek, time, teacher, teacher_id } = req.body
+        req.app.get('db').create_course([classNumber, classTitle, length, dayOfWeek, time, teacher, teacher_id])
             .then(ok => {
                 res.sendStatus(200)
             })
