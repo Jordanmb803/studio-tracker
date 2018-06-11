@@ -44,10 +44,10 @@ class Courses extends Component {
                             <div id='courseTitle' className='editClassDiv date'>
                                 <h3 className='classHeader'>{course.title}</h3>
                                 <div className='iconsDiv'>
-                                    <Link id='iconATag' to={`/adminlanding/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon' /></Link>
+                                    <Link id='iconATag' to={`/nav/adminlanding/editcourse/${course.title}/${course.class_id}`}><img src={editIcon} className='deleteEditIcons' alt='edit icon' /></Link>
                                     <img onClick={() => this.deleteCourse(course.class_id)} src={deleteIcon} className='deleteEditIcons' alt='delete Icon' />
-                                    <Link id='iconATag' to={`/adminlanding/update/courseroll/${course.title}/${course.class_id}`}><img alt='add roll' src={addIcon} className='deleteEditIcons' /></Link>
-                                    <Link id='iconATag' to={`/adminlanding/update/removeuser/courseroll/${course.title}/${course.class_id}`}><img alt='minus roll' src={minusIcon} className='deleteEditIcons' /></Link>
+                                    <Link id='iconATag' to={`/nav/adminlanding/update/courseroll/${course.title}/${course.class_id}`}><img alt='add roll' src={addIcon} className='deleteEditIcons' /></Link>
+                                    <Link id='iconATag' to={`/nav/adminlanding/update/removeuser/courseroll/${course.title}/${course.class_id}`}><img alt='minus roll' src={minusIcon} className='deleteEditIcons' /></Link>
                                 </div>
                             </div>
                             <div id='classInfo' className='classInfoDiv'>

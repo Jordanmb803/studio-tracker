@@ -14,16 +14,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
         <HashRouter>
-          <Switch>
+          {/* <Switch> */}
+          <div>
             <Route path='/' component={LandingPage} exact />
-            <Route path='/dailyview' component={DailyView} exact />
-            <Route path='/dailyview/:course/:classid/:userid' component={CourseList} />
-            <Route path='/adminlanding' component={AdminLanding} />
-            <Route path='/create/privatescourse/:teacher_id' component={CreatePrivateCourse} />
-            <Route path='/edituser/:user_name/:user_id' component={EditUser} />
-          </Switch>
+            <Route path='/nav' component={Nav} />
+            <Route path='/nav/dailyview' component={DailyView} exact /> 
+            <Route path='/nav/dailyview/:course/:classid/:userid' component={CourseList} />
+            <Route path='/nav/adminlanding' component={AdminLanding} />
+            <Route path='/nav/create/privatescourse/:teacher_id' component={CreatePrivateCourse} />
+            <Route path='/nav/edituser/:user_name/:user_id' component={EditUser} />
+          {/* </Switch> */}
+          </div>
         </HashRouter>
       </div>
     );

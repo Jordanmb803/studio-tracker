@@ -5,7 +5,7 @@ const initialState = {
     danceCourses: [],
     users: [],
     today: new Date(),
-    activeTab: 0
+    activeTab: 0,
 }
 
 
@@ -15,6 +15,7 @@ const GET_COURSES = 'GET_COURSES'
 const CHANGE_DATE = 'CHANGE_DATE'
 const GET_USERS = 'GET_USERS'
 const CHANGE_ACTIVE_TAB = 'CHANGE_ACTIVE_TAB'
+const CHANGE_LANDING_PAGE_STATUS = 'CHANGE_LANDING_PAGE_STATUS'
 
 //MiddleWare
 const _FULFILLED = '_FULFILLED'
@@ -63,6 +64,13 @@ export function changeActiveTab(tabNum){
     }
 }
 
+export function changeLandingPageStatus(status){
+    return {
+        type: CHANGE_LANDING_PAGE_STATUS,
+        payload: status
+    }
+}
+
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER + _FULFILLED:
@@ -75,6 +83,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { users: action.payload })
         case CHANGE_ACTIVE_TAB:
             return Object.assign({}, state, {activeTab: action.payload})
+        case CHANGE_LANDING_PAGE_STATUS:
+            return Object.assign({}, state, {landingPage: action.payload})
         default:
             return state
     }

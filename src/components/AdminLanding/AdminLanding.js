@@ -27,32 +27,34 @@ class AdminLanding extends Component {
         return (
             <div className='adminLandingRoutes' >
                 <div className='adminLanding'>
-                    <Link className='adminLinks' id={activeTab === 0 ? 'active' : null} to='/adminlanding/trackhours'
+                    <Link className='adminLinks' id={activeTab === 0 ? 'active' : null} to='/nav/adminlanding/trackhours'
                         onClick={() => changeActiveTab(0)}
                     ><h3 className='adminOption'>Hours</h3></Link>
-                    <Link className='adminLinks' id={(activeTab === 1) ? 'active' : null} to='/adminlanding/trackattendance'
+                    <Link className='adminLinks' id={(activeTab === 1) ? 'active' : null} to='/nav/adminlanding/trackattendance'
                         onClick={() => changeActiveTab(1)}
                     ><h3 className='adminOption'>Attendance</h3></Link>
-                    <Link className='adminLinks' id={(activeTab === 2) ? 'active' : null} to='/adminlanding/courses'
+                    <Link className='adminLinks' id={(activeTab === 2) ? 'active' : null} to='/nav/adminlanding/courses'
                         onClick={() => changeActiveTab(2)}
                     ><h3 className='adminOption'>Classes</h3></Link>
-                    <Link className='adminLinks' id={(activeTab === 3) ? 'active' : null} to='/adminlanding/userslist'
+                    <Link className='adminLinks' id={(activeTab === 3) ? 'active' : null} to='/nav/adminlanding/userslist'
                         onClick={() => changeActiveTab(3)}
                     ><h3 className='adminOption'>Users</h3></Link>
                 </div>
                 <div className='routes'>
-                    <Switch>
-                        <Route path='/adminlanding/trackhours' component={TrackHours} />
-                        <Route path='/adminlanding/trackattendance' component={TrackAttendance} />
-                        <Route path='/adminlanding/courses' component={Courses} />
-                        <Route path='/adminlanding/createcourse' component={CreateCourse} />
-                        <Route path='/adminlanding/editcourse/:course/:classid' component={EditCourse} />
-                        <Route path='/adminlanding/userslist' component={UsersList} />
-                        <Route path='/adminlanding/edituser/:user_name/:user_id' component={EditUser} />
-                        <Route path='/adminlanding/createuser' component={CreateUser} />
-                        <Route path='/adminlanding/update/courseroll/:course/:class_id' component={UpdateCourseRoll} />
-                        <Route path='/adminlanding/update/removeuser/courseroll/:course/:class_id' component={RemoveUserFromRoll} />
-                    </Switch>
+                    {/* <Switch> */}
+                    <div>
+                        <Route path='/nav/adminlanding/trackhours' component={TrackHours} />
+                        <Route path='/nav/adminlanding/trackattendance' component={TrackAttendance} />
+                        <Route path='/nav/adminlanding/courses' component={Courses} />
+                        <Route path='/nav/adminlanding/createcourse' component={CreateCourse} />
+                        <Route path='/nav/adminlanding/editcourse/:course/:classid' component={EditCourse} />
+                        <Route path='/nav/adminlanding/userslist' component={UsersList} />
+                        <Route path='/nav/adminlanding/edituser/:user_name/:user_id' component={EditUser} />
+                        <Route path='/nav/adminlanding/createuser' component={CreateUser} />
+                        <Route path='/nav/adminlanding/update/courseroll/:course/:class_id' component={UpdateCourseRoll} />
+                        <Route path='/nav/adminlanding/update/removeuser/courseroll/:course/:class_id' component={RemoveUserFromRoll} />
+                    {/* </Switch> */}
+                    </div>
                 </div>
             </div>
         )
