@@ -90,10 +90,6 @@ class EditUser extends Component {
                                             <p id='label'>User Name: </p>
                                             <p className='result'>{user.user_name}</p>
                                         </div>
-                                        {/* <div id='infos'>
-                                            <p id='label'>Profile Picture: </p>
-                                            <img id='profilePic' alt='profile' className='result' src={user.profile_picture} />
-                                        </div> */}
                                     </div>
                                 </div>
                             )
