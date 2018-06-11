@@ -7,8 +7,9 @@ function LandingPage(props) {
     console.log(props.changeLandingPageStatus)
     return (
         <div className='landingPage'>
-            <h1>Studio Tracker</h1>
-            <a onClick={() => props.changeLandingPageStatus(false)} href={process.env.REACT_APP_LOGIN}><button>Login</button></a>
+            <h1 className='landingPageHeader'>CENTER STAGE</h1>
+            <h3 className='landingPageSubHeader'>PERFORMING STUDIO ARTS</h3>
+            <a onClick={() => props.changeLandingPageStatus(false)} href={process.env.REACT_APP_LOGIN}><p className='logonButton'>LOGIN</p></a>
         </div>
     )
 }
