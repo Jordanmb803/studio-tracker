@@ -24,7 +24,7 @@ class App extends Component {
             <Route path='/nav/dailyview/:course/:classid/:userid' component={CourseList} />
             <Route path='/nav/adminlanding' component={AdminLanding} />
             <Route path='/nav/create/privatescourse/:teacher_id' component={CreatePrivateCourse} />
-            <Route path='/nav/edituser/:user_name/:user_id' component={EditUser} />
+            <Route path='/nav/dv/edituser/:user_name/:user_id' component={EditUser} />
           {/* </Switch> */}
           </div>
         </HashRouter>

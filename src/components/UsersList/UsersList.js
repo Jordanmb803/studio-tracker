@@ -90,7 +90,7 @@ class UsersList extends Component {
                                         <div className='user' key={i + teacher}>
                                             <p className='username'>{teacher.user_name}</p>
                                             <div className='icons'>
-                                                <Link to={`/nav/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
+                                                <Link to={`/nav/adminlanding/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
                                                 <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(teacher.user_id)} />
                                             </div>
                                         </div>
@@ -109,7 +109,7 @@ class UsersList extends Component {
                                         <div className='user' key={i + teacher}>
                                             <p className='username'>{teacher.user_name}</p>
                                             <div className='icons'>
-                                                <Link to={`/nav/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
+                                                <Link to={`/nav/adminlanding/edituser/${teacher.user_name}/${teacher.user_id}`}><img className='icon' src={EditIcon} alt='edit' /></Link>
                                                 <img className='icon' src={DeleteIcon} alt='delete' onClick={() => this.deleteUser(teacher.user_id)} />
                                             </div>
                                         </div>

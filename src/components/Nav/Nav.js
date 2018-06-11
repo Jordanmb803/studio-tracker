@@ -50,7 +50,7 @@ class Nav extends Component {
 
 
                     <div className='navOptionsDiv'>
-                        <a id='profileATag' href={this.props.user.type === 'admin' ? `/#/nav/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}` : `/#/nav/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='navOption'
+                        <a id='profileATag' href={this.props.user.type === 'admin' ? `/#/nav/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}` : `/#/nav/dv/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='navOption'
                         onClick={()=> this.props.changeActiveTab(5)}
                         >PROFILE</p></a>
                         <a id='profileATag' href={'/#/nav/dailyview'}><p className='navOption'>SCHEDULE</p></a>
@@ -61,7 +61,7 @@ class Nav extends Component {
                 </div>
 
                 <div className={(this.state.menuVis === true) ? 'menuVis' : ' menuInvis'}>
-                    <a id='profileATag' className='menuOption' href={this.props.user.type === 'admin' ? `/#/nav/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}` : `/#/nav/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='menuOption'
+                    <a id='profileATag' className='menuOption' href={this.props.user.type === 'admin' ? `/#/nav/adminlanding/edituser/${this.props.user.user_name}/${this.props.user.user_id}` : `/#/nav/dv/edituser/${this.props.user.user_name}/${this.props.user.user_id}`}><p className='menuOption'
                     onClick={()=> this.props.changeActiveTab(5)}
                     >PROFILE</p></a>
                     <a id='profileATag' className='menuOption' href={'/#/nav/dailyview'}><p className='menuOption'>SCHEDULE</p></a>
