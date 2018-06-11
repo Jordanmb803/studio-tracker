@@ -143,7 +143,7 @@ class EditCourse extends Component {
 
                     <p className='selectTeacherLabel'>Select A Teacher</p>
                     <div className='teachersDiv'>
-                       <select className='teacherName' onClick={() => this.setState({ teacherName: e.target.value })}>
+                       <select className='teacherName' onClick={(e) => this.setState({ teacherName: e.target.value })}>
                        <option value=''>Teacher</option>
                        
                         {this.state.users.filter(user => {
