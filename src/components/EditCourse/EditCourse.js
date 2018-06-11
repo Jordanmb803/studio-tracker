@@ -143,7 +143,7 @@ class EditCourse extends Component {
 
                     <p className='selectTeacherLabel'>Select A Teacher</p>
                     <div className='teachersDiv'>
-                       <select className='teacherName' onClick={() => this.setState({ teacherName: teacher.user_name })}>
+                       <select className='teacherName' onClick={() => this.setState({ teacherName: e.target.value })}>
                        <option value=''>Teacher</option>
                        
                         {this.state.users.filter(user => {
@@ -152,7 +152,7 @@ class EditCourse extends Component {
                             return (
                                 <div className='teacherPicNameDiv' key={i + teacher} >
                                     {/* <img src={teacher.profile_picture} alt={teacher} className='teacherPics' onClick={() => this.setState({ teacherName: teacher.user_name })} /> */}
-                                    <option value={teacher.user_id}>{teacher.user_name}</option>
+                                    <option value={teacher.user_name}>{teacher.user_name}</option>
                                 </div>
                             )
                         })
