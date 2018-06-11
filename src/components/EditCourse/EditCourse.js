@@ -24,8 +24,15 @@ class EditCourse extends Component {
 
     componentDidMount() {
        this.props.getUsers()
-       
-       let courseBeingEdited = this.props.danceCourses.find(course => {
+
+       axios.get('/getallusers').then(res => {
+        
+        this.setState({
+            users: res.data
+        })
+           
+    })
+           let courseBeingEdited = this.props.danceCourses.find(course => {
            return course.class_id === Number(this.props.match.params.classid)
        })
 
@@ -74,6 +81,7 @@ class EditCourse extends Component {
     }
 
     render() {
+        console.log(this.props.users)
         return (
             <div className='TrackHours'>
                 <div className='classTaughtDiv' id='previosInfo'>
@@ -160,8 +168,7 @@ class EditCourse extends Component {
                     <div className='teachersDiv'>
                         <select value={this.state.teacherName} className='selectTeacher' onChange={(e) => this.setState({ teacherName: e.target.value })}>
                             <option value=''>Teacher</option>
-
-                            {this.state.users.filter(user => {
+                            {this.props.users.filter(user => {
                                 return user.type === 'teacher'
                             }).map((teacher, i) => {
                                 return (
