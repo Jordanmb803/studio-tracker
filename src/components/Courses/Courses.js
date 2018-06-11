@@ -37,7 +37,7 @@ class Courses extends Component {
         return (
             <div id='Courses' className='TrackHours'>
                 <h1 className='thHeader'>Class List</h1>
-                <Link id='createCourseBut' to='/adminlanding/createcourse'><img src={BigPlusIcon} alt='addCourse' id='ccButton' /></Link>
+                <Link id='createCourseBut' to='/nav/adminlanding/createcourse'><img src={BigPlusIcon} alt='addCourse' id='ccButton' /></Link>
                 {this.props.danceCourses.map((course, i) => {
                     return (
                         <div className='classTaughtDiv' id='coursesViewDiv' key={course + i}>
