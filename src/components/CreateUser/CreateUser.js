@@ -25,7 +25,9 @@ class CreateUser extends Component {
         axios.post('/user/admincreateuser', { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture })
             .then(res => {
                 console.log('user created')
+                this.props.history.push('/nav/adminlanding/userslist')
             })
+        
     }
 
 

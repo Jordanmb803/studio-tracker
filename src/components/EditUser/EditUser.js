@@ -32,7 +32,12 @@ class EditUser extends Component {
         const { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture } = this.state
         const { user_id } = this.props.match.params
         axios.put('/user/edituser', { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture, user_id }).then(res => {
-            this.props.history.push('/nav/adminlanding/userslist')
+            if (this.props.user.type === 'admin') {
+
+                this.props.history.push('/nav/adminlanding/userslist')
+            } else {
+                this.props.history.push('/nav/dailyview')
+            }
         })
     }
 

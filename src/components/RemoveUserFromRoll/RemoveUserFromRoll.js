@@ -66,7 +66,7 @@ class RemoveUserFromRoll extends Component {
                     })
                 }
 
-                <Link to='/adminlanding/courses'><button className='updateButton' id='enrollStudentsButton' onClick={() => this.resetUsersInCourse()}>Update Roll</button></Link>
+                <Link to='/nav/adminlanding/courses'><button className='updateButton' id='enrollStudentsButton' onClick={() => this.resetUsersInCourse()}>Update Roll</button></Link>
             </div>
         )
     }
