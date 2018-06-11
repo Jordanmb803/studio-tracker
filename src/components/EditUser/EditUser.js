@@ -17,7 +17,6 @@ class EditUser extends Component {
             zipcode: '',
             type: '',
             userName: '',
-            profilePicture: ''
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.editUser = this.editUser.bind(this)
@@ -26,7 +25,26 @@ class EditUser extends Component {
     componentDidMount() {
         this.props.getUsers()
         this.props.getUser()
+        let userBeingEdited = this.props.users.find(user => {
+            console.log(user.user_id, this.props.match.params.user_id)
+            return user.user_id === Number(this.props.match.params.user_id)
+        })
+
+        console.log(userBeingEdited)
+
+        this.setState({
+            firstName: userBeingEdited.first_name,
+            lastName: userBeingEdited.last_name,
+            email: userBeingEdited.email,
+            address: userBeingEdited.address,
+            city: userBeingEdited.city,
+            state: userBeingEdited.state,
+            zipcode: userBeingEdited.zipcode,
+            type: userBeingEdited.type,
+            userName: userBeingEdited.user_name
+        })
     }
+
 
     editUser() {
         const { firstName, lastName, email, address, city, state, zipcode, type, userName, profilePicture } = this.state
@@ -98,18 +116,18 @@ class EditUser extends Component {
                 </div>
                 <div className='newStudentInfoDiv'>
                     <div className='row'>
-                        <input placeholder='First Name' id='firstName' className='studentInfoInput' onChange={e => this.setState({ firstName: e.target.value })} />
-                        <input placeholder='Last Name' id='lastName' className='studentInfoInput' onChange={e => this.setState({ lastName: e.target.value })} />
+                        <input value={this.state.firstName} placeholder='First Name' id='firstName' className='studentInfoInput' onChange={e => this.setState({ firstName: e.target.value })} />
+                        <input value={this.state.lastName} placeholder='Last Name' id='lastName' className='studentInfoInput' onChange={e => this.setState({ lastName: e.target.value })} />
                     </div>
                     <div className='row'>
-                        <input id='singleRowItem' placeholder='Email' className='studentInfoInput' onChange={e => this.setState({ email: e.target.value })} />
+                        <input value={this.state.email} id='singleRowItem' placeholder='Email' className='studentInfoInput' onChange={e => this.setState({ email: e.target.value })} />
                     </div>
                     <div className='row'>
-                        <input id='singleRowItem' placeholder='Address' className='studentInfoInput' onChange={e => this.setState({ address: e.target.value })} />
+                        <input value={this.state.address} id='singleRowItem' placeholder='Address' className='studentInfoInput' onChange={e => this.setState({ address: e.target.value })} />
                     </div>
                     <div className='row'>
-                        <input placeholder='City' id='city' className='studentInfoInput' onChange={e => this.setState({ city: e.target.value })} />
-                        <select id='state' className='studentInfoInput' onChange={e => this.setState({ state: e.target.value })} >
+                        <input value={this.state.city} placeholder='City' id='city' className='studentInfoInput' onChange={e => this.setState({ city: e.target.value })} />
+                        <select value={this.state.state} id='state' className='studentInfoInput' onChange={e => this.setState({ state: e.target.value })} >
                             <option value='AL'>AL</option>
                             <option value='AK'>AK</option>
                             <option value='AZ'>AZ</option>
@@ -161,10 +179,10 @@ class EditUser extends Component {
                             <option value='WI'>WI</option>
                             <option value='WY'>WY</option>
                         </select>
-                        <input placeholder='Zipcode' id='zipcode' className='studentInfoInput' onChange={e => this.setState({ zipcode: e.target.value })} />
+                        <input value={this.state.zipcode} placeholder='Zipcode' id='zipcode' className='studentInfoInput' onChange={e => this.setState({ zipcode: e.target.value })} />
                     </div>
                     <div className='row'>
-                        <select id='userType' className={this.props.user.type === 'admin' ? 'studentInfoInput' : 'invisable'} onChange={e => this.setState({ type: e.target.value })} >
+                        <select value={this.state.type} id='userType' className={this.props.user.type === 'admin' ? 'studentInfoInput' : 'invisable'} onChange={e => this.setState({ type: e.target.value })} >
                             <option value=''>User Type</option>
                             <option value='student'>Student</option>
                             <option value='teacher'>Teacher</option>
@@ -172,11 +190,9 @@ class EditUser extends Component {
                             <option value='admin'>Administrator</option>
                         </select>
 
-                        <input placeholder='User Name' className='studentInfoInput' onChange={e => this.setState({ userName: e.target.value })} />
+                        <input value={this.state.userName} placeholder='User Name' className='studentInfoInput' onChange={e => this.setState({ userName: e.target.value })} />
                     </div>
-                    {/* <div className='row'>
-                        <input id='singleRowItem' placeholder='Profile Picture Url' className='studentInfoInput' onChange={e => this.setState({ profilePicture: e.target.value })} />
-                    </div> */}
+        
                     <button id='editUserButton' className='updateButton' onClick={() => this.editUser()}>Edit User</button>
                 </div>
             </div>
