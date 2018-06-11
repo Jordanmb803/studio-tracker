@@ -83,11 +83,11 @@
 }
 
 .date {
-    background: black;
+    background: lightgray;
     border-radius: 0 8px 0 0;
     font-weight: bold;
     font-size: 14px;
-    color: white;
+    color: black;
 }
 
 .classInfoDiv {
