@@ -19,6 +19,7 @@ class DailyView extends Component {
         super()
         this.state = {
             days: ['S', 'M', 'T', 'W', 'TH', 'F', 'SAT'],
+            times: ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm'],
             privates: []
         }
         this.componentDidMount = this.componentDidMount.bind(this)
@@ -48,17 +49,17 @@ class DailyView extends Component {
 
     tomorrow() {
 
-            let momentToday = moment(this.props.today)
-            let tomorrow = momentToday.clone().add(1, 'day')//.format('MM DD, YYYY')
-            
-            let tomorrowsDate = new Date(tomorrow)
-            this.props.changeDate(tomorrowsDate)
-            
-            // axios.post('/api/console', {momentToday, tomorrow, tomorrowsDate, ...this.props})
+        let momentToday = moment(this.props.today)
+        let tomorrow = momentToday.clone().add(1, 'day')//.format('MM DD, YYYY')
+
+        let tomorrowsDate = new Date(tomorrow)
+        this.props.changeDate(tomorrowsDate)
+
+        // axios.post('/api/console', {momentToday, tomorrow, tomorrowsDate, ...this.props})
 
     }
 
-    deletePrivate(private_id){
+    deletePrivate(private_id) {
         axios.delete(`/privates/deleteprivate/${private_id}`).then(res => {
             this.componentDidMount()
         })
@@ -66,7 +67,7 @@ class DailyView extends Component {
 
     render() {
         let { today } = this.props
-
+        console.log(this.props.danceCourses)
 
         return (
             <div className='dailyView'>
@@ -77,321 +78,41 @@ class DailyView extends Component {
                     <img className='dateToggle' alt='right arrow' src={rightArrow} onClick={() => this.tomorrow()} />
                 </div>
                 <div className='schedule'>
-                    <div className='classTime'> <p className='scheduleLab'>9am:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '9am'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '9am'
-                        }).map( (privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
+                    <div>
+                        {this.state.times.map((time, i) => (
+                            <div className='classTime' key={i}>
+                                <p className='scheduleLab'>{time}</p>
+                                {
+                                    this.props.danceCourses.filter(course => {
+                                        console.log(course.time, time)
+                                        return course.teacher_id === this.props.user.user_id
+                                            && course.day === this.state.days[today.getDay()]
+                                            && course.time === time
+                                    }).map((course, i) => {
+                                        return (
+                                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox'>
+                                                <p className='course'>{course.title}</p>
+                                            </div></Link>
+                                        )
+                                    })}
+                                {
+                                    this.state.privates.filter(privateC => {
+                                        return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === time
+                                    }).map((privateCourse, i) => {
+                                        return (
+                                            <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
+                                                <p className='course'>{privateCourse.student_name}</p>
+                                                <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={() => this.deletePrivate(privateCourse.private_id)} />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        ))}
                     </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>10am:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '10am'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '10am'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>11am:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '11am'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}> <div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '11am'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>12pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '12pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                    {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '12pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>1pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '1pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox' >
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '1pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>2pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '2pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox' >
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '2pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>3pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '3pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox' >
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '3pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>4pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '4pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                    
-                    {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '4pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>5pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '5pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '5pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-                    <div className='classTime'> <p className='scheduleLab'>6pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '6pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '6pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag'  className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>7pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '7pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}/${course.teacher_id}`}><div className='courseBox' >
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '7pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>8pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '8pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                    
-                    {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '8pm'
-                        }).map((privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }</div>
-
-
-                    <div className='classTime'> <p className='scheduleLab'>9pm:</p>{this.props.danceCourses.filter(course => {
-                        return course.teacher_id === this.props.user.user_id && course.day === this.state.days[today.getDay()] && course.time === '9pm'
-                    }).map((course, i) => {
-                        return (
-                            <Link id='atag' key={i} to={`/nav/dailyview/${course.title}/${course.class_id}`}><div className='courseBox'>
-                                <p className='course'>{course.title}</p>
-                            </div></Link>
-                        )
-                    })}
-                     {
-                        this.state.privates.filter(privateC => {
-                            return privateC.teacher_id === this.props.user.user_id && privateC.day === this.state.days[today.getDay()] && privateC.time === '9pm'
-                        }).map( (privateCourse, i) => {
-                            return (
-                               <div key={privateCourse.teacher_id + i} id='atag' className='courseBox' >
-                                    <p className='course'>{privateCourse.student_name}</p>
-                                    <img src={WhiteIcon} alt='delete' className='deleteEditIcons' onClick={()=> this.deletePrivate(privateCourse.private_id)} />
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-
                 </div>
-                <Link to={`/nav/create/privatescourse/${this.props.user.user_id}`} ><img src={BigPlusIcon}  alt='addCourse' id='ccButton'/></Link>
+
+                <Link to={`/nav/create/privatescourse/${this.props.user.user_id}`} ><img src={BigPlusIcon} alt='addCourse' id='ccButton' /></Link>
                 {/* <CreatePrivateCourse /> */}
             </div>
 
