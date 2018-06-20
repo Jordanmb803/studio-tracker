@@ -60,13 +60,14 @@ p {
     align-items: flex-start;
     justify-content: flex-start;
     box-sizing: border-box;
-    height: 62%;
     padding: 10px;
 }
 
 .studentInfoInput {
     border: black solid 1.5px;
-    background: white;
+    background: #ffffff;
+    width: 100%;
+    height: 35px;
 }
 
 .row {
@@ -74,16 +75,25 @@ p {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    height: 30px;
-    margin: 5px 5px 5px 0;
+    margin: 15px 0 25px 0;
+    box-sizing: border-box;
+    padding: 0 5px;
+}
+
+.row p {
+    font-size: 18px;
+}
+
+.labelAndInputDiv {
+    width: 30%;
 }
 
 #firstName {
-    width: 40%;
+    width: 38%;
 }
 
-#lasName {
-    width: 40%;
+#lastName {
+    width: 38%;
 }
 
 #city{
