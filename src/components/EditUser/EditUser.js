@@ -70,7 +70,7 @@ class EditUser extends Component {
 
         return (
             <div className={this.props.user.type === 'admin' ? 'TrackHours' : 'dailyView'}>
-                <h3>{this.props.match.params.user_name}</h3>
+                <h3 className='thHeader'>EDIT USER</h3>
                 
                 <div className='newStudentInfoDiv'>
                     <div className='row'>
